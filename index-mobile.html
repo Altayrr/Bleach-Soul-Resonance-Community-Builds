@@ -28,6 +28,7 @@
 <body>
 <div class="loading">Loading mobile archives...</div>
 <script>
+const desktopSource = 'https://raw.githubusercontent.com/Altayrr/Bsr-Community-Site/61ceb19bf287d1969d31350ef9b9e6bad365a666/index.html';
 const mobileCss = String.raw`
 
   /* ===== Phone-friendly copy overrides ===== */
@@ -353,9 +354,9 @@ const mobileScript = String.raw`
 <\/script>
 `;
 
-fetch('index.html', { cache: 'no-store' })
+fetch(desktopSource, { cache: 'no-store' })
   .then(function(response) {
-    if (!response.ok) throw new Error('Could not load index.html');
+    if (!response.ok) throw new Error('Could not load desktop archive source');
     return response.text();
   })
   .then(function(html) {
@@ -367,7 +368,7 @@ fetch('index.html', { cache: 'no-store' })
     document.close();
   })
   .catch(function(error) {
-    document.body.innerHTML = '<div class="loading">Could not load the mobile archive.<br><br><a href="index.html">Open the main site</a></div>';
+    document.body.innerHTML = '<div class="loading">Could not load the mobile archive.<br><br><a href="' + desktopSource + '">Open the main site source</a></div>';
     console.error(error);
   });
 </script>
