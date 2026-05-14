@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLEACH - Soul Resonance Archives Mobile</title>
+<style>
+  html, body {
+    min-height: 100%;
+    margin: 0;
+    background: #020305;
+    color: #e8eaf0;
+    font-family: Georgia, serif;
+  }
+  .loading {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    text-align: center;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #a0d8ef;
+  }
+  .loading a { color: #f0c060; }
+</style>
+</head>
+<body>
+<div class="loading">Loading mobile archives...</div>
+<script>
+const mobileCss = String.raw`
+
+  /* ===== Phone-friendly copy overrides ===== */
+  @media (max-width: 820px) {
+    html, body {
+      min-height: 100%;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      touch-action: manipulation;
+    }
+
+    body {
+      padding-bottom: env(safe-area-inset-bottom);
+      background: #020305;
+    }
+
+    #bg-canvas { opacity: 0.42; }
+    #bg-gate { height: 30%; opacity: 0.55; }
+    .bleach-moon {
+      width: 86px;
+      height: 86px;
+      top: 2.5%;
+      right: 5%;
+      opacity: 0.7;
+    }
+
+    header {
+      padding: calc(10px + env(safe-area-inset-top)) 12px 7px;
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      backdrop-filter: blur(14px);
+    }
+
+    .title-sub {
+      margin: 0;
+      font-size: 8px;
+      line-height: 1.35;
+      letter-spacing: 0.22em;
+    }
+
+    .division-bar {
+      position: sticky;
+      top: calc(25px + env(safe-area-inset-top));
+      z-index: 55;
+      display: flex;
+      justify-content: flex-start;
+      gap: 6px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding: 8px 10px;
+      scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch;
+      border-bottom: 1px solid rgba(200,151,42,0.2);
+    }
+
+    .division-bar::-webkit-scrollbar,
+    .filter-bars-container::-webkit-scrollbar,
+    .filter-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .div-tab,
+    .filter-type-btn,
+    .filter-role-btn {
+      min-height: 36px;
+      padding: 8px 12px;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      clip-path: none;
+      border-radius: 2px;
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+    }
+
+    #stage {
+      padding: 12px 10px 28px;
+      align-items: stretch;
+    }
+
+    .filter-bars-container {
+      position: sticky;
+      top: calc(78px + env(safe-area-inset-top));
+      z-index: 50;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      width: calc(100% + 20px);
+      margin: 0 -10px 14px;
+      padding: 8px 10px 10px;
+      background: rgba(2,3,6,0.92);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
+      overflow: visible;
+    }
+
+    .filter-bar {
+      display: flex;
+      gap: 6px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 1px;
+    }
+
+    #role-filter-bar { transform: none; }
+
+    .section-title {
+      order: -1;
+      font-size: 10px;
+      line-height: 1.35;
+      letter-spacing: 0.18em;
+      text-align: left;
+      padding: 0 2px;
+      white-space: normal;
+    }
+
+    #char-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      justify-items: stretch;
+      max-width: none;
+      width: 100%;
+    }
+
+    .char-card {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 188 / 205;
+      min-height: 154px;
+      border-color: rgba(255,255,255,0.55);
+    }
+
+    .char-card:hover { transform: none; }
+    .char-card.selected { box-shadow: 0 0 0 2px #fff, 0 0 16px rgba(255,255,255,0.55); }
+
+    #info-panel {
+      inset: 0;
+      width: 100%;
+      max-width: none;
+      border-left: 0;
+      transform: translateY(100%);
+      border-top: 1px solid var(--border-glow);
+      border-radius: 0;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #info-panel.open { transform: translateY(0); }
+
+    .panel-close {
+      position: fixed;
+      top: calc(10px + env(safe-area-inset-top));
+      left: auto;
+      right: 10px;
+      width: 44px;
+      height: 44px;
+      clip-path: none;
+      border-radius: 2px;
+      background: rgba(2,3,6,0.78);
+      color: #fff;
+      z-index: 150;
+    }
+
+    .panel-hero {
+      height: min(46vh, 330px);
+      min-height: 240px;
+    }
+
+    .panel-name-block {
+      left: 16px;
+      right: 64px;
+      bottom: 16px;
+    }
+
+    .panel-division-label {
+      font-size: 9px;
+      letter-spacing: 0.2em;
+    }
+
+    .panel-char-name {
+      font-size: clamp(22px, 8vw, 31px);
+      line-height: 1.05;
+      overflow-wrap: anywhere;
+    }
+
+    .panel-char-jp {
+      font-size: 13px;
+      letter-spacing: 0.16em;
+    }
+
+    .panel-body {
+      padding: 0 14px calc(36px + env(safe-area-inset-bottom));
+    }
+
+    .section-label {
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      margin-bottom: 10px;
+    }
+
+    .stats-section,
+    .zanpakuto-block,
+    .char-quote { margin-bottom: 18px; }
+
+    #panel-stats {
+      justify-content: center;
+      gap: 8px;
+      min-height: 70px;
+      transform: none;
+      margin-top: 12px;
+    }
+
+    #panel-stats .stat-img-wrapper { margin-right: 0 !important; }
+    #panel-stats img {
+      max-width: min(30vw, 112px);
+      max-height: 150px;
+      height: auto !important;
+    }
+
+    .zanpakuto-block { padding: 14px; }
+    .zanpaku-name { font-size: 16px; line-height: 1.25; }
+    .zanpaku-desc,
+    .char-quote,
+    .stamp-section-text {
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .stamp-block {
+      justify-content: center;
+      gap: 8px;
+      padding: 4px 0 12px;
+    }
+
+    .stamp-block img,
+    .stamp-block video,
+    .stamp-block canvas {
+      max-width: min(42vw, 164px);
+      max-height: 164px;
+    }
+
+    .stamp-info-icon,
+    .term-info-icon {
+      min-width: 24px;
+      min-height: 24px;
+      font-size: 13px;
+      line-height: 22px;
+    }
+
+    .stamp-info-popup.show,
+    .term-info-popup {
+      position: fixed !important;
+      left: 10px !important;
+      right: 10px !important;
+      top: auto !important;
+      bottom: calc(10px + env(safe-area-inset-bottom)) !important;
+      width: auto !important;
+      min-width: 0 !important;
+      max-width: none !important;
+      max-height: min(72vh, 560px) !important;
+      overflow-y: auto;
+      z-index: 300;
+      font-size: 13px;
+      box-shadow: 0 -10px 36px rgba(0,0,0,0.72);
+    }
+
+    .stamp-info-popup.core-stamp-popup {
+      width: auto !important;
+      max-width: none !important;
+    }
+
+    .popup-scroll-content,
+    .core-popup-main {
+      max-height: calc(min(72vh, 560px) - 70px) !important;
+      overflow-y: auto;
+    }
+
+    .core-popup-toggle-track,
+    .popup-toggle-switch .switch {
+      width: min(220px, calc(100vw - 72px));
+    }
+
+    .kofi-widget-overlay,
+    iframe[src*="ko-fi"] {
+      transform: scale(0.86);
+      transform-origin: bottom right;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .div-tab,
+    .filter-type-btn,
+    .filter-role-btn {
+      padding-inline: 10px;
+      font-size: 9px;
+    }
+
+    #char-grid { gap: 8px; }
+    .char-card { min-height: 142px; }
+    .panel-body { padding-inline: 12px; }
+  }
+`;
+
+const mobileScript = String.raw`
+<script>
+(function enablePhoneFriendlyInteractions() {
+  if (!window.matchMedia || !window.matchMedia('(max-width: 820px)').matches) return;
+
+  document.addEventListener('click', function(event) {
+    var icon = event.target.closest('.stamp-info-icon[data-info], .stamp-info-icon[data-core-popup]');
+    if (!icon) return;
+    event.preventDefault();
+    event.stopPropagation();
+    icon.dispatchEvent(new MouseEvent('mouseenter', { bubbles: false, cancelable: true, view: window }));
+  }, true);
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && typeof closePanel === 'function') closePanel();
+  });
+})();
+<\/script>
+`;
+
+fetch('index.html', { cache: 'no-store' })
+  .then(function(response) {
+    if (!response.ok) throw new Error('Could not load index.html');
+    return response.text();
+  })
+  .then(function(html) {
+    html = html.replace(/<title>(.*?)<\/title>/i, '<title>BLEACH - Soul Resonance Archives Mobile</title>');
+    html = html.replace('</style>', mobileCss + '\n</style>');
+    html = html.replace('</body>', mobileScript + '\n</body>');
+    document.open();
+    document.write(html);
+    document.close();
+  })
+  .catch(function(error) {
+    document.body.innerHTML = '<div class="loading">Could not load the mobile archive.<br><br><a href="index.html">Open the main site</a></div>';
+    console.error(error);
+  });
+</script>
+</body>
+</html>
