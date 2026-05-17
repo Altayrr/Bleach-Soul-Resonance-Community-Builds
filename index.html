@@ -473,7 +473,7 @@
 
   .stamp-info-icon {
     position: absolute; width: 16px; height: 16px;
-    background: transparent; color: rgba(255,255,255,0.15);
+    background: transparent; color: rgba(255,255,255,0.3);
     border: none; border-radius: 0;
     font-size: 14px; line-height: 16px; text-align: center;
     cursor: default; z-index: 10; transition: color 0.2s;
@@ -1024,7 +1024,7 @@ const CHARACTERS = [
         }
       },
       {
-        name: 'Lesson Three Cleared!',
+        name: 'Complicated Mood',
 		dividerColor: 'null',
         stars: 5,
         base: {
@@ -1034,7 +1034,7 @@ const CHARACTERS = [
             { label: 'HP', value: '566' },
             { label: 'All-Type DMG Bonus', value: '7.2%' }
           ],
-          text: '<p>After releasing a Battlefield Skill, the entire team gains a <span style="color: #52C394;">8%</span> boost for all damage dealt that lasts for <span style="color: #52C394;">25</span>s.</p><p>Unstackable.</p>'
+          text: '<p>Each time a Technique is dealt, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">65%</span> of the current Technique.</p>'
         },
         max: {
           rows: [
@@ -1043,11 +1043,11 @@ const CHARACTERS = [
             { label: 'HP', value: '2443' },
             { label: 'All-Type DMG Bonus', value: '15.3%' }
           ],
-          text: '<p>After releasing a Battlefield Skill, the entire team gains a <span style="color: #52C394;">16%</span> boost for all damage dealt that lasts for <span style="color: #52C394;">25</span>s.</p><p>Unstackable.</p>'
+          text: '<p>Each time a Technique is dealt, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">130%</span> of the current Technique.</p>'
         }
       },
       {
-        name: 'Back-to-Back Combat',
+        name: 'Still Want To Fight?',
         dividerColor: '#8f5cff',
         stars: 4,
         base: {
@@ -1057,7 +1057,7 @@ const CHARACTERS = [
             { label: 'HP', value: '503' },
             { label: 'All-Type DMG Bonus', value: '6.4%' }
           ],
-          text: '<p>Each time a Battlefield Skill is released, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">25%</span> of the current Battlefield Skill.</p>'
+          text: '<p>Each time a Technique is dealt, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">33%</span> of the current Technique.</p>'
         },
         max: {
           rows: [
@@ -1066,7 +1066,7 @@ const CHARACTERS = [
             { label: 'HP', value: '1824' },
             { label: 'All-Type DMG Bonus', value: '11.2%' }
           ],
-          text: '<p>Each time a Battlefield Skill is released, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">50%</span> of the current Battlefield Skill.</p>'
+          text: '<p>Each time a Technique is dealt, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">66%</span> of the current Technique.</p>'
         }
       }
     ],
@@ -1076,8 +1076,8 @@ const CHARACTERS = [
     setStampImgs: ['images/gin set 1.webp', 'images/gin set 2.webp', 'images/gin set 3.webp'],
     setStampAngles: [0, 0, -3],
     setStampGaps: [30, 60],
-    setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
-    setStampPopupWidths: [null, null, null],
+    setStampInfos: ['<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Thrust DMG Bonus%<br>2) ATK% (Better for B4 and Higher)</p><p><span style="color: #EA4A86;">-Substats:</span><br>CR%=CDMG% > Ailment DMG Bonus > ATK% > Ult Charge Rate%</p>', '<p><span style="color: #EA4A86;">The recommended Mainstats are:</span><br>1) Crit Rate%<br>2) Crit Dmg%</p><p><span style="color: #EA4A86;">Substats:</span><br>CR%=CDMG% > Ailment DMG Bonus > ATK% > Ult Charge Rate%</p>', '<p><span style="color: #EA4A86;">The recommended Mainstats are:</span><br>1) Ailment DMG%</p><p><span style="color: #EA4A86;">Substats:</span><br>CR%=CDMG% > Ailment DMG Bonus > ATK% > Ult Charge Rate%</p>'],
+    setStampPopupWidths: [380, 380, 380],
     setStampAfterText: '<p><span style="color: #EA4A86;">Mocking Visage (3/3) </span><br>2-Piece: Increases Ailment DMG by <span style="color: #52C394;">50%</span>.<br>3-Piece: Each time a debuff on an enemy is triggered, the character\'s Thrust DMG is increased by <span style="color: #52C394;">1.5%</span> for 10 seconds. Stacks up to 10 times. Upon reaching 10 stacks, Technique DMG and Ultimate DMG are increased by <span style="color: #52C394;">25%</span> and <span style="color: #52C394;">25%</span>, respectively.</p>',
 
     weaponStampImgs: ['images/gin weapon.webp', 'images/gin weapon 2.webp'],
@@ -1085,26 +1085,26 @@ const CHARACTERS = [
     weaponStampGaps: [90],
     weaponStampPopupData: [
       {
-        name: 'Before We Realized',
+        name: 'The Fastest Zanpakuto',
 		dividerColor: 'null',
         stars: 0,
         base: {
           rows: [
 			{ label: 'Weapon Stats Boost', value: '50%' },
           ],
-          note: 'Sosuke Aizen Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-Increases Crit Rate by <span style="color: #52C394;">25%</span>.</p><p>-Increases the damage of counterattacks triggered by the passive battle of Spiritual Pressure by <span style="color: #52C394;">12.5%</span>.</p><p>-Increases the cap of <span style="color: #EA4A86; text-decoration: underline">Enhanced Pressure Stacks</span> to 6. If the Battlefield Skill Hado 90: Kurohitsugi consumes all 6 stacks at once, an extra counterattack from switching teammates will be triggered.</p><p>-Each stack of <span style="color: #EA4A86; text-decoration: underline">Ravage</span> reduces the enemy\'s Spirit Resistance by an extra <span style="color: #52C394;">1%</span>.</p><p>-Releasing any Battlefield Skill grants 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>. While not under <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>, if fewer than 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possesed, obtaining them immediatly activates the <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>. if exactly 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possessed, entering <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span> grants another 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>.</p></p>'
+          note: 'Gin Ichimaru Exclusive Effect',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-When <span style="color: #EA4A86;">Impale</span> is triggered a certain number of times, Gin gains the following buffs:<br>-Triggered 1 time: Gin\'s technique deals <span style="color: #52C394;">12.5%</span> more DMG for 15s. Stacks up to 5 times.<br>-Triggered 2 times: Gin\'s Crit Rate increases by <span style="color: #52C394;">15%</span> for 20s. Unstackable.<br>-Triggered 3 times: Gin can actively perform a special counterattack once, dealing DMG equal to <span style="color: #52C394;">800%</span> of ATK, inflicting 50 <span style="color: #EA4A86; text-decoration: underline">Impale Scale</span>, and gaining 1 <span style="color: #EA4A86; text-decoration: underline">Technique Point(s)</span>.<br>-Attacks from Gin\'s team inflict <span style="color: #EA4A86; text-decoration: underline">Impale Scale</span> at a <span style="color: #52C394;">30%</span> higher rate.</p>'
         },
         max: {
           rows: [
             { label: 'Weapon Stats Boost', value: '50%' },
           ],
-          note: 'Sosuke Aizen Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-Increases Crit Rate by <span style="color: #52C394;">50%</span>.</p><p>-Increases the damage of counterattacks triggered by the passive battle of Spiritual Pressure by <span style="color: #52C394;">25%</span>.</p><p>-Increases the cap of <span style="color: #EA4A86; text-decoration: underline">Enhanced Pressure Stacks</span> to 6. If the Battlefield Skill Hado 90: Kurohitsugi consumes all 6 stacks at once, an extra counterattack from switching teammates will be triggered.</p><p>-Each stack of <span style="color: #EA4A86; text-decoration: underline">Ravage</span> reduces the enemy\'s Spirit Resistance by an extra <span style="color: #52C394;">2%</span>.</p><p>-Releasing any Battlefield Skill grants 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>. While not under <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>, if fewer than 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possesed, obtaining them immediatly activates the <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>. if exactly 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possessed, entering <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span> grants another 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>.</p></p>'
+          note: 'Gin Ichimaru Exclusive Effect',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-When <span style="color: #EA4A86;">Impale</span> is triggered a certain number of times, Gin gains the following buffs:<br>-Triggered 1 time: Gin\'s technique deals <span style="color: #52C394;">25%</span> more DMG for 15s. Stacks up to 5 times.<br>-Triggered 2 times: Gin\'s Crit Rate increases by <span style="color: #52C394;">30%</span> for 20s. Unstackable.<br>-Triggered 3 times: Gin can actively perform a special counterattack once, dealing DMG equal to <span style="color: #52C394;">1600%</span> of ATK, inflicting 50 <span style="color: #EA4A86; text-decoration: underline">Impale Scale</span>, and gaining 1 <span style="color: #EA4A86; text-decoration: underline">Technique Point(s)</span>.<br>-Attacks from Gin\'s team inflict <span style="color: #EA4A86; text-decoration: underline">Impale Scale</span> at a <span style="color: #52C394;">60%</span> higher rate</p>'
         }
       },
       {
-        name: 'Chanting Spirit',
+        name: 'Piercing Thrust',
 		dividerColor: '#8f5cff',
         stars: 0,
         base: {
@@ -1112,14 +1112,14 @@ const CHARACTERS = [
             { label: 'Weapon Stats Boost', value: '25.0%' },
           ],
           note: 'Applicable to all characters',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>After dealing Spirit DMG, Base ATK increases by <span style="color: #52C394;">15%</span> for 12s. Unstackable.</p></p>'
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>After dealing Thrust DMG, Base ATK increases by <span style="color: #52C394;">15%</span> for 12s. Unstackable.</p>'
         },
         max: {
           rows: [
             { label: 'Weapon Stats Boost', value: '25.0%' },
           ],
           note: 'Applicable to all characters',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>After dealing Spirit DMG, Base ATK increases by <span style="color: #52C394;">30%</span> for 12s. Unstackable.</p></p>'
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>After dealing Thrust DMG, Base ATK increases by <span style="color: #52C394;">30%</span> for 12s. Unstackable.</p>'
         }
       },
     ],
@@ -1169,12 +1169,12 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/aizen core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
-    coreStampAngles: [-2, 1, 3],
+    coreStampImgs: ['images/soi core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
+    coreStampAngles: [-2, 0, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
       {
-        name: 'Unrivaled',
+        name: 'Punishment Force Commander\'s Outfit',
 		dividerColor: 'null',
         stars: 6,
         base: {
@@ -1245,39 +1245,39 @@ const CHARACTERS = [
     ],
     coreStampPopupWidths: [null, null, null],
 
-    setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
-    setStampImgs: ['images/aizen set 1.webp', 'images/aizen set 2.webp', 'images/aizen set 3.webp'],
+    setStampBeforeText: '<p><span style="color: #EA4A86;">-The recommended passives for Soi Fon - Strike are:</span><br>1) Overdrive - Tactic<br>2) Enhanced Ultimate<br>3) Enhanced Damage</p><p><span style="color: #EA4A86;">-Boundary Dependant Build Changes:</span><br>B0 use charge rate slot 3 while B1-B5 use atk%. B1-B6 you dont need charge rate at all (0%) from stamps [ optional : by having 128 ucr. You can use a faster rotation] , and the weapon gives 30% at A1. For B6 Soi Fon, if used with a B4 Mayuri, Soi Fon\'s slot 3 must change to aliment dmg bonus %, else use atk%. Don\'t forget that weapon dupes are also important especially for giving crit rate stats and being able to use a crit dmg main stat for slot 2.</p>',
+    setStampImgs: ['images/soi set 1.webp', 'images/soi set 2.webp', 'images/soi set 3.webp'],
     setStampAngles: [0, 0, -3],
-    setStampGaps: [30, 90],
-    setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
-    setStampPopupWidths: [null, null, null],
-    setStampAfterText: '',
+    setStampGaps: [20, 50],
+    setStampInfos: ['<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) ATK% = Strike DMG Bonus%</p><p><span style="color: #EA4A86;">-Substats:</span><br>CR>>CDMG>ATK%>Ailment%>Ult%<br>◆B6A5: CR%(need 25%)>Ailment%>CD>ATK%>Ult%</p>', '<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Crit Rate%<br>2) Crit Dmg%</p><p><span style="color: #EA4A86;">-Substats:</span><br>CR>>CDMG>ATK%>Ailment%>Ult%<br>◆B6A5: CR%(need 25%)>Ailment%>CD>ATK%>Ult%</p>', '<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Ult Charge Rate%(B0)<br>2) ATK%(B1+) / Ailment DMG Bonus(B6)</p><p><span style="color: #EA4A86;">-Substats:</span><br>CR>>CDMG>ATK%>Ailment%>Ult%<br>◆B6A5: CR%(need 25%)>Ailment%>CD>ATK%>Ult%</p>'],
+    setStampPopupWidths: [380, 380, 380],
+    setStampAfterText: '<p><span style="color: #EA4A86;">Stealth Force (3/3) </span><br>2-Piece: Increases Base ATK by <span style="color: #52C394;">20%</span>.<br>3-Piece: After each Battlefield Skill is released, increases Strike DMG by <span style="color: #52C394;">30%</span> and Ailment Mastery by <span style="color: #52C394;">15%</span> for 20 seconds. These effects are not stackable.</p>',
 
-    weaponStampImgs: ['images/aizen weapon.webp', 'images/aizen weapon 2.webp'],
+    weaponStampImgs: ['images/soi weapon.webp', 'images/gin weapon 2.webp'],
     weaponStampAngles: [-3, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
       {
-        name: 'Before We Realized',
+        name: 'Against The Restraint',
 		dividerColor: 'null',
         stars: 0,
         base: {
           rows: [
 			{ label: 'Weapon Stats Boost', value: '50%' },
           ],
-          note: 'Sosuke Aizen Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-Increases Crit Rate by <span style="color: #52C394;">25%</span>.</p><p>-Increases the damage of counterattacks triggered by the passive battle of Spiritual Pressure by <span style="color: #52C394;">12.5%</span>.</p><p>-Increases the cap of <span style="color: #EA4A86; text-decoration: underline">Enhanced Pressure Stacks</span> to 6. If the Battlefield Skill Hado 90: Kurohitsugi consumes all 6 stacks at once, an extra counterattack from switching teammates will be triggered.</p><p>-Each stack of <span style="color: #EA4A86; text-decoration: underline">Ravage</span> reduces the enemy\'s Spirit Resistance by an extra <span style="color: #52C394;">1%</span>.</p><p>-Releasing any Battlefield Skill grants 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>. While not under <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>, if fewer than 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possesed, obtaining them immediatly activates the <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>. if exactly 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possessed, entering <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span> grants another 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>.</p></p>'
+          note: 'Soi Fon Exclusive Effect',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>The Spiritual Pressure and <span style="color: #EA4A86; text-decoration: underline">Deathmark</span> Soi Fon gains from technique, counter, Special Attack - Back Strike, and Special Attack - Windmill are increased by an extra <span style="color: #52C394;">50%</span>.<br>Each time Soi Fon is switched in, she gains 1 stack of Conviction, with each stack increasing her Crit Rate by <span style="color: #52C394;">10%</span> for 25 seconds, stacking up to 3 times.<br>Increases the damage dealt by <span style="color: #EA4A86; text-decoration: underline">Sting</span> by <span style="color: #52C394;">25%</span>.</p>'
         },
         max: {
           rows: [
             { label: 'Weapon Stats Boost', value: '50%' },
           ],
-          note: 'Sosuke Aizen Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-Increases Crit Rate by <span style="color: #52C394;">50%</span>.</p><p>-Increases the damage of counterattacks triggered by the passive battle of Spiritual Pressure by <span style="color: #52C394;">25%</span>.</p><p>-Increases the cap of <span style="color: #EA4A86; text-decoration: underline">Enhanced Pressure Stacks</span> to 6. If the Battlefield Skill Hado 90: Kurohitsugi consumes all 6 stacks at once, an extra counterattack from switching teammates will be triggered.</p><p>-Each stack of <span style="color: #EA4A86; text-decoration: underline">Ravage</span> reduces the enemy\'s Spirit Resistance by an extra <span style="color: #52C394;">2%</span>.</p><p>-Releasing any Battlefield Skill grants 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>. While not under <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>, if fewer than 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possesed, obtaining them immediatly activates the <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>. if exactly 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possessed, entering <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span> grants another 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>.</p></p>'
+          note: 'Soi Fon Exclusive Effect',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>The Spiritual Pressure and <span style="color: #EA4A86; text-decoration: underline">Deathmark</span> Soi Fon gains from technique, counter, Special Attack - Back Strike, and Special Attack - Windmill are increased by an extra <span style="color: #52C394;">50%</span>.<br>Each time Soi Fon is switched in, she gains 1 stack of Conviction, with each stack increasing her Crit Rate by <span style="color: #52C394;">20%</span> for 25 seconds, stacking up to 3 times.<br>Increases the damage dealt by <span style="color: #EA4A86; text-decoration: underline">Sting</span> by <span style="color: #52C394;">50%</span>.</p>'
         }
       },
       {
-        name: 'Chanting Spirit',
+        name: 'Piercing Thrust',
 		dividerColor: '#8f5cff',
         stars: 0,
         base: {
@@ -1285,30 +1285,30 @@ const CHARACTERS = [
             { label: 'Weapon Stats Boost', value: '25.0%' },
           ],
           note: 'Applicable to all characters',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>After dealing Spirit DMG, Base ATK increases by <span style="color: #52C394;">15%</span> for 12s. Unstackable.</p></p>'
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>After dealing Thrust DMG, Base ATK increases by <span style="color: #52C394;">15%</span> for 12s. Unstackable.</p>'
         },
         max: {
           rows: [
             { label: 'Weapon Stats Boost', value: '25.0%' },
           ],
           note: 'Applicable to all characters',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>After dealing Spirit DMG, Base ATK increases by <span style="color: #52C394;">30%</span> for 12s. Unstackable.</p></p>'
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>After dealing Thrust DMG, Base ATK increases by <span style="color: #52C394;">30%</span> for 12s. Unstackable.</p>'
         }
       },
     ],
     weaponStampPopupWidths: [null, null],
 
-    bonds1Imgs: ['images/aizen bond 1.webp'],
-    bonds1Info: `<div style="text-align: center; font-weight: bold;">During battle, DMG dealt increases by <span style="color: green;">5.6% (Next: 8%)</span>.<br>This increases to <span style="color: green;">8.4% (Next: 12%) / 11.2% (Next: 16%) / 14% (Next: 20%)</span><br>if Crit Rate reaches <span style="color: green;">20% / 40% / 60%</span>.</div>`,
-    bonds1OffsetX: 10,
+    bonds1Imgs: ['images/soi bond 1.webp'],
+    bonds1Info: `<div style="text-align: center; font-weight: bold;">Increases Strike DMG by <span style="color: #52C394;">9%</span> during battle and Ultimate DMG by <span style="color: #52C394;">5%</span>. When equipped by a <span style="color: #ffaa00;">Tactic</span> character, increases the above effects by an extra <span style="color: #52C394;">100%</span>.</div>`,
+    bonds1OffsetX: 20,
     bonds1Height: 120,
-    bonds1PopupWidth: 480,
+    bonds1PopupWidth: 440,
 
-    bonds2Imgs: ['images/aizen bond 2.webp'],
-    bonds2Info: `<div style="text-align: center; font-weight: bold;">Increases all damage by <span style="color: green;">10%</span> during battle. When equipped by a <span style="color: #ffaa00;">Tactic</span> character, increases an extra <span style="color: green;">25%</span> Battlefield Skill DMG.</div>`,
+    bonds2Imgs: ['images/aizen bond 1.webp'],
+    bonds2Info: `<div style="text-align: center; font-weight: bold;">During battle, DMG dealt increases by <span style="color: green;">5.6% (Next: 8%)</span>.<br>This increases to <span style="color: green;">8.4% (Next: 12%) / 11.2% (Next: 16%) / 14% (Next: 20%)</span><br>if Crit Rate reaches <span style="color: green;">20% / 40% / 60%</span>.</div>`,
     bonds2OffsetX: 14,
-    bonds2Height: 124,
-    bonds2PopupWidth: 430
+    bonds2Height: 118,
+    bonds2PopupWidth: 490
   },
   {
     id: 'aizen',
@@ -1515,12 +1515,12 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/aizen core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
-    coreStampAngles: [-2, 1, 3],
+    coreStampImgs: ['images/byakuya core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
+    coreStampAngles: [0, 1, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
       {
-        name: 'Unrivaled',
+        name: 'All Turn To Dust',
 		dividerColor: 'null',
         stars: 6,
         base: {
@@ -1528,18 +1528,18 @@ const CHARACTERS = [
             { label: 'ATK', value: '125' },
             { label: 'DEF', value: '105' },
             { label: 'HP', value: '629' },
-            { label: 'Spirit DMG Bonus', value: '8.0%' }
+            { label: 'Slash DMG Bonus', value: '8.0%' }
           ],
-          text: '<p>-Upon releasing the Ultimate, the on-field character gains 1 stack of Illusion. Each time that character lands a hit, they gain another stack of Illusion.</p><p>Each stack of Illusion increases their Spirit DMG by <span style="color: #52C394;">0.5%</span>, up to 10 stacks, lasting until <span style="color: #EA4A86; text-decoration: underline;">Kyokasuigetsu</span> ends.</p><p>-When a counterattack from switching characters is triggered by the passive Battle of Spiritual Pressure, the new on-field character inherits all Illusion stacks, and the cap is doubled, up to 40 stacks. Upon reaching full stacks, Illusion also grants an extra <span style="color: #52C394;">25%</span> Crit DMG bonus.</p><p>-While under the <span style="color: #EA4A86; text-decoration: underline;">Spiritual Domination</span>, Aizen\'s Basic Attacks, techniques, and counterattacks deal <span style="color: #52C394; ">300%</span> more damage.</p>'
+          text: '<p>-When Byakuya is off-field, his Ultimate Energy Charge Rate increases by <span style="color: #52C394;">25%</span>.<br>-Increases DMG dealt by Battlefield Skills by <span style="color: #52C394;">50%</span>.<br>-The passive skill Senka reduces enemy Slash Resistance by an extra <span style="color: #52C394;">15%</span>.</p>'
         },
         max: {
           rows: [
             { label: 'ATK', value: '630' },
             { label: 'DEF', value: '525' },
             { label: 'HP', value: '3150' },
-            { label: 'Spirit DMG Bonus', value: '20.0%' }
+            { label: 'Slash DMG Bonus', value: '20.0%' }
           ],
-          text: '<p>-Upon releasing the Ultimate, the on-field character gains 1 stack of Illusion. Each time that character lands a hit, they gain another stack of Illusion.</p><p>Each stack of Illusion increases their Spirit DMG by <span style="color: #52C394;">1%</span>, up to 10 stacks, lasting until <span style="color: #EA4A86; text-decoration: underline;">Kyokasuigetsu</span> ends.</p><p>-When a counterattack from switching characters is triggered by the passive Battle of Spiritual Pressure, the new on-field character inherits all Illusion stacks, and the cap is doubled, up to 40 stacks. Upon reaching full stacks, Illusion also grants an extra <span style="color: #52C394;">50%</span> Crit DMG bonus.</p><p>-While under the <span style="color: #EA4A86; text-decoration: underline;">Spiritual Domination</span>, Aizen\'s Basic Attacks, techniques, and counterattacks deal <span style="color: #52C394; ">500%</span> more damage.</p>'
+          text: '<p>-When Byakuya is off-field, his Ultimate Energy Charge Rate increases by <span style="color: #52C394;">25%</span>.<br>-Increases DMG dealt by Battlefield Skills by <span style="color: #52C394;">100%</span>.<br>-The passive skill Senka reduces enemy Slash Resistance by an extra <span style="color: #52C394;">30%</span>.</p>'
         }
       },
       {
@@ -1591,39 +1591,39 @@ const CHARACTERS = [
     ],
     coreStampPopupWidths: [null, null, null],
 
-    setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
-    setStampImgs: ['images/aizen set 1.webp', 'images/aizen set 2.webp', 'images/aizen set 3.webp'],
+    setStampBeforeText: '<p><span style="color: #EA4A86;">-The recommended passives for Byakuya Kuchiki - Slash are:</span><br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill</p><p><span style="color: #EA4A86;">-Boundary Dependant Build Changes:</span><br>Build does not change with dupes.</p>',
+    setStampImgs: ['images/byakuya set 1.webp', 'images/byakuya set 2.webp', 'images/byakuya set 3.webp'],
     setStampAngles: [0, 0, -3],
-    setStampGaps: [30, 90],
-    setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
-    setStampPopupWidths: [null, null, null],
-    setStampAfterText: '',
+    setStampGaps: [30, 60],
+    setStampInfos: ['<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Slash DMG Bonus%<br>2) ATK%</p><p><span style="color: #EA4A86;">-Substats:</span><br>Ult%>CR%>CDMG%>ATK%</p>', '<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Crit Rate%<br>2) Crit DMG%</p><p><span style="color: #EA4A86;">-Substats:</span><br>Ult%>CR%>CDMG%>ATK%</p>', '<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Ultimate Charge Rate%%</p><p><span style="color: #EA4A86;">-Substats:</span><br>Ult%>CR%>CDMG%>ATK%</p>'],
+    setStampPopupWidths: [380, 380, 380],
+    setStampAfterText: '<p><span style="color: #EA4A86;">Blooming Sakura (3/3) </span><br>2-Piece: Increases Ultimate Charge Rate by <span style="color: #52C394;">22%</span>.<br>3-Piece:  Increases Battlefield Skill DMG by <span style="color: #52C394;">30%</span>. Each time a Battlefield Skill is released, increases basic attack DMG by <span style="color: #52C394;">6%</span> for 15s. Stacks up to 6 times.</p>',
 
-    weaponStampImgs: ['images/aizen weapon.webp', 'images/aizen weapon 2.webp'],
-    weaponStampAngles: [-3, 5],
+    weaponStampImgs: ['images/byakuya weapon.webp', 'images/byakuya weapon 2.webp'],
+    weaponStampAngles: [0, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
       {
-        name: 'Before We Realized',
+        name: 'Shukei Hakuteiken',
 		dividerColor: 'null',
         stars: 0,
         base: {
           rows: [
 			{ label: 'Weapon Stats Boost', value: '50%' },
           ],
-          note: 'Sosuke Aizen Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-Increases Crit Rate by <span style="color: #52C394;">25%</span>.</p><p>-Increases the damage of counterattacks triggered by the passive battle of Spiritual Pressure by <span style="color: #52C394;">12.5%</span>.</p><p>-Increases the cap of <span style="color: #EA4A86; text-decoration: underline">Enhanced Pressure Stacks</span> to 6. If the Battlefield Skill Hado 90: Kurohitsugi consumes all 6 stacks at once, an extra counterattack from switching teammates will be triggered.</p><p>-Each stack of <span style="color: #EA4A86; text-decoration: underline">Ravage</span> reduces the enemy\'s Spirit Resistance by an extra <span style="color: #52C394;">1%</span>.</p><p>-Releasing any Battlefield Skill grants 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>. While not under <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>, if fewer than 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possesed, obtaining them immediatly activates the <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>. if exactly 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possessed, entering <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span> grants another 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>.</p></p>'
+          note: 'Byakuya Kuchiki Exclusive Effect',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-Byakuya gains 2 extra Battlefield Skill Energy every time he releases his technique.<br>-Increases the maximum number of stacks for the passive skills Flawless and Peerless to 6.<br>-When Byakuya releases Piercing Blade, its DMG increases by <span style="color: #52C394;">10%</span> every 0.5s, up to <span style="color: #52C394;">70%</span>.</p>'
         },
         max: {
           rows: [
             { label: 'Weapon Stats Boost', value: '50%' },
           ],
-          note: 'Sosuke Aizen Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-Increases Crit Rate by <span style="color: #52C394;">50%</span>.</p><p>-Increases the damage of counterattacks triggered by the passive battle of Spiritual Pressure by <span style="color: #52C394;">25%</span>.</p><p>-Increases the cap of <span style="color: #EA4A86; text-decoration: underline">Enhanced Pressure Stacks</span> to 6. If the Battlefield Skill Hado 90: Kurohitsugi consumes all 6 stacks at once, an extra counterattack from switching teammates will be triggered.</p><p>-Each stack of <span style="color: #EA4A86; text-decoration: underline">Ravage</span> reduces the enemy\'s Spirit Resistance by an extra <span style="color: #52C394;">2%</span>.</p><p>-Releasing any Battlefield Skill grants 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>. While not under <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>, if fewer than 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possesed, obtaining them immediatly activates the <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>. if exactly 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possessed, entering <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span> grants another 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>.</p></p>'
+          note: 'Byakuya Kuchiki Exclusive Effect',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-Byakuya gains 2 extra Battlefield Skill Energy every time he releases his technique.<br>-Increases the maximum number of stacks for the passive skills Flawless and Peerless to 6.<br>-When Byakuya releases Piercing Blade, its DMG increases by <span style="color: #52C394;">40%</span> every 0.5s, up to <span style="color: #52C394;">280%</span>.</p>'
         }
       },
       {
-        name: 'Chanting Spirit',
+        name: 'Method',
 		dividerColor: '#8f5cff',
         stars: 0,
         base: {
@@ -1631,29 +1631,29 @@ const CHARACTERS = [
             { label: 'Weapon Stats Boost', value: '25.0%' },
           ],
           note: 'Applicable to all characters',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>After dealing Spirit DMG, Base ATK increases by <span style="color: #52C394;">15%</span> for 12s. Unstackable.</p></p>'
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>After releasing a technique, the entire team is buffed with a <span style="color: #52C394;">6%</span> increase in Base ATK that lasts for 25s.<br>Unstackable.</p>'
         },
         max: {
           rows: [
             { label: 'Weapon Stats Boost', value: '25.0%' },
           ],
           note: 'Applicable to all characters',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>After dealing Spirit DMG, Base ATK increases by <span style="color: #52C394;">30%</span> for 12s. Unstackable.</p></p>'
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>After releasing a technique, the entire team is buffed with a <span style="color: #52C394;">12%</span> increase in Base ATK that lasts for 25s.<br>Unstackable.</p>'
         }
       },
     ],
     weaponStampPopupWidths: [null, null],
 
-    bonds1Imgs: ['images/aizen bond 1.webp'],
-    bonds1Info: `<div style="text-align: center; font-weight: bold;">During battle, DMG dealt increases by <span style="color: green;">5.6% (Next: 8%)</span>.<br>This increases to <span style="color: green;">8.4% (Next: 12%) / 11.2% (Next: 16%) / 14% (Next: 20%)</span><br>if Crit Rate reaches <span style="color: green;">20% / 40% / 60%</span>.</div>`,
-    bonds1OffsetX: 10,
+    bonds1Imgs: ['images/aizen bond 2.webp'],
+    bonds1Info: `<div style="text-align: center; font-weight: bold;">Increases all damage by <span style="color: green;">10%</span> during battle. When equipped by a <span style="color: #ffaa00;">Tactic</span> character, increases an extra <span style="color: green;">25%</span> Battlefield Skill DMG.</div>`,
+    bonds1OffsetX: 12,
     bonds1Height: 120,
     bonds1PopupWidth: 480,
 
-    bonds2Imgs: ['images/aizen bond 2.webp'],
-    bonds2Info: `<div style="text-align: center; font-weight: bold;">Increases all damage by <span style="color: green;">10%</span> during battle. When equipped by a <span style="color: #ffaa00;">Tactic</span> character, increases an extra <span style="color: green;">25%</span> Battlefield Skill DMG.</div>`,
+    bonds2Imgs: ['images/byakuya bond 2.webp'],
+    bonds2Info: `<div style="text-align: center; font-weight: bold;">Increases Battlefield Skill DMG by <span style="color: #52C394;">37.5%</span> during battle. Only effective on <span style="color: #ffaa00;">Tactic</span> characters.</div>`,
     bonds2OffsetX: 14,
-    bonds2Height: 124,
+    bonds2Height: 117,
     bonds2PopupWidth: 430
   },
   {
@@ -1688,7 +1688,7 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/aizen core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
+    coreStampImgs: ['images/mayuri core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
     coreStampAngles: [-2, 1, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
@@ -1765,14 +1765,14 @@ const CHARACTERS = [
     coreStampPopupWidths: [null, null, null],
 
     setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
-    setStampImgs: ['images/aizen set 1.webp', 'images/aizen set 2.webp', 'images/aizen set 3.webp'],
+    setStampImgs: ['images/mayuri set 1.webp', 'images/mayuri set 2.webp', 'images/mayuri set 3.webp'],
     setStampAngles: [0, 0, -3],
     setStampGaps: [30, 90],
     setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
     setStampPopupWidths: [null, null, null],
     setStampAfterText: '',
 
-    weaponStampImgs: ['images/aizen weapon.webp', 'images/aizen weapon 2.webp'],
+    weaponStampImgs: ['images/mayuri weapon.webp', 'images/aizen weapon 2.webp'],
     weaponStampAngles: [-3, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
@@ -1861,7 +1861,7 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/aizen core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
+    coreStampImgs: ['images/sajin core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
     coreStampAngles: [-2, 1, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
@@ -1938,14 +1938,14 @@ const CHARACTERS = [
     coreStampPopupWidths: [null, null, null],
 
     setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
-    setStampImgs: ['images/aizen set 1.webp', 'images/aizen set 2.webp', 'images/aizen set 3.webp'],
+    setStampImgs: ['images/sajin set 1.webp', 'images/sajin set 2.webp', 'images/sajin set 3.webp'],
     setStampAngles: [0, 0, -3],
     setStampGaps: [30, 90],
     setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
     setStampPopupWidths: [null, null, null],
     setStampAfterText: '',
 
-    weaponStampImgs: ['images/aizen weapon.webp', 'images/aizen weapon 2.webp'],
+    weaponStampImgs: ['images/sajin weapon.webp', 'images/aizen weapon 2.webp'],
     weaponStampAngles: [-3, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
@@ -2034,7 +2034,7 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/aizen core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
+    coreStampImgs: ['images/tosen core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
     coreStampAngles: [-2, 1, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
@@ -2111,14 +2111,14 @@ const CHARACTERS = [
     coreStampPopupWidths: [null, null, null],
 
     setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
-    setStampImgs: ['images/aizen set 1.webp', 'images/aizen set 2.webp', 'images/aizen set 3.webp'],
+    setStampImgs: ['images/tosen set 1.webp', 'images/tosen set 2.webp', 'images/tosen set 3.webp'],
     setStampAngles: [0, 0, -3],
     setStampGaps: [30, 90],
     setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
     setStampPopupWidths: [null, null, null],
     setStampAfterText: '',
 
-    weaponStampImgs: ['images/aizen weapon.webp', 'images/aizen weapon 2.webp'],
+    weaponStampImgs: ['images/tosen weapon.webp', 'images/aizen weapon 2.webp'],
     weaponStampAngles: [-3, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
@@ -2207,7 +2207,7 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/aizen core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
+    coreStampImgs: ['images/toshiro core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
     coreStampAngles: [-2, 1, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
@@ -2284,14 +2284,14 @@ const CHARACTERS = [
     coreStampPopupWidths: [null, null, null],
 
     setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
-    setStampImgs: ['images/aizen set 1.webp', 'images/aizen set 2.webp', 'images/aizen set 3.webp'],
+    setStampImgs: ['images/toshiro set 1.webp', 'images/toshiro set 2.webp', 'images/toshiro set 3.webp'],
     setStampAngles: [0, 0, -3],
     setStampGaps: [30, 90],
     setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
     setStampPopupWidths: [null, null, null],
     setStampAfterText: '',
 
-    weaponStampImgs: ['images/aizen weapon.webp', 'images/aizen weapon 2.webp'],
+    weaponStampImgs: ['images/toshiro weapon.webp', 'images/aizen weapon 2.webp'],
     weaponStampAngles: [-3, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
@@ -2380,7 +2380,7 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/aizen core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
+    coreStampImgs: ['images/kenpachi core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
     coreStampAngles: [-2, 1, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
@@ -2457,14 +2457,14 @@ const CHARACTERS = [
     coreStampPopupWidths: [null, null, null],
 
     setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
-    setStampImgs: ['images/aizen set 1.webp', 'images/aizen set 2.webp', 'images/aizen set 3.webp'],
+    setStampImgs: ['images/kenpachi set 1.webp', 'images/kenpachi set 2.webp', 'images/kenpachi set 3.webp'],
     setStampAngles: [0, 0, -3],
     setStampGaps: [30, 90],
     setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
     setStampPopupWidths: [null, null, null],
     setStampAfterText: '',
 
-    weaponStampImgs: ['images/aizen weapon.webp', 'images/aizen weapon 2.webp'],
+    weaponStampImgs: ['images/kenpachi weapon.webp', 'images/aizen weapon 2.webp'],
     weaponStampAngles: [-3, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
@@ -2553,7 +2553,7 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/aizen core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
+    coreStampImgs: ['images/ikkaku core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
     coreStampAngles: [-2, 1, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
@@ -2630,14 +2630,14 @@ const CHARACTERS = [
     coreStampPopupWidths: [null, null, null],
 
     setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
-    setStampImgs: ['images/aizen set 1.webp', 'images/aizen set 2.webp', 'images/aizen set 3.webp'],
+    setStampImgs: ['images/ikkaku set 1.webp', 'images/ikkaku set 2.webp', 'images/ikkaku set 3.webp'],
     setStampAngles: [0, 0, -3],
     setStampGaps: [30, 90],
     setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
     setStampPopupWidths: [null, null, null],
     setStampAfterText: '',
 
-    weaponStampImgs: ['images/aizen weapon.webp', 'images/aizen weapon 2.webp'],
+    weaponStampImgs: ['images/ikkaku weapon.webp', 'images/aizen weapon 2.webp'],
     weaponStampAngles: [-3, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
@@ -2725,7 +2725,7 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/aizen core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
+    coreStampImgs: ['images/grimm core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
     coreStampAngles: [-2, 1, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
@@ -2802,14 +2802,14 @@ const CHARACTERS = [
     coreStampPopupWidths: [null, null, null],
 
     setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
-    setStampImgs: ['images/aizen set 1.webp', 'images/aizen set 2.webp', 'images/aizen set 3.webp'],
+    setStampImgs: ['images/grimm set 1.webp', 'images/grimm set 2.webp', 'images/grimm set 3.webp'],
     setStampAngles: [0, 0, -3],
     setStampGaps: [30, 90],
     setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
     setStampPopupWidths: [null, null, null],
     setStampAfterText: '',
 
-    weaponStampImgs: ['images/aizen weapon.webp', 'images/aizen weapon 2.webp'],
+    weaponStampImgs: ['images/grimm weapon.webp', 'images/aizen weapon 2.webp'],
     weaponStampAngles: [-3, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
@@ -2897,7 +2897,7 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/aizen core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
+    coreStampImgs: ['images/sza core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
     coreStampAngles: [-2, 1, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
@@ -2974,14 +2974,14 @@ const CHARACTERS = [
     coreStampPopupWidths: [null, null, null],
 
     setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
-    setStampImgs: ['images/aizen set 1.webp', 'images/aizen set 2.webp', 'images/aizen set 3.webp'],
+    setStampImgs: ['images/sza set 1.webp', 'images/sza set 2.webp', 'images/sza set 3.webp'],
     setStampAngles: [0, 0, -3],
     setStampGaps: [30, 90],
     setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
     setStampPopupWidths: [null, null, null],
     setStampAfterText: '',
 
-    weaponStampImgs: ['images/aizen weapon.webp', 'images/aizen weapon 2.webp'],
+    weaponStampImgs: ['images/sza weapon.webp', 'images/aizen weapon 2.webp'],
     weaponStampAngles: [-3, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
@@ -3069,7 +3069,7 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/aizen core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
+    coreStampImgs: ['images/nelliel core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
     coreStampAngles: [-2, 1, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
@@ -3146,14 +3146,14 @@ const CHARACTERS = [
     coreStampPopupWidths: [null, null, null],
 
     setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
-    setStampImgs: ['images/aizen set 1.webp', 'images/aizen set 2.webp', 'images/aizen set 3.webp'],
+    setStampImgs: ['images/nelliel set 1.webp', 'images/nelliel set 2.webp', 'images/nelliel set 3.webp'],
     setStampAngles: [0, 0, -3],
     setStampGaps: [30, 90],
     setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
     setStampPopupWidths: [null, null, null],
     setStampAfterText: '',
 
-    weaponStampImgs: ['images/aizen weapon.webp', 'images/aizen weapon 2.webp'],
+    weaponStampImgs: ['images/nelliel weapon.webp', 'images/aizen weapon 2.webp'],
     weaponStampAngles: [-3, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
@@ -3241,7 +3241,7 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/aizen core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
+    coreStampImgs: ['images/ichi core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
     coreStampAngles: [-2, 1, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
@@ -3318,14 +3318,14 @@ const CHARACTERS = [
     coreStampPopupWidths: [null, null, null],
 
     setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
-    setStampImgs: ['images/aizen set 1.webp', 'images/aizen set 2.webp', 'images/aizen set 3.webp'],
+    setStampImgs: ['images/ichi set 1.webp', 'images/ichi set 2.webp', 'images/ichi set 3.webp'],
     setStampAngles: [0, 0, -3],
     setStampGaps: [30, 90],
     setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
     setStampPopupWidths: [null, null, null],
     setStampAfterText: '',
 
-    weaponStampImgs: ['images/aizen weapon.webp', 'images/aizen weapon 2.webp'],
+    weaponStampImgs: ['images/ichi weapon.webp', 'images/aizen weapon 2.webp'],
     weaponStampAngles: [-3, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
@@ -3413,7 +3413,7 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/aizen core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
+    coreStampImgs: ['images/yoru core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
     coreStampAngles: [-2, 1, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
@@ -3490,14 +3490,14 @@ const CHARACTERS = [
     coreStampPopupWidths: [null, null, null],
 
     setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
-    setStampImgs: ['images/aizen set 1.webp', 'images/aizen set 2.webp', 'images/aizen set 3.webp'],
+    setStampImgs: ['images/yoru set 1.webp', 'images/yoru set 2.webp', 'images/yoru set 3.webp'],
     setStampAngles: [0, 0, -3],
     setStampGaps: [30, 90],
     setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
     setStampPopupWidths: [null, null, null],
     setStampAfterText: '',
 
-    weaponStampImgs: ['images/aizen weapon.webp', 'images/aizen weapon 2.webp'],
+    weaponStampImgs: ['images/yoru weapon.webp', 'images/aizen weapon 2.webp'],
     weaponStampAngles: [-3, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
@@ -3585,7 +3585,7 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/aizen core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
+    coreStampImgs: ['images/urahara core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
     coreStampAngles: [-2, 1, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
@@ -3662,14 +3662,14 @@ const CHARACTERS = [
     coreStampPopupWidths: [null, null, null],
 
     setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
-    setStampImgs: ['images/aizen set 1.webp', 'images/aizen set 2.webp', 'images/aizen set 3.webp'],
+    setStampImgs: ['images/urahara set 1.webp', 'images/urahara set 2.webp', 'images/urahara set 3.webp'],
     setStampAngles: [0, 0, -3],
     setStampGaps: [30, 90],
     setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
     setStampPopupWidths: [null, null, null],
     setStampAfterText: '',
 
-    weaponStampImgs: ['images/aizen weapon.webp', 'images/aizen weapon 2.webp'],
+    weaponStampImgs: ['images/urahara weapon.webp', 'images/aizen weapon 2.webp'],
     weaponStampAngles: [-3, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
@@ -4001,7 +4001,11 @@ const TERM_GLOSSARY = {
   'Spiritual Domination': 'Releasing Ultimate, or any Battlefield Skills or landing the last strike of the basic attack upon reaching 3 Pressure Stacks, will activate Spiritual Pressure Intimidation. During which, interruption resistance is increased, and Perfect Dodge is auto-triggered on most imminent attacks. All Pressure Stacks gained are converted into Enhanced Pressure Stacks.',
   'Enhanced Pressure Stacks': 'During Spiritual Domination, all Pressure Stacks gained by Aizen are converted into Enhanced Pressure Stacks. Releasing the Battlefield Skill Hado 90: Kurohitsugi consumes all Enhanced Pressure Stacks, granting shields to the team and counterattack effects when switching characters.',
   Ravage: 'Releasing the Battlefield Skill Hado 90: Kurohitsugi ir counterattacks inflicts Ravage to the enemy, reducing their All-Type Resistance for 18 seconds.',
-  'ongoing debuff' :'Ongoing debuffs include Freeze, Wound, Cleave and Verde Rush',
+  'ongoing debuff': 'Ongoing debuffs include Freeze, Wound, Cleave and Verde Rush',
+  'Impale Scale': '<p>Every time 100 Impale Scale are applied to an enemy, Impale is triggered once, dealing damage equal to <span style="color: #52C394;">500%</span> of Gin\'s ATK.</p>',
+  'Technique Point(s)': '<p>When Gin charges and releases his Technique, he constantly consumes Technique Points to boost its power.<br>Recovers 1 Techinque Point every 10 seconds.<br>Can be stacked up to 3 points.</p>',
+  Deathmark: 'When another character in the team lands an attack, Deathmark is automatically consumed to trigger the combo attack, which is one of the Battlefield Skills.',
+  Sting: 'Deals Ailment DMG based on Soi Fon\'s ATK.',
 };
 
 function normalizeTermName(text) {
