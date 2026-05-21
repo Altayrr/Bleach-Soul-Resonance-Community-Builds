@@ -4,372 +4,126 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BLEACH - Soul Resonance Archives Mobile</title>
-<style>
-  html, body {
-    min-height: 100%;
-    margin: 0;
-    background: #020305;
-    color: #e8eaf0;
-    font-family: Georgia, serif;
-  }
-  .loading {
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
-    padding: 24px;
-    text-align: center;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #a0d8ef;
-  }
-  .loading a { color: #f0c060; }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;900&family=Noto+Serif+JP:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="mobile.css">
 </head>
-<body>
-<div class="loading">Loading mobile archives...</div>
-<script>
-const desktopSource = 'https://raw.githubusercontent.com/Altayrr/Bsr-Community-Site/61ceb19bf287d1969d31350ef9b9e6bad365a666/index.html';
-const mobileCss = String.raw`
+<body class="mobile-page">
 
-  /* ===== Phone-friendly copy overrides ===== */
-  @media (max-width: 820px) {
-    html, body {
-      min-height: 100%;
-      overflow-x: hidden;
-      -webkit-text-size-adjust: 100%;
-      touch-action: manipulation;
-    }
+<!-- Background elements unchanged -->
+<div id="bg-atmosphere">
+  <div class="bleach-moon"></div>
+  <div class="moon-stars">
+    <div class="star" style="top:10%; left:25%; width:3px; height:3px; animation-delay:0.2s;"></div>
+    <div class="star" style="top:20%; left:15%; width:2px; height:2px; animation-delay:0.8s;"></div>
+    <div class="star" style="top:35%; left:30%; width:2.5px; height:2.5px; animation-delay:1.4s;"></div>
+    <div class="star" style="top:8%; left:45%; width:2px; height:2px; animation-delay:0.5s;"></div>
+    <div class="star" style="top:25%; left:5%; width:2px; height:2px; animation-delay:1.1s;"></div>
+  </div>
+</div>
+<div id="bg-gate">
+  <svg viewBox="0 0 1920 600" width="100%" height="100%" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:0;left:0;right:0;">
+    <defs><linearGradient id="gate-fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#020305" stop-opacity="0"/><stop offset="60%" stop-color="#020305" stop-opacity="0.6"/><stop offset="100%" stop-color="#010203" stop-opacity="1"/></linearGradient></defs>
+    <g opacity="0.08" fill="#151b28">
+      <rect x="200" y="100" width="18" height="500"/><rect x="185" y="80" width="48" height="20"/><rect x="193" y="60" width="32" height="22"/><polygon points="209,42 225,60 193,60"/>
+      <rect x="600" y="150" width="14" height="450"/><rect x="588" y="130" width="38" height="20"/><polygon points="607,112 625,130 589,130"/>
+      <rect x="1320" y="120" width="16" height="480"/><rect x="1306" y="100" width="44" height="20"/><polygon points="1328,82 1350,100 1306,100"/>
+      <rect x="1700" y="160" width="14" height="440"/><polygon points="1707,142 1721,160 1693,160"/>
+    </g>
+    <g opacity="0.12" fill="#0e1422">
+      <rect x="700" y="200" width="30" height="400"/><rect x="680" y="180" width="70" height="22"/><rect x="690" y="158" width="50" height="24"/><polygon points="715,138 740,158 690,158"/>
+      <rect x="680" y="210" width="550" height="8" rx="2"/><rect x="1190" y="200" width="30" height="400"/><rect x="1170" y="180" width="70" height="22"/>
+      <rect x="1180" y="158" width="50" height="24"/><polygon points="1205,138 1230,158 1180,158"/><rect x="710" y="260" width="480" height="340"/>
+      <rect x="710" y="248" width="18" height="14"/><rect x="740" y="248" width="18" height="14"/><rect x="770" y="248" width="18" height="14"/>
+      <rect x="800" y="248" width="18" height="14"/><rect x="830" y="248" width="18" height="14"/><rect x="860" y="248" width="18" height="14"/>
+      <rect x="890" y="248" width="18" height="14"/><rect x="920" y="248" width="18" height="14"/><rect x="950" y="248" width="18" height="14"/>
+      <rect x="980" y="248" width="18" height="14"/><rect x="1010" y="248" width="18" height="14"/><rect x="1040" y="248" width="18" height="14"/>
+      <rect x="1070" y="248" width="18" height="14"/><rect x="1100" y="248" width="18" height="14"/><rect x="1130" y="248" width="18" height="14"/>
+      <rect x="1160" y="248" width="18" height="14"/>
+    </g>
+    <rect x="0" y="0" width="1920" height="600" fill="url(#gate-fade)"/>
+  </svg>
+</div>
+<div id="energy-streams"></div><div id="petals-container"></div><canvas id="bg-canvas"></canvas>
+<div id="overlay" onclick="closePanel()"></div>
 
-    body {
-      padding-bottom: env(safe-area-inset-bottom);
-      background: #020305;
-    }
+<header>
+  <p class="title-sub">Soul Society Research and Development Institute</p>
+</header>
 
-    #bg-canvas { opacity: 0.42; }
-    #bg-gate { height: 30%; opacity: 0.55; }
-    .bleach-moon {
-      width: 86px;
-      height: 86px;
-      top: 2.5%;
-      right: 5%;
-      opacity: 0.7;
-    }
+<div class="division-bar">
+<button class="div-tab active" onclick="setCategoryFilter('all', this)">All</button>
+  <button class="div-tab" onclick="setCategoryFilter('captain', this)">Captains</button>
+  <button class="div-tab" onclick="setCategoryFilter('lieutenant', this)">Lieutenants</button>
+  <button class="div-tab" onclick="setCategoryFilter('espada', this)">Espada</button>
+  <button class="div-tab" onclick="setCategoryFilter('karakura', this)">Karakura Town</button>
+  <button class="div-tab" onclick="setCategoryFilter('hollow', this)">Hollow</button>
+</div>
 
-    header {
-      padding: calc(10px + env(safe-area-inset-top)) 12px 7px;
-      position: sticky;
-      top: 0;
-      z-index: 60;
-      backdrop-filter: blur(14px);
-    }
+<main id="stage">
+  <div class="filter-bars-container">
+    <div class="filter-bar" id="type-filter-bar">
+      <button class="filter-type-btn" onclick="setTypeFilter('Slash', this)">Slash</button>
+      <button class="filter-type-btn" onclick="setTypeFilter('Spirit', this)">Spirit</button>
+      <button class="filter-type-btn" onclick="setTypeFilter('Thrust', this)">Thrust</button>
+      <button class="filter-type-btn" onclick="setTypeFilter('Strike', this)">Strike</button>
+    </div>
+    <p class="section-title">Select a character to open their records</p>
+    <div class="filter-bar" id="role-filter-bar">
+      <button class="filter-role-btn" onclick="setRoleFilter('Dps', this)">Dps</button>
+      <button class="filter-role-btn" onclick="setRoleFilter('Tactic', this)">Tactic</button>
+      <button class="filter-role-btn" onclick="setRoleFilter('Support', this)">Support</button>
+    </div>
+  </div>
+  <div id="char-grid"></div>
+</main>
 
-    .title-sub {
-      margin: 0;
-      font-size: 8px;
-      line-height: 1.35;
-      letter-spacing: 0.22em;
-    }
+<div id="info-panel">
+  <button class="panel-close" onclick="closePanel()">✕</button>
+  <div class="panel-hero" id="panel-hero">
+    <div class="panel-hero-bg"></div>
+    <div class="panel-hero-art" id="panel-art"></div>
+    <div class="panel-hero-overlay"></div>
+    <div class="panel-name-block">
+      <div class="panel-division-label" id="panel-division-label"></div>
+      <div class="panel-char-name" id="panel-char-name"></div>
+      <div class="panel-char-jp" id="panel-char-jp"></div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="char-quote" id="panel-quote"></div>
+    <div class="stats-section"><div id="panel-stats"></div></div>
+    <div class="section-label">Zanpakutō</div>
+    <div class="zanpakuto-block" id="panel-zanpakuto"></div>
+    <div style="background:transparent; padding:0; margin-top:28px;">
+      <div class="section-label">Bonds</div>
+      <div class="bond-rectangle" id="panel-bonds1"></div>
+      <div class="bond-rectangle" id="panel-bonds2"></div>
+    </div>
+    <div style="background:transparent; padding:0; margin-top:28px;">
+      <div class="section-label">Core Stamp</div>
+      <div class="stamp-block" id="panel-core-stamp">
+        <div class="stamp-placeholder">Core Stamp — Add Animated Media</div>
+      </div>
+    </div>
+    <div style="background:transparent; padding:0; margin-top:24px;">
+      <div class="section-label">Set Stamps</div>
+      <div class="stamp-block" id="panel-set-stamps">
+        <div class="stamp-placeholder">Set Stamps — Add Animated Media</div>
+      </div>
+    </div>
+    <div style="background:transparent; padding:0; margin-top:24px;">
+      <div class="section-label">Weapon Stamp</div>
+      <div class="stamp-block stamp-block-weapon" id="panel-weapon-stamp">
+        <div class="stamp-placeholder">Weapon Stamp — Add Animated Media</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    .division-bar {
-      position: sticky;
-      top: calc(25px + env(safe-area-inset-top));
-      z-index: 55;
-      display: flex;
-      justify-content: flex-start;
-      gap: 6px;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      padding: 8px 10px;
-      scroll-snap-type: x proximity;
-      -webkit-overflow-scrolling: touch;
-      border-bottom: 1px solid rgba(200,151,42,0.2);
-    }
+<script src="app.js" defer></script>
+<script src="mobile.js" defer></script>
 
-    .division-bar::-webkit-scrollbar,
-    .filter-bars-container::-webkit-scrollbar,
-    .filter-bar::-webkit-scrollbar {
-      display: none;
-    }
-
-    .div-tab,
-    .filter-type-btn,
-    .filter-role-btn {
-      min-height: 36px;
-      padding: 8px 12px;
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      white-space: nowrap;
-      clip-path: none;
-      border-radius: 2px;
-      flex: 0 0 auto;
-      scroll-snap-align: start;
-    }
-
-    #stage {
-      padding: 12px 10px 28px;
-      align-items: stretch;
-    }
-
-    .ad-slot {
-      position: relative;
-      z-index: 49;
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      min-height: 50px;
-      padding: 10px 10px 2px;
-      overflow: hidden;
-      background: rgba(2,3,6,0.5);
-    }
-
-    .ad-slot::before {
-      content: "Sponsored";
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: 'Cinzel', serif;
-      font-size: 6px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(106,122,146,0.7);
-    }
-
-    .ad-slot-inner {
-      width: 320px;
-      max-width: 100%;
-      min-height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0.86;
-    }
-
-    .filter-bars-container {
-      position: sticky;
-      top: calc(78px + env(safe-area-inset-top));
-      z-index: 50;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-      width: calc(100% + 20px);
-      margin: 0 -10px 14px;
-      padding: 8px 10px 10px;
-      background: rgba(2,3,6,0.92);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(14px);
-      overflow: visible;
-    }
-
-    .filter-bar {
-      display: flex;
-      gap: 6px;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 1px;
-    }
-
-    #role-filter-bar { transform: none; }
-
-    .section-title {
-      order: -1;
-      font-size: 10px;
-      line-height: 1.35;
-      letter-spacing: 0.18em;
-      text-align: left;
-      padding: 0 2px;
-      white-space: normal;
-    }
-
-    #char-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      justify-items: stretch;
-      max-width: none;
-      width: 100%;
-    }
-
-    .char-card {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 188 / 205;
-      min-height: 154px;
-      border-color: rgba(255,255,255,0.55);
-    }
-
-    .char-card:hover { transform: none; }
-    .char-card.selected { box-shadow: 0 0 0 2px #fff, 0 0 16px rgba(255,255,255,0.55); }
-
-    #info-panel {
-      inset: 0;
-      width: 100%;
-      max-width: none;
-      border-left: 0;
-      transform: translateY(100%);
-      border-top: 1px solid var(--border-glow);
-      border-radius: 0;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    #info-panel.open { transform: translateY(0); }
-
-    .panel-close {
-      position: fixed;
-      top: calc(10px + env(safe-area-inset-top));
-      left: auto;
-      right: 10px;
-      width: 44px;
-      height: 44px;
-      clip-path: none;
-      border-radius: 2px;
-      background: rgba(2,3,6,0.78);
-      color: #fff;
-      z-index: 150;
-    }
-
-    .panel-hero {
-      height: min(46vh, 330px);
-      min-height: 240px;
-    }
-
-    .panel-name-block {
-      left: 16px;
-      right: 64px;
-      bottom: 16px;
-    }
-
-    .panel-division-label {
-      font-size: 9px;
-      letter-spacing: 0.2em;
-    }
-
-    .panel-char-name {
-      font-size: clamp(22px, 8vw, 31px);
-      line-height: 1.05;
-      overflow-wrap: anywhere;
-    }
-
-    .panel-char-jp {
-      font-size: 13px;
-      letter-spacing: 0.16em;
-    }
-
-    .panel-body {
-      padding: 0 14px calc(36px + env(safe-area-inset-bottom));
-    }
-
-    .section-label {
-      font-size: 9px;
-      letter-spacing: 0.25em;
-      margin-bottom: 10px;
-    }
-
-    .stats-section,
-    .zanpakuto-block,
-    .char-quote { margin-bottom: 18px; }
-
-    #panel-stats {
-      justify-content: center;
-      gap: 8px;
-      min-height: 70px;
-      transform: none;
-      margin-top: 12px;
-    }
-
-    #panel-stats .stat-img-wrapper { margin-right: 0 !important; }
-    #panel-stats img {
-      max-width: min(30vw, 112px);
-      max-height: 150px;
-      height: auto !important;
-    }
-
-    .zanpakuto-block { padding: 14px; }
-    .zanpaku-name { font-size: 16px; line-height: 1.25; }
-    .zanpaku-desc,
-    .char-quote,
-    .stamp-section-text {
-      font-size: 13px;
-      line-height: 1.65;
-    }
-
-    .stamp-block {
-      justify-content: center;
-      gap: 8px;
-      padding: 4px 0 12px;
-    }
-
-    .stamp-block img,
-    .stamp-block video,
-    .stamp-block canvas {
-      max-width: min(42vw, 164px);
-      max-height: 164px;
-    }
-
-    .stamp-info-icon,
-    .term-info-icon {
-      min-width: 24px;
-      min-height: 24px;
-      font-size: 13px;
-      line-height: 22px;
-    }
-
-    .stamp-info-popup.show,
-    .term-info-popup {
-      position: fixed !important;
-      left: 10px !important;
-      right: 10px !important;
-      top: auto !important;
-      bottom: calc(10px + env(safe-area-inset-bottom)) !important;
-      width: auto !important;
-      min-width: 0 !important;
-      max-width: none !important;
-      max-height: min(72vh, 560px) !important;
-      overflow-y: auto;
-      z-index: 300;
-      font-size: 13px;
-      box-shadow: 0 -10px 36px rgba(0,0,0,0.72);
-    }
-
-    .stamp-info-popup.core-stamp-popup {
-      width: auto !important;
-      max-width: none !important;
-    }
-
-    .popup-scroll-content,
-    .core-popup-main {
-      max-height: calc(min(72vh, 560px) - 70px) !important;
-      overflow-y: auto;
-    }
-
-    .core-popup-toggle-track,
-    .popup-toggle-switch .switch {
-      width: min(220px, calc(100vw - 72px));
-    }
-
-    .kofi-widget-overlay,
-    iframe[src*="ko-fi"] {
-      transform: scale(0.86);
-      transform-origin: bottom right;
-    }
-  }
-
-  @media (max-width: 380px) {
-    .div-tab,
-    .filter-type-btn,
-    .filter-role-btn {
-      padding-inline: 10px;
-      font-size: 9px;
-    }
-
-    #char-grid { gap: 8px; }
-    .char-card { min-height: 142px; }
-    .panel-body { padding-inline: 12px; }
-  }
-`;
-
-const mobileAd = String.raw`
 <div class="ad-slot" aria-label="Sponsored advertisement">
   <div class="ad-slot-inner">
     <script>
@@ -380,51 +134,21 @@ const mobileAd = String.raw`
         'width' : 320,
         'params' : {}
       };
-    <\/script>
-    <script src="https://www.highperformanceformat.com/96fa16e718e78ba9fc6e4b7a947a158b/invoke.js"><\/script>
+    </script>
+    <script src="https://www.highperformanceformat.com/96fa16e718e78ba9fc6e4b7a947a158b/invoke.js"></script>
   </div>
 </div>
-`;
-
-const mobileScript = String.raw`
+  
+<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
 <script>
-(function enablePhoneFriendlyInteractions() {
-  if (!window.matchMedia || !window.matchMedia('(max-width: 820px)').matches) return;
-
-  document.addEventListener('click', function(event) {
-    var icon = event.target.closest('.stamp-info-icon[data-info], .stamp-info-icon[data-core-popup]');
-    if (!icon) return;
-    event.preventDefault();
-    event.stopPropagation();
-    icon.dispatchEvent(new MouseEvent('mouseenter', { bubbles: false, cancelable: true, view: window }));
-  }, true);
-
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape' && typeof closePanel === 'function') closePanel();
-  });
-})();
-<\/script>
-`;
-
-fetch(desktopSource, { cache: 'no-store' })
-  .then(function(response) {
-    if (!response.ok) throw new Error('Could not load desktop archive source');
-    return response.text();
-  })
-  .then(function(html) {
-    html = html.replace(/<title>(.*?)<\/title>/i, '<title>BLEACH - Soul Resonance Archives Mobile</title>');
-    html = html.replace('</style>', mobileCss + '\n</style>');
-    html = html.replace(/<script src="https:\/\/pl29460104\.effectivecpmnetwork\.com\/[^"]+"><\/script>\s*/i, '');
-    html = html.replace(/<\/div>\s*<main id="stage">/, '</div>\n' + mobileAd + '\n<main id="stage">');
-    html = html.replace('</body>', mobileScript + '\n</body>');
-    document.open();
-    document.write(html);
-    document.close();
-  })
-  .catch(function(error) {
-    document.body.innerHTML = '<div class="loading">Could not load the mobile archive.<br><br><a href="' + desktopSource + '">Open the main site source</a></div>';
-    console.error(error);
-  });
+  if (window.kofiWidgetOverlay) {
+    kofiWidgetOverlay.draw('altayrr', {
+      'type': 'floating-chat',
+      'floating-chat.donateButton.text': 'Support Us',
+      'floating-chat.donateButton.background-color': '#f45d22',
+      'floating-chat.donateButton.text-color': '#fff'
+    });
+  }
 </script>
 </body>
 </html>
