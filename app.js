@@ -145,7 +145,7 @@ const CHARACTERS = [
     },
     bio: 'Grimmjow in his released Pantera form, a faster and more savage version of the Sexta Espada built around close-range pressure, destructive claws, and relentless instinct.',
     customAvatar: 'images/grimm res.webp',
-    panelImage: 'images/grimm panel.webp',
+    panelImage: 'images/grimm res panel.webp',
     avatarWidth: 190,
     avatarHeight: 210,
     avatarOffsetX: 0,
