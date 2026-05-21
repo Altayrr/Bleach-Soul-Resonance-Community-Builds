@@ -644,7 +644,7 @@ const CHARACTERS = [
       desc: 'Creates a "perfect hypnosis" that controls all five senses of anyone who witnesses its release. Aizen used this ability for over 100 years to hide his true plans. The only defence is to touch the blade before release. Combined with the Hōgyoku, Aizen attained an unprecedented form beyond any known category.'
     },
     bio: 'Once considered the most respected captain of the Gotei 13, Aizen orchestrated a century-long conspiracy from behind a mask of perfect benevolence. His intellect, spiritual power, and manipulative genius set him in a category entirely his own. He sought to transcend the limits placed on all beings by fate itself.',
-    instructions: '',
+    instructions: 'Aizen is one of the best units in the current meta, however there are certain features of his kit that you must be aware of. A mistake many players make is assuming "I Will Stand Atop The Heavens" is Aizens Ultimate, however this is classified as his Battlefield Skill, therefore Enhanced Battlefield Passives provide more value than Enhanced Ultimate Passives. Overdrive passives alongside Toshiros bond should be used for those who plan to use Aizen as a solo DPS (with Momo/Kisuke and Szayelaporro), whereas Enhanced Battlefields along with Aizens bond are recommended for players who plan to use Aizen as a Tactic accompanied by a Full Assault unit. ',
     customAvatar: 'images/aizen.webp',
     panelImage: 'images/aizen panel.webp',
     avatarWidth: 200,
