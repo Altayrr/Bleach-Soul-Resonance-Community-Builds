@@ -295,12 +295,11 @@ const CHARACTERS = [
     bonds1Height: 120,
     bonds1PopupWidth: 490,
 
-    bonds2Imgs: ['images/sajin bond 2.webp'],
-    bonds2Info: `<div style="text-align: center; font-weight: bold;">Increases All-Type DMG during battle by <span style="color: #52C394;">15%</span>.</div>`,
-    bonds2OffsetX: 14,
-    bonds2OffsetX: 14,
-    bonds2Height: 122,
-    bonds2PopupWidth: 430
+    bonds2Imgs: ['images/aizen bond 1.webp'],
+    bonds2Info: `<div style="text-align: center; font-weight: bold;">During battle, DMG dealt increases by <span style="color: #52C394;">5.6% (Next: 8%)</span>.<br>This increases to <span style="color: #52C394;">8.4% (Next: 12%) / 11.2% (Next: 16%) / 14% (Next: 20%)</span><br>if Crit Rate reaches <span style="color: #52C394;">20% / 40% / 60%</span>.</div>`,
+    bonds2OffsetX: 15,
+    bonds2Height: 119,
+    bonds2PopupWidth: 490
   },
   {
     id: 'gin',
