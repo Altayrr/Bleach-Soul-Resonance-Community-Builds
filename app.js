@@ -160,7 +160,7 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/grimm core.webp','images/tosen core 3.webp'],
+    coreStampImgs: ['images/grimm res core.webp','images/gin core 2.webp','images/gin core 3.webp'],
     coreStampAngles: [-2, 1, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
@@ -188,7 +188,30 @@ const CHARACTERS = [
         }
       },
       {
-        name: 'Rushing Into Danger',
+        name: 'Complicated Mood',
+		dividerColor: 'null',
+        stars: 5,
+        base: {
+          rows: [
+            { label: 'ATK', value: '113' },
+            { label: 'DEF', value: '94' },
+            { label: 'HP', value: '566' },
+            { label: 'All-Type DMG Bonus', value: '7.2%' }
+          ],
+          text: '<p>Each time a Technique is dealt, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">65%</span> of the current Technique.</p>'
+        },
+        max: {
+          rows: [
+            { label: 'ATK', value: '488' },
+            { label: 'DEF', value: '407' },
+            { label: 'HP', value: '2443' },
+            { label: 'All-Type DMG Bonus', value: '15.3%' }
+          ],
+          text: '<p>Each time a Technique is dealt, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">130%</span> of the current Technique.</p>'
+        }
+      },
+      {
+        name: 'Still Want To Fight?',
         dividerColor: '#8f5cff',
         stars: 4,
         base: {
@@ -198,7 +221,7 @@ const CHARACTERS = [
             { label: 'HP', value: '503' },
             { label: 'All-Type DMG Bonus', value: '6.4%' }
           ],
-          text: '<p>Each time a Battlefield Skill is released, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">25%</span> of the current Ultimate.</p>'
+          text: '<p>Each time a Technique is dealt, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">33%</span> of the current Technique.</p>'
         },
         max: {
           rows: [
@@ -207,7 +230,7 @@ const CHARACTERS = [
             { label: 'HP', value: '1824' },
             { label: 'All-Type DMG Bonus', value: '11.2%' }
           ],
-          text: '<p>Each time a Battlefield Skill is released, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">50%</span> of the current Ultimate.</p>'
+          text: '<p>Each time a Technique is dealt, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">66%</span> of the current Technique.</p>'
         }
       }
     ],
@@ -644,7 +667,7 @@ const CHARACTERS = [
       desc: 'Creates a "perfect hypnosis" that controls all five senses of anyone who witnesses its release. Aizen used this ability for over 100 years to hide his true plans. The only defence is to touch the blade before release. Combined with the Hōgyoku, Aizen attained an unprecedented form beyond any known category.'
     },
     bio: 'Once considered the most respected captain of the Gotei 13, Aizen orchestrated a century-long conspiracy from behind a mask of perfect benevolence. His intellect, spiritual power, and manipulative genius set him in a category entirely his own. He sought to transcend the limits placed on all beings by fate itself.',
-    instructions: '',
+    instructions: 'Aizen is one of the best units in the current meta, however there are certain features of his kit that you must be aware of. A mistake many players make is assuming "I Will Stand Atop The Heavens" is Aizens Ultimate, however this is classified as his Battlefield Skill, therefore Enhanced Battlefield Passives provide more value than Enhanced Ultimate Passives. Overdrive passives alongside Toshiros bond should be used for those who plan to use Aizen as a solo DPS (with Momo/Kisuke and Szayelaporro), whereas Enhanced Battlefields along with Aizens bond are recommended for players who plan to use Aizen as a Tactic accompanied by a Full Assault unit. ',
     customAvatar: 'images/aizen.webp',
     panelImage: 'images/aizen panel.webp',
     avatarWidth: 200,
