@@ -160,7 +160,7 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/grimm core.webp','images/tosen core 3.webp'],
+    coreStampImgs: ['images/grimm res core.webp','images/gin core 2.webp','images/gin core 3.webp'],
     coreStampAngles: [-2, 1, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
@@ -188,7 +188,30 @@ const CHARACTERS = [
         }
       },
       {
-        name: 'Rushing Into Danger',
+        name: 'Complicated Mood',
+		dividerColor: 'null',
+        stars: 5,
+        base: {
+          rows: [
+            { label: 'ATK', value: '113' },
+            { label: 'DEF', value: '94' },
+            { label: 'HP', value: '566' },
+            { label: 'All-Type DMG Bonus', value: '7.2%' }
+          ],
+          text: '<p>Each time a Technique is dealt, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">65%</span> of the current Technique.</p>'
+        },
+        max: {
+          rows: [
+            { label: 'ATK', value: '488' },
+            { label: 'DEF', value: '407' },
+            { label: 'HP', value: '2443' },
+            { label: 'All-Type DMG Bonus', value: '15.3%' }
+          ],
+          text: '<p>Each time a Technique is dealt, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">130%</span> of the current Technique.</p>'
+        }
+      },
+      {
+        name: 'Still Want To Fight?',
         dividerColor: '#8f5cff',
         stars: 4,
         base: {
@@ -198,7 +221,7 @@ const CHARACTERS = [
             { label: 'HP', value: '503' },
             { label: 'All-Type DMG Bonus', value: '6.4%' }
           ],
-          text: '<p>Each time a Battlefield Skill is released, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">25%</span> of the current Ultimate.</p>'
+          text: '<p>Each time a Technique is dealt, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">33%</span> of the current Technique.</p>'
         },
         max: {
           rows: [
@@ -207,7 +230,7 @@ const CHARACTERS = [
             { label: 'HP', value: '1824' },
             { label: 'All-Type DMG Bonus', value: '11.2%' }
           ],
-          text: '<p>Each time a Battlefield Skill is released, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">50%</span> of the current Ultimate.</p>'
+          text: '<p>Each time a Technique is dealt, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">66%</span> of the current Technique.</p>'
         }
       }
     ],
