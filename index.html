@@ -137,6 +137,30 @@
     display: flex; justify-content: center; gap: 4px;
     padding: 10px 20px; flex-wrap: wrap;
     background: linear-gradient(180deg, rgba(1,2,4,0.95) 0%, rgba(1,2,4,0.7) 100%);
+    --selector-character-width: 210px;
+    --selector-character-height: auto;
+    --selector-character-x: -116px;
+    --selector-character-y: -128px;
+    --selector-character-angle: -3deg;
+    --selector-character-scale: 1;
+    min-height: 43px;
+  }
+  .selector-character {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 11;
+    width: var(--selector-character-width);
+    height: var(--selector-character-height);
+    object-fit: contain;
+    object-position: center;
+    pointer-events: none;
+    transform:
+      translate(var(--selector-character-x), var(--selector-character-y))
+      rotate(var(--selector-character-angle))
+      scale(var(--selector-character-scale));
+    transform-origin: center;
+    filter: drop-shadow(0 18px 24px rgba(0,0,0,0.72));
   }
   .div-tab {
     font-family: 'Cinzel', serif;
@@ -258,6 +282,9 @@
     background: #0f1520; border: 1px solid rgba(255,255,255,0.85);
     overflow: hidden; border-radius: 0;
     display: flex; flex-direction: column;
+    position: relative;
+    color: inherit;
+    text-decoration: none;
   }
   .char-card:hover {
     transform: translateY(-4px);
@@ -286,6 +313,10 @@
   .card-info { display: none; }
   .char-card.selected {
     box-shadow: 0 0 0 2px #ffffff, 0 0 20px rgba(255,255,255,0.7);
+  }
+  .char-card.upcoming {
+    cursor: default;
+    border-color: rgba(255,255,255,0.85);
   }
   .card-glow, .card-bg-aura, .reiatsu-layer { display: none; }
 
@@ -893,12 +924,13 @@
 </header>
 
 <div class="division-bar">
+  <img class="selector-character" src="images/section-selector-character.png" alt="" aria-hidden="true">
   <button class="div-tab active" onclick="setCategoryFilter('all', this)">All</button>
   <button class="div-tab" onclick="setCategoryFilter('captain', this)">Captains</button>
   <button class="div-tab" onclick="setCategoryFilter('lieutenant', this)">Lieutenants</button>
   <button class="div-tab" onclick="setCategoryFilter('espada', this)">Espada</button>
   <button class="div-tab" onclick="setCategoryFilter('karakura', this)">Karakura Town</button>
-  <button class="div-tab" onclick="setCategoryFilter('quincy', this)">Quincy</button>
+  <button class="div-tab" onclick="setCategoryFilter('hollow', this)">Hollow</button>
 </div>
 
 <main id="stage">
@@ -965,6 +997,283 @@
 <script>
 // ==================== CHARACTER DATA ====================
 const CHARACTERS = [
+  {
+    id: 'ulquiorra-resurreccion',
+    category: 'espada',
+    type: 'Spirit',
+    role: 'Dps',
+    upcoming: 'Yes',
+    name: 'Ulquiorra - Resurreccion',
+    nameJP: 'Upcoming',
+    divisionLabel: 'Upcoming Character',
+    color: '#58d8c8',
+    quote: 'Upcoming character - records are not available yet.',
+    zanpakuto: {
+      name: 'Upcoming',
+      release: 'Coming soon',
+      desc: 'This character is not in the game yet.'
+    },
+    bio: 'This character is not in the game yet.',
+    customAvatar: 'images/ulq res.webp',
+    panelImage: '',
+    avatarWidth: 210,
+    avatarHeight: 212,
+    avatarOffsetX: 0,
+    avatarOffsetY: -2,
+    avatarFit: 'contain',
+    panelScale: 1,
+
+    statsImgs: [],
+    statsAngles: [],
+    statsGaps: [],
+    statsHeights: [],
+
+    coreStampImgs: [],
+    coreStampAngles: [],
+    coreStampGaps: [],
+    coreStampPopupData: [],
+    coreStampPopupWidths: [],
+
+    setStampBeforeText: '',
+    setStampImgs: [],
+    setStampAngles: [],
+    setStampGaps: [],
+    setStampInfos: [],
+    setStampPopupWidths: [],
+    setStampAfterText: '',
+
+    weaponStampImgs: [],
+    weaponStampAngles: [],
+    weaponStampGaps: [],
+    weaponStampPopupData: [],
+    weaponStampPopupWidths: [],
+
+    bonds1Imgs: [],
+    bonds1Info: '',
+    bonds1OffsetX: 0,
+    bonds1Height: null,
+    bonds1PopupWidth: null,
+
+    bonds2Imgs: [],
+    bonds2Info: '',
+    bonds2OffsetX: 0,
+    bonds2Height: null,
+    bonds2PopupWidth: null
+  },
+  {
+    id: 'white-ichigo',
+    category: 'hollow',
+    type: 'Slash',
+    role: 'Tactic',
+    upcoming: 'Yes',
+    name: 'White Ichigo',
+    nameJP: 'Upcoming',
+    divisionLabel: 'Upcoming Character',
+    color: '#e8eaf0',
+    quote: 'Upcoming character - records are not available yet.',
+    zanpakuto: {
+      name: 'Upcoming',
+      release: 'Coming soon',
+      desc: 'This character is not in the game yet.'
+    },
+    bio: 'This character is not in the game yet.',
+    customAvatar: 'images/white.webp',
+    panelImage: '',
+    avatarWidth: 220,
+    avatarHeight: 212,
+    avatarOffsetX: 0,
+    avatarOffsetY: -2,
+    avatarFit: 'contain',
+    panelScale: 1,
+
+    statsImgs: [],
+    statsAngles: [],
+    statsGaps: [],
+    statsHeights: [],
+
+    coreStampImgs: [],
+    coreStampAngles: [],
+    coreStampGaps: [],
+    coreStampPopupData: [],
+    coreStampPopupWidths: [],
+
+    setStampBeforeText: '',
+    setStampImgs: [],
+    setStampAngles: [],
+    setStampGaps: [],
+    setStampInfos: [],
+    setStampPopupWidths: [],
+    setStampAfterText: '',
+
+    weaponStampImgs: [],
+    weaponStampAngles: [],
+    weaponStampGaps: [],
+    weaponStampPopupData: [],
+    weaponStampPopupWidths: [],
+
+    bonds1Imgs: [],
+    bonds1Info: '',
+    bonds1OffsetX: 0,
+    bonds1Height: null,
+    bonds1PopupWidth: null,
+
+    bonds2Imgs: [],
+    bonds2Info: '',
+    bonds2OffsetX: 0,
+    bonds2Height: null,
+    bonds2PopupWidth: null
+  },
+  {
+    id: 'grimmjow-resurreccion',
+    category: 'espada',
+    type: 'Strike',
+    role: 'Dps',
+    upcoming: 'No',
+    name: 'Grimmjow - Resurreccion',
+    nameJP: 'グリムジョー・ジャガージャック',
+    divisionLabel: 'Sexta Espada - Resurreccion',
+    color: '#4488ff',
+    quote: '"Grind, Pantera."',
+    stats: { Reiatsu: 88, Swordsmanship: 88, Kidō: 60, Speed: 90, Strength: 90 },
+    zanpakuto: {
+      name: 'Pantera',
+      release: '"Grind, Pantera"',
+      desc: 'Grimmjow\'s release transforms him into a sleek, feline warrior with enhanced speed, agility, and devastating claw attacks. His signature technique, Desgarrón, creates massive energy slashes from his fingertips.'
+    },
+    bio: 'Grimmjow in his released Pantera form, a faster and more savage version of the Sexta Espada built around close-range pressure, destructive claws, and relentless instinct.',
+    customAvatar: 'images/grimm res.webp',
+    panelImage: 'images/grimm panel.webp',
+    avatarWidth: 190,
+    avatarHeight: 210,
+    avatarOffsetX: 0,
+    avatarOffsetY: -4,
+    avatarFit: 'contain',
+    panelScale: 1,
+
+    statsImgs:    ['images/espada.webp','images/strike.webp','images/dps.webp'],
+    statsAngles:  [0,0,0],
+    statsGaps:    [80,80],
+    statsHeights: [80,80,80],
+
+    coreStampImgs: ['images/grimm core.webp','images/tosen core 3.webp'],
+    coreStampAngles: [-2, 1, 3],
+    coreStampGaps: [80, 80],
+    coreStampPopupData: [
+      {
+        name: 'The Path of Instinct',
+		dividerColor: 'null',
+        stars: 6,
+        base: {
+          rows: [
+            { label: 'ATK', value: '125' },
+            { label: 'DEF', value: '105' },
+            { label: 'HP', value: '629' },
+            { label: 'Strike DMG Bonus', value: '8.0%' }
+          ],
+          text: '<p>-Increases Ultimate Charge Rate by  <span style="color: #52C394;">15%</span>.<br>-Damage dealt by Ultimate, Gran Rey Cero, and Enhanced Basic Attack, Form of Destruction, increases by  <span style="color: #52C394;">37.5%</span>.<br>-Each point of Spiritual Pressure Reserve increases Grimmjow\'s Crit Rate by  <span style="color: #52C394;">4%</span> and Crit DMG by  <span style="color: #52C394;">8%</span>.</p>'
+        },
+        max: {
+          rows: [
+            { label: 'ATK', value: '630' },
+            { label: 'DEF', value: '525' },
+            { label: 'HP', value: '3150' },
+            { label: 'Strike DMG Bonus', value: '20.0%' }
+          ],
+          text: '<p>-Increases Ultimate Charge Rate by  <span style="color: #52C394;">30%</span>.<br>-Damage dealt by Ultimate, Gran Rey Cero, and Enhanced Basic Attack, Form of Destruction, increases by  <span style="color: #52C394;">75%</span>.<br>-Each point of Spiritual Pressure Reserve increases Grimmjow\'s Crit Rate by  <span style="color: #52C394;">8%</span> and Crit DMG by  <span style="color: #52C394;">16%</span>.</p>'
+        }
+      },
+      {
+        name: 'Rushing Into Danger',
+        dividerColor: '#8f5cff',
+        stars: 4,
+        base: {
+          rows: [
+            { label: 'ATK', value: '100' },
+            { label: 'DEF', value: '83' },
+            { label: 'HP', value: '503' },
+            { label: 'All-Type DMG Bonus', value: '6.4%' }
+          ],
+          text: '<p>Each time a Battlefield Skill is released, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">25%</span> of the current Ultimate.</p>'
+        },
+        max: {
+          rows: [
+            { label: 'ATK', value: '365' },
+            { label: 'DEF', value: '304' },
+            { label: 'HP', value: '1824' },
+            { label: 'All-Type DMG Bonus', value: '11.2%' }
+          ],
+          text: '<p>Each time a Battlefield Skill is released, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">50%</span> of the current Ultimate.</p>'
+        }
+      }
+    ],
+    coreStampPopupWidths: [null, null, null],
+
+    setStampBeforeText: '<p>No Data :).</p>',
+    setStampImgs: ['images/yoru set 1.webp', 'images/yoru set 2.webp', 'images/yoru set 3.webp'],
+    setStampAngles: [0, 0, -3],
+    setStampGaps: [30, 90],
+    setStampInfos: ['<p><span style="color: #EA4A86;">-The recommended Stats are:</span><br>1) Ult Charge Rate%<br>2) Crit Rate%<br>3) Crit DMG%</p></p>', '<p><span style="color: #EA4A86;">-The recommended Stats are:</span><br>1) Ult Charge Rate%<br>2) Crit Rate%<br>3) Crit DMG%</p></p>', '<p><span style="color: #EA4A86;">-The recommended Stats are:</span><br>1) Ult Charge Rate%<br>2) Crit Rate%<br>3) Crit DMG%</p></p>'],
+    setStampPopupWidths: [380, 380, 380],
+    setStampAfterText: '<p><span style="color: #EA4A86;">Midnight Specter (3/3) </span><br>2-Piece: Increases Strike DMG by <span style="color: #52C394;">11%</span>.<br>3-Piece: Increases Ultimate DMG by <span style="color: #52C394;">30%</span>. Each time a basic attack is released, increases special attack DMG by <span style="color: #52C394;">5.5%</span> for 10s. Stacks up to 5 times.</p>',
+
+    weaponStampImgs: ['images/grimm weapon.webp','images/sajin weapon 2.webp'],
+    weaponStampAngles: [-3, 5],
+    weaponStampGaps: [90],
+    weaponStampPopupData: [
+      {
+        name: 'At Long Last',
+		dividerColor: 'null',
+        stars: 0,
+        base: {
+          rows: [
+			{ label: 'Weapon Stats Boost', value: '50%' },
+          ],
+          note: 'Grimmjow Exclusive Effect',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-In battle, increases ATK by an amount equal to  <span style="color: #52C394;">9%</span> of the character\'s Ultimate Charge Rate.<br>-When detonating <span style="color: #EA4A86; text-decoration: underline;">Destruction Mark</span>, deals additional damage equal to  <span style="color: #52C394;">100%</span> of ATK to the enemy. For every  <span style="color: #52C394;">1%</span> Ultimate Charge Rate, the damage is further increased by  <span style="color: #52C394;">0.5%</span>.<br>-Each time Grimmjow\'s attack hits an enemy, slightly reduces the cooldown of technique and Perfect Dodge.</p></p>'
+        },
+        max: {
+          rows: [
+            { label: 'Weapon Stats Boost', value: '50%' },
+          ],
+          note: 'Grimmjow Exclusive Effect',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-In battle, increases ATK by an amount equal to  <span style="color: #52C394;">18%</span> of the character\'s Ultimate Charge Rate.<br>-When detonating <span style="color: #EA4A86; text-decoration: underline;">Destruction Mark</span>, deals additional damage equal to  <span style="color: #52C394;">100%</span> of ATK to the enemy. For every  <span style="color: #52C394;">1%</span> Ultimate Charge Rate, the damage is further increased by  <span style="color: #52C394;">1%</span>.<br>-Each time Grimmjow\'s attack hits an enemy, slightly reduces the cooldown of technique and Perfect Dodge.</p></p>'
+        }
+      },
+      {
+        name: 'Power Strike',
+		dividerColor: '#8f5cff',
+        stars: 0,
+        base: {
+          rows: [
+            { label: 'Weapon Stats Boost', value: '25.0%' },
+          ],
+          note: 'Applicable to all characters',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>After dealing Strike DMG, Base ATK increases by <span style="color: #52C394;">15%</span> for 12s. Unstackable.</p></p>'
+        },
+        max: {
+          rows: [
+            { label: 'Weapon Stats Boost', value: '25.0%' },
+          ],
+          note: 'Applicable to all characters',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>After dealing Strike DMG, Base ATK increases by <span style="color: #52C394;">30%</span> for 12s. Unstackable.</p></p>'
+        }
+      },
+    ],
+    weaponStampPopupWidths: [null, null],
+
+    bonds1Imgs: ['images/grimm bond 1.webp'],
+    bonds1Info: `<div style="text-align: center; font-weight: bold;">Increases All-Skill Mastery by  <span style="color: #52C394;">3.5% (Next: 7%)</span> and Ailment Mastery by  <span style="color: #52C394;">3.5% (Next: 7%)</span> during battle. When equipped by a <span style="color: #ffaa00;">Full Assault</span> character, increases Strike Mastery by an extra  <span style="color: #52C394;">7.5% (Next: 15%)</span>.</div>`,
+    bonds1OffsetX: 15,
+    bonds1Height: 120,
+    bonds1PopupWidth: 490,
+
+    bonds2Imgs: ['images/sajin bond 2.webp'],
+    bonds2Info: `<div style="text-align: center; font-weight: bold;">Increases All-Type DMG during battle by <span style="color: #52C394;">15%</span>.</div>`,
+    bonds2OffsetX: 14,
+    bonds2OffsetX: 14,
+    bonds2Height: 122,
+    bonds2PopupWidth: 430
+  },
   {
     id: 'gin',
     category: 'captain',
@@ -1193,7 +1502,7 @@ const CHARACTERS = [
             { label: 'HP', value: '3150' },
             { label: 'Strike DMG Bonus', value: '20.0%' }
           ],
-          text: '<p>No Data.                                                                                                                                                                                                                                                                                                                                                                             </p>'
+          text: '<p>Each time 1 point of <span style="color: #EA4A86; text-decoration: underline;">Deathmark</span> is consumed, Soi Fon gains 1 stack of intuition, increasing her Technique DMG by <span style="color: #52C394;">5%</span>. This effect stacks up to 10 times, and upon reaching 10 stacks, her Ultimate also gains a <span style="color: #52C394;">300%</span> Crit DMG Bonus.<br>When her Ultimate lands a critical hit, it immediately triggers an extra <span style="color: #EA4A86; text-decoration: underline;">Sting</span> equal to <span style="color: #52C394;">1,500%</span> of Soi Fon\'s ATK.<br>After her Ultimate hits an enemy, all damage the target takes afterward is increases by <span style="color: #52C394;">20%</span> for 30 seconds.<br>Increases Ultimate DMG by <span style="color: #52C394;">60%</span>.</p>'
         }
       },
       {
@@ -1712,7 +2021,7 @@ const CHARACTERS = [
             { label: 'HP', value: '3150' },
             { label: 'Thrust DMG Bonus', value: '20.0%' }
           ],
-          text: '<p>No Data.<br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   l</p>'
+          text: '<p>-Increases Ultimate DMG by <span style="color: #52C394;">150%</span>.<br>-Each stack of <span style="color: #EA4A86; text-decoration: underline;">Excitement</span> grants an extra <span style="color: #52C394;">10%</span> ATK to the entire team.<br>-The Crit DMG granted by Terror is additionally increased by <span style="color: #52C394;">160%</span>.<br>-When receiving fatal damage, transforms into a puddle of green liquid and revives after a short while with full Spiritual Pressure and Ultimate Energy.<br>Cooldown: 120 seconds.</p>'
         }
       },
       {
@@ -1762,14 +2071,14 @@ const CHARACTERS = [
 			{ label: 'Weapon Stats Boost', value: '50%' },
           ],
           note: 'Kurotsuchi Mayuri Exclusive Effect',
-          text: '<p>No Data.                                                                                                                                                                                                                                                                                                                                                                                                                                 </p>'
+          text: '<p>-When the battle begins, increases Ultimate Energy and Spiritual Pressure to the maximum.<br>-Increases Technique DMG by <span style="color: #52C394;">50%</span> and healing effects by <span style="color: #52C394;">25%</span>.<br>-When releasing the Ultimate, increases the entire team\'s <span style="color: #EA4A86; text-decoration: underline;">All-Skill Mastery</span> by an extra <span style="color: #52C394;">5%</span> and Ailment Mastery by <span style="color: #52C394;">10%</span></p>'
         },
         max: {
           rows: [
             { label: 'Weapon Stats Boost', value: '50%' },
           ],
           note: 'Kurotsuchi Mayuri Exclusive Effect',
-          text: '<p>No Data.                                                                                                                                                                                                                                                                                                                                                                                                                                 </p>'
+          text: '<p>-When the battle begins, increases Ultimate Energy and Spiritual Pressure to the maximum.<br>-Increases Technique DMG by <span style="color: #52C394;">100%</span> and healing effects by <span style="color: #52C394;">50%</span>.<br>-When releasing the Ultimate, increases the entire team\'s <span style="color: #EA4A86; text-decoration: underline;">All-Skill Mastery</span> by an extra <span style="color: #52C394;">10%</span> and Ailment Mastery by <span style="color: #52C394;">20%</span></p>'
         }
       },
       {
@@ -2381,7 +2690,7 @@ const CHARACTERS = [
             { label: 'HP', value: '3150' },
             { label: 'Slash DMG Bonus', value: '20.0%' }
           ],
-          text: '<p>No Data.</p>'
+          text: '<p>-When casting the Ultimate, Full Power, all enemies are inflicted with <span style="color: #EA4A86; text-decoration: underline;">Cleave</span>. If enemies are already affected by <span style="color: #EA4A86; text-decoration: underline;">Cleave</span>, its duration is extended by 8 seconds.<br>While War Wraith is active, each basic attack hit increases the damage of the next Ultimate, "Kendo", by <span style="color: #52C394;">20%</span>, stacking up to 10 times.<br>Releasing the technique, Spiritual Pressure Burst, and its follow-up attacks grants 1 stack of buff that increases Technique DMG by <span style="color: #52C394;">50%</span> for 5 seconds, stacking up to 2 times.<br>When casting the Special Attack, Rampage Raid, gain 1 stack of a buff that increases Crit Rate by <span style="color: #52C394;">10%</span> for 30 seconds, stacking up to 2 times.</p>'
         }
       },
       {
@@ -2436,13 +2745,13 @@ const CHARACTERS = [
     setStampBeforeText: '<p><span style="color: #EA4A86;">-The recommended passives for Kenpachi Zaraki - Slash are:</span><br>1) Overdrive - Full Assault<br>2) Enhanced Damage<br>3) Enhanced Ultimate<br>4) Enhanced Technique</p><p><span style="color: #EA4A86;">-Boundary Dependant Build Changes:</span><br>Zaraki Kenpachi at B2 gets a <span style="color: #52C394;">30%</span> crit rate boost (requiring <span style="color: #52C394;">60%</span> Ailment Bonus), and his core stamp provides <span style="color: #52C394;">20%</span>. Thus, at b2, you should be using a CRIT DMG slot 2 mainstat, and aim to get the remaining <span style="color: #52C394;">50%</span> through substats.</p>',
     setStampImgs: ['images/kenpachi set 1.webp', 'images/kenpachi set 2.webp', 'images/kenpachi set 3.webp'],
     setStampAngles: [0, 0, -3],
-    setStampGaps: [30, 90],
+    setStampGaps: [30, 70],
     setStampInfos: ['<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Slash DMG Bonus%<br>2) ATK%</p><p><span style="color: #EA4A86;">-Substats:</span><br>CR% = CDMG% > Ailment DMG Bonus% > Ult Charge Rate% > ATK%</p>', '<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Crit Rate%<br>2) Crit DMG%</p><p><span style="color: #EA4A86;">-Substats:</span><br>CR% = CDMG% > Ailment DMG Bonus% > Ult Charge Rate% > ATK%</p>', '<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Ultimate Charge Rate%(For B0 and B1)<br>2) Ailment DMG%(For B2 and Higher)</p><p><span style="color: #EA4A86;">-Substats:</span><br>CR% = CDMG% > Ailment DMG Bonus% > Ult Charge Rate% > ATK%</p>'],
     setStampPopupWidths: [380, 380, 380],
     setStampAfterText: '<p><span style="color: #EA4A86;">Ready To GO (3/3) </span><br>2-Piece: Increases Base ATK by <span style="color: #52C394;">20%</span>.<br>3-Piece: Increases Crit DMG by <span style="color: #52C394;">50%</span>. Each time Cleave is applied to an enemy, the Ailment DMG dealt by your Sever Attacks is increased by <span style="color: #52C394;">12%</span>. This effect lasts for 30 seconds and stacks up to 3 times.</p>',
 
     weaponStampImgs: ['images/kenpachi weapon.webp', 'images/kenpachi weapon 2.webp'],
-    weaponStampAngles: [-3, 5],
+    weaponStampAngles: [0, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
       {
@@ -2454,14 +2763,14 @@ const CHARACTERS = [
 			{ label: 'Weapon Stats Boost', value: '50%' },
           ],
           note: 'Kenpachi Zaraki Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-No Data.</p></p>'
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-Releasing the final hit of a Special Attack returns 1 point of <span style="color: #EA4A86; text-decoration: underline;">Frenzy</span>.<br>-Increases the damage dealt by every technique by <span style="color: #52C394;">50%</span>.<br>-When any of Kenpachi\'s attacks lands a critical hit, it triggers an additional hit dealing damage equal to <span style="color: #52C394;">20%</span> of that attack.</p></p>'
         },
         max: {
           rows: [
             { label: 'Weapon Stats Boost', value: '50%' },
           ],
           note: 'Kenpachi Zaraki Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-Still No Data..</p></p>'
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-Releasing the final hit of a Special Attack returns 1 point of <span style="color: #EA4A86; text-decoration: underline;">Frenzy</span>.<br>-Increases the damage dealt by every technique by <span style="color: #52C394;">100%</span>.<br>-When any of Kenpachi\'s attacks lands a critical hit, it triggers an additional hit dealing damage equal to <span style="color: #52C394;">40%</span> of that attack.</p></p>'
         }
       },
       {
@@ -3037,18 +3346,18 @@ const CHARACTERS = [
             { label: 'ATK', value: '125' },
             { label: 'DEF', value: '105' },
             { label: 'HP', value: '629' },
-            { label: 'Spirit DMG Bonus', value: '8.0%' }
+            { label: 'Thrust DMG Bonus', value: '8.0%' }
           ],
-          text: '<p>-Upon releasing the Ultimate, the on-field character gains 1 stack of Illusion. Each time that character lands a hit, they gain another stack of Illusion.</p><p>Each stack of Illusion increases their Spirit DMG by <span style="color: #52C394;">0.5%</span>, up to 10 stacks, lasting until <span style="color: #EA4A86; text-decoration: underline;">Kyokasuigetsu</span> ends.</p><p>-When a counterattack from switching characters is triggered by the passive Battle of Spiritual Pressure, the new on-field character inherits all Illusion stacks, and the cap is doubled, up to 40 stacks. Upon reaching full stacks, Illusion also grants an extra <span style="color: #52C394;">25%</span> Crit DMG bonus.</p><p>-While under the <span style="color: #EA4A86; text-decoration: underline;">Spiritual Domination</span>, Aizen\'s Basic Attacks, techniques, and counterattacks deal <span style="color: #52C394; ">300%</span> more damage.</p>'
+          text: '<p>-Increases the direct damage of the Ultimate by <span style="color: #52C394;">30%</span>.<br>-During Resurreccion, every 1 point of <span style="color: #EA4A86; text-decoration: underline;">Battle Will</span> consumed increases the damage of the Ultimate, Lanzador Verde, by  <span style="color: #52C394;">5%</span>, stacking up to 9 time(s) and lasts until Resurreccion ends.<br>-Increases Ailment Mastery by <span style="color: #52C394;">20%</span> during battle.<br>-Enemies hit by the Ultimate, Lanzador Verde, are inflicted with Armor Shatter for 30 seconds, reducing their All-Type Resistance by <span style="color: #52C394;">15%</span>.<br>Unstackable.</p>'
         },
         max: {
           rows: [
             { label: 'ATK', value: '630' },
             { label: 'DEF', value: '525' },
             { label: 'HP', value: '3150' },
-            { label: 'Spirit DMG Bonus', value: '20.0%' }
+            { label: 'Thrust DMG Bonus', value: '20.0%' }
           ],
-          text: '<p>-Upon releasing the Ultimate, the on-field character gains 1 stack of Illusion. Each time that character lands a hit, they gain another stack of Illusion.</p><p>Each stack of Illusion increases their Spirit DMG by <span style="color: #52C394;">1%</span>, up to 10 stacks, lasting until <span style="color: #EA4A86; text-decoration: underline;">Kyokasuigetsu</span> ends.</p><p>-When a counterattack from switching characters is triggered by the passive Battle of Spiritual Pressure, the new on-field character inherits all Illusion stacks, and the cap is doubled, up to 40 stacks. Upon reaching full stacks, Illusion also grants an extra <span style="color: #52C394;">50%</span> Crit DMG bonus.</p><p>-While under the <span style="color: #EA4A86; text-decoration: underline;">Spiritual Domination</span>, Aizen\'s Basic Attacks, techniques, and counterattacks deal <span style="color: #52C394; ">500%</span> more damage.</p>'
+          text: '<p>-Increases the direct damage of the Ultimate by <span style="color: #52C394;">30%</span>.<br>-During Resurreccion, every 1 point of <span style="color: #EA4A86; text-decoration: underline;">Battle Will</span> consumed increases the damage of the Ultimate, Lanzador Verde, by  <span style="color: #52C394;">10%</span>, stacking up to 9 time(s) and lasts until Resurreccion ends.<br>-Increases Ailment Mastery by <span style="color: #52C394;">40%</span> during battle.<br>-Enemies hit by the Ultimate, Lanzador Verde, are inflicted with Armor Shatter for 30 seconds, reducing their All-Type Resistance by <span style="color: #52C394;">30%</span>.<br>Unstackable.</p>'
         }
       },
       {
@@ -3100,39 +3409,39 @@ const CHARACTERS = [
     ],
     coreStampPopupWidths: [null, null, null],
 
-    setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
+    setStampBeforeText: '<p><span style="color: #EA4A86;">-The recommended passives for Nelliel Tu Odelschwanck - Thrust are:</span><br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Ultimate<br>4) Enhanced Technique</p><p><span style="color: #EA4A86;">-Boundary Dependant Build Changes:</span><br>At B6, Nelliel thrives way more with an ultimate charge rate % slot 3, and substats to achieve a total of <span style="color: #52C394;">148.5%</span> ultimate charge rate. This (alongside the correct rotation changes) provide an insane damage bonus as you can use more ultimates which means more damage nukes.</p>',
     setStampImgs: ['images/nelliel set 1.webp', 'images/nelliel set 2.webp', 'images/nelliel set 3.webp'],
     setStampAngles: [0, 0, -3],
-    setStampGaps: [30, 70],
-    setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
+    setStampGaps: [30, 90],
+    setStampInfos: ['<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) ATK% = Thrust DMG Bonus%.</p><p><span style="color: #EA4A86;">-Substats:</span><br>CR >>CD >ATK% >ULT% >Ailment%<br>B6" ULT%(To <span style="color: #52C394;">148.5%</span>) > CR >CD >ATK% >Ailment%</p>', '<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Crit Rate%<br>2) Crit DMG%</p><p><span style="color: #EA4A86;">-Substats:</span><br>CR >>CD >ATK% >ULT% >Ailment%<br>B6" ULT%(To <span style="color: #52C394;">148.5%</span>) > CR >CD >ATK% >Ailment%</p>', '<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Ult Charge Rate%</p><p><span style="color: #EA4A86;">-Substats:</span><br>CR >>CD >ATK% >ULT% >Ailment%<br>B6" ULT%(To <span style="color: #52C394;">148.5%</span>) > CR >CD >ATK% >Ailment%</p>'],
     setStampPopupWidths: [380, 380, 380],
-    setStampAfterText: '',
+    setStampAfterText: '<p><span style="color: #EA4A86;">Knight\'s Anthem (3/3) </span><br>2-Piece: Increases Crit DMG by <span style="color: #52C394;">40%</span>.<br>3-Piece: After each Ultimate is released, increases Thrust DMG by <span style="color: #52C394;">15%</span> for 30 seconds. After each Battlefield Skill is released, all character\'s Ailment DMG Bonus is increased by <span style="color: #52C394;">40%</span> for 30 seconds. These effects are not stackable.</p>',
 
     weaponStampImgs: ['images/nelliel weapon.webp', 'images/gin weapon 2.webp'],
     weaponStampAngles: [0, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
       {
-        name: 'Before We Realized',
+        name: 'Reason To Fight',
 		dividerColor: 'null',
         stars: 0,
         base: {
           rows: [
 			{ label: 'Weapon Stats Boost', value: '50%' },
           ],
-          note: 'Sosuke Aizen Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-Increases Crit Rate by <span style="color: #52C394;">25%</span>.</p><p>-Increases the damage of counterattacks triggered by the passive battle of Spiritual Pressure by <span style="color: #52C394;">12.5%</span>.</p><p>-Increases the cap of <span style="color: #EA4A86; text-decoration: underline">Enhanced Pressure Stacks</span> to 6. If the Battlefield Skill Hado 90: Kurohitsugi consumes all 6 stacks at once, an extra counterattack from switching teammates will be triggered.</p><p>-Each stack of <span style="color: #EA4A86; text-decoration: underline">Ravage</span> reduces the enemy\'s Spirit Resistance by an extra <span style="color: #52C394;">1%</span>.</p><p>-Releasing any Battlefield Skill grants 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>. While not under <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>, if fewer than 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possesed, obtaining them immediatly activates the <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>. if exactly 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possessed, entering <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span> grants another 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>.</p></p>'
+          note: 'Nelliel Exclusive Effect',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-The number of <span style="color: #EA4A86; text-decoration: underline;">Verde Rush</span> applied and the efficiency of <span style="color: #EA4A86; text-decoration: underline;">Verde Rush Points</span> are increased by <span style="color: #52C394;">25%</span>. The maximum stacks of <span style="color: #EA4A86;">Verde Rush Mark</span> are increased to 20.<br>-Damage dealt by all Techniques and Batttlefield Skills are increased by <span style="color: #52C394;">100%</span>.<br>-When the Battlefield Skill, Cero Sincretico, hits, it triggers an additional <span style="color: #EA4A86; text-decoration: underline;">Verde Rush</span>. The Base DMG of this <span style="color: #EA4A86; text-decoration: underline;">Verde Rush</span> equals to <span style="color: #52C394;">200%</span> of Nelliel\'s ATK. For each different debuff previously triggered on the enemy, this damage is doubled, up to a maximum of 8 times.</p></p>'
         },
         max: {
           rows: [
             { label: 'Weapon Stats Boost', value: '50%' },
           ],
-          note: 'Sosuke Aizen Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-Increases Crit Rate by <span style="color: #52C394;">50%</span>.</p><p>-Increases the damage of counterattacks triggered by the passive battle of Spiritual Pressure by <span style="color: #52C394;">25%</span>.</p><p>-Increases the cap of <span style="color: #EA4A86; text-decoration: underline">Enhanced Pressure Stacks</span> to 6. If the Battlefield Skill Hado 90: Kurohitsugi consumes all 6 stacks at once, an extra counterattack from switching teammates will be triggered.</p><p>-Each stack of <span style="color: #EA4A86; text-decoration: underline">Ravage</span> reduces the enemy\'s Spirit Resistance by an extra <span style="color: #52C394;">2%</span>.</p><p>-Releasing any Battlefield Skill grants 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>. While not under <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>, if fewer than 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possesed, obtaining them immediatly activates the <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>. if exactly 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possessed, entering <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span> grants another 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>.</p></p>'
+          note: 'Nelliel Exclusive Effect',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-The number of <span style="color: #EA4A86; text-decoration: underline;">Verde Rush</span> applied and the efficiency of <span style="color: #EA4A86; text-decoration: underline;">Verde Rush Points</span> are increased by <span style="color: #52C394;">50%</span>. The maximum stacks of <span style="color: #EA4A86;">Verde Rush Mark</span> are increased to 20.<br>-Damage dealt by all Techniques and Batttlefield Skills are increased by <span style="color: #52C394;">200%</span>.<br>-When the Battlefield Skill, Cero Sincretico, hits, it triggers an additional <span style="color: #EA4A86; text-decoration: underline;">Verde Rush</span>. The Base DMG of this <span style="color: #EA4A86; text-decoration: underline;">Verde Rush</span> equals to <span style="color: #52C394;">400%</span> of Nelliel\'s ATK. For each different debuff previously triggered on the enemy, this damage is doubled, up to a maximum of 8 times.</p></p>'
         }
       },
       {
-        name: 'Chanting Spirit',
+        name: 'Piercing Thrust',
 		dividerColor: '#8f5cff',
         stars: 0,
         base: {
@@ -3140,14 +3449,14 @@ const CHARACTERS = [
             { label: 'Weapon Stats Boost', value: '25.0%' },
           ],
           note: 'Applicable to all characters',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>After dealing Spirit DMG, Base ATK increases by <span style="color: #52C394;">15%</span> for 12s. Unstackable.</p></p>'
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>After dealing Thrust DMG, Base ATK increases by <span style="color: #52C394;">15%</span> for 12s. Unstackable.</p>'
         },
         max: {
           rows: [
             { label: 'Weapon Stats Boost', value: '25.0%' },
           ],
           note: 'Applicable to all characters',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>After dealing Spirit DMG, Base ATK increases by <span style="color: #52C394;">30%</span> for 12s. Unstackable.</p></p>'
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>After dealing Thrust DMG, Base ATK increases by <span style="color: #52C394;">30%</span> for 12s. Unstackable.</p>'
         }
       },
     ],
@@ -3196,12 +3505,12 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/ichi core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
-    coreStampAngles: [-2, 1, 3],
+    coreStampImgs: ['images/ichi core.webp', 'images/kenpachi core 2.webp', 'images/ikkaku core 3.webp'],
+    coreStampAngles: [-1, 0, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
       {
-        name: 'Unrivaled',
+        name: 'Getsuga Tangle',
 		dividerColor: 'null',
         stars: 6,
         base: {
@@ -3209,22 +3518,22 @@ const CHARACTERS = [
             { label: 'ATK', value: '125' },
             { label: 'DEF', value: '105' },
             { label: 'HP', value: '629' },
-            { label: 'Spirit DMG Bonus', value: '8.0%' }
+            { label: 'Slash DMG Bonus', value: '8.0%' }
           ],
-          text: '<p>-Upon releasing the Ultimate, the on-field character gains 1 stack of Illusion. Each time that character lands a hit, they gain another stack of Illusion.</p><p>Each stack of Illusion increases their Spirit DMG by <span style="color: #52C394;">0.5%</span>, up to 10 stacks, lasting until <span style="color: #EA4A86; text-decoration: underline;">Kyokasuigetsu</span> ends.</p><p>-When a counterattack from switching characters is triggered by the passive Battle of Spiritual Pressure, the new on-field character inherits all Illusion stacks, and the cap is doubled, up to 40 stacks. Upon reaching full stacks, Illusion also grants an extra <span style="color: #52C394;">25%</span> Crit DMG bonus.</p><p>-While under the <span style="color: #EA4A86; text-decoration: underline;">Spiritual Domination</span>, Aizen\'s Basic Attacks, techniques, and counterattacks deal <span style="color: #52C394; ">300%</span> more damage.</p>'
+          text: '<p>-While <span style="color: #EA4A86; text-decoration: underline;">Hollowfied</span>, the counter button can be manually tapped to launch counterattacks.<br>-While <span style="color: #EA4A86; text-decoration: underline;">Hollowfied</span>, Ichigo\'s Crit Rate increases by <span style="color: #52C394;">15%</span>.<br>Manually releasing counterattacks increases the Crit Rate Bonus to <span style="color: #52C394;">25%</span>.<br>-Increases counterattacks DMG by <span style="color: #52C394;">60%</span>.<br>-Increases Ultimate Energy Charge Rate by <span style="color: #52C394;">20%</span> and gains full Ultimate Energy upon the battle begins.<br>-For 20 seconds after <span style="color: #EA4A86; text-decoration: underline;">Hollowfied</span> state ends, Technique cooldown is reduced by <span style="color: #52C394;">70%</span>.</p>'
         },
         max: {
           rows: [
             { label: 'ATK', value: '630' },
             { label: 'DEF', value: '525' },
             { label: 'HP', value: '3150' },
-            { label: 'Spirit DMG Bonus', value: '20.0%' }
+            { label: 'Slash DMG Bonus', value: '20.0%' }
           ],
-          text: '<p>-Upon releasing the Ultimate, the on-field character gains 1 stack of Illusion. Each time that character lands a hit, they gain another stack of Illusion.</p><p>Each stack of Illusion increases their Spirit DMG by <span style="color: #52C394;">1%</span>, up to 10 stacks, lasting until <span style="color: #EA4A86; text-decoration: underline;">Kyokasuigetsu</span> ends.</p><p>-When a counterattack from switching characters is triggered by the passive Battle of Spiritual Pressure, the new on-field character inherits all Illusion stacks, and the cap is doubled, up to 40 stacks. Upon reaching full stacks, Illusion also grants an extra <span style="color: #52C394;">50%</span> Crit DMG bonus.</p><p>-While under the <span style="color: #EA4A86; text-decoration: underline;">Spiritual Domination</span>, Aizen\'s Basic Attacks, techniques, and counterattacks deal <span style="color: #52C394; ">500%</span> more damage.</p>'
+          text: '<p>-While <span style="color: #EA4A86; text-decoration: underline;">Hollowfied</span>, the counter button can be manually tapped to launch counterattacks.<br>-While <span style="color: #EA4A86; text-decoration: underline;">Hollowfied</span>, Ichigo\'s Crit Rate increases by <span style="color: #52C394;">30%</span>.<br>Manually releasing counterattacks increases the Crit Rate Bonus to <span style="color: #52C394;">50%</span>.<br>-Increases counterattacks DMG by <span style="color: #52C394;">120%</span>.<br>-Increases Ultimate Energy Charge Rate by <span style="color: #52C394;">40%</span> and gains full Ultimate Energy upon the battle begins.<br>-For 20 seconds after <span style="color: #EA4A86; text-decoration: underline;">Hollowfied</span> state ends, Technique cooldown is reduced by <span style="color: #52C394;">70%</span>.</p>'
         }
       },
       {
-        name: 'Lesson Three Cleared!',
+        name: 'I\'ve Noticed You For A While',
 		dividerColor: 'null',
         stars: 5,
         base: {
@@ -3234,7 +3543,7 @@ const CHARACTERS = [
             { label: 'HP', value: '566' },
             { label: 'All-Type DMG Bonus', value: '7.2%' }
           ],
-          text: '<p>After releasing a Battlefield Skill, the entire team gains a <span style="color: #52C394;">8%</span> boost for all damage dealt that lasts for <span style="color: #52C394;">25</span>s.</p><p>Unstackable.</p>'
+          text: '<p>Increases the damage dealt by the special attack by <span style="color: #52C394;">25%</span>. Each time a Technique is released, increases the special attack DMG by an additional <span style="color: #52C394;">12.5%</span>, up to <span style="color: #52C394;">25%</span>.</p>'
         },
         max: {
           rows: [
@@ -3243,11 +3552,11 @@ const CHARACTERS = [
             { label: 'HP', value: '2443' },
             { label: 'All-Type DMG Bonus', value: '15.3%' }
           ],
-          text: '<p>After releasing a Battlefield Skill, the entire team gains a <span style="color: #52C394;">16%</span> boost for all damage dealt that lasts for <span style="color: #52C394;">25</span>s.</p><p>Unstackable.</p>'
+          text: '<p>Increases the damage dealt by the special attack by <span style="color: #52C394;">50%</span>. Each time a Technique is released, increases the special attack DMG by an additional <span style="color: #52C394;">25%</span>, up to <span style="color: #52C394;">50%</span>.</p>'
         }
       },
       {
-        name: 'Back-to-Back Combat',
+        name: 'Gather Up! Thirteen Court Guard Squads',
         dividerColor: '#8f5cff',
         stars: 4,
         base: {
@@ -3257,7 +3566,7 @@ const CHARACTERS = [
             { label: 'HP', value: '503' },
             { label: 'All-Type DMG Bonus', value: '6.4%' }
           ],
-          text: '<p>Each time a Battlefield Skill is released, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">25%</span> of the current Battlefield Skill.</p>'
+          text: '<p>Each time a special attack is dealt, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">25%</span> of the current special attack.</p>'
         },
         max: {
           rows: [
@@ -3266,45 +3575,45 @@ const CHARACTERS = [
             { label: 'HP', value: '1824' },
             { label: 'All-Type DMG Bonus', value: '11.2%' }
           ],
-          text: '<p>Each time a Battlefield Skill is released, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">50%</span> of the current Battlefield Skill.</p>'
+          text: '<p>Each time a special attack is dealt, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">50%</span> of the current special attack.</p>'
         }
       }
     ],
     coreStampPopupWidths: [null, null, null],
 
-    setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
+    setStampBeforeText: '<p><span style="color: #EA4A86;">-The recommended passives for Ichigo Kurosaki (Bankai) - Slash are:</span><br>1) Overdrive - Full Assault<br>2) Enhanced Damage<br>3) Enhanced Special Attack - Full Assault<br>4) Enhanced Ultimate</p><p><span style="color: #EA4A86;">-Boundary Dependant Build Changes:</span><br>Bankai Ichigo at B1 gets a <span style="color: #52C394;">60%</span> crit rate boost (<span style="color: #52C394;">30%</span> stacking 2x). However, as he converts excess crit rate at a 1:2 ratio anyways, the build does not change.</p>',
     setStampImgs: ['images/ichi set 1.webp', 'images/ichi set 2.webp', 'images/ichi set 3.webp'],
     setStampAngles: [0, 0, -3],
-    setStampGaps: [30, 90],
-    setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
-    setStampPopupWidths: [null, null, null],
-    setStampAfterText: '',
+    setStampGaps: [30, 70],
+    setStampInfos: ['<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Slash DMG Bonus%<br>2) ATK%</p><p><span style="color: #EA4A86;">-Substats:</span><br>CR=CDMG >Ult% >ATK% >ATK</p>', '<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Crit DMG%<br>2) Crit Rate%</p><p><span style="color: #EA4A86;">-Substats:</span><br>CR=CDMG >Ult% >ATK% >ATK</p>', '<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Ultimate Charge Rate%</p><p><span style="color: #EA4A86;">-Substats:</span><br>CR=CDMG >Ult% >ATK% >ATK</p>'],
+    setStampPopupWidths: [380, 380, 380],
+    setStampAfterText: '<p><span style="color: #EA4A86;">Rising Black Moon (3/3) </span><br>2-Piece: Increases Slash DMG by <span style="color: #52C394;">11%</span>.<br>3-Piece: Increases Base ATK by <span style="color: #52C394;">18%</span>. Each time a Technique is released, increases special attack DMG by <span style="color: #52C394;">28%</span> for 10s. Unstackable.</p>',
 
-    weaponStampImgs: ['images/ichi weapon.webp', 'images/aizen weapon 2.webp'],
-    weaponStampAngles: [-3, 5],
+    weaponStampImgs: ['images/ichi weapon.webp', 'images/kenpachi weapon 2.webp'],
+    weaponStampAngles: [0, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
       {
-        name: 'Before We Realized',
+        name: 'Power Of Hollowfication',
 		dividerColor: 'null',
         stars: 0,
         base: {
           rows: [
 			{ label: 'Weapon Stats Boost', value: '50%' },
           ],
-          note: 'Sosuke Aizen Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-Increases Crit Rate by <span style="color: #52C394;">25%</span>.</p><p>-Increases the damage of counterattacks triggered by the passive battle of Spiritual Pressure by <span style="color: #52C394;">12.5%</span>.</p><p>-Increases the cap of <span style="color: #EA4A86; text-decoration: underline">Enhanced Pressure Stacks</span> to 6. If the Battlefield Skill Hado 90: Kurohitsugi consumes all 6 stacks at once, an extra counterattack from switching teammates will be triggered.</p><p>-Each stack of <span style="color: #EA4A86; text-decoration: underline">Ravage</span> reduces the enemy\'s Spirit Resistance by an extra <span style="color: #52C394;">1%</span>.</p><p>-Releasing any Battlefield Skill grants 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>. While not under <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>, if fewer than 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possesed, obtaining them immediatly activates the <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>. if exactly 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possessed, entering <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span> grants another 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>.</p></p>'
+          note: 'Ichigo Kurosaki - Bankai Exclusive Effect',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-Increases Crit Rate by <span style="color: #52C394;">15%</span>.</p><p>-When releasing special attacks, Ichigo summons two afterimages to attack the target, dealing total DMG equal to <span style="color: #52C394;">100%</span> of the special attack ATK. This also counts as a special attack.</p></p>'
         },
         max: {
           rows: [
             { label: 'Weapon Stats Boost', value: '50%' },
           ],
-          note: 'Sosuke Aizen Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-Increases Crit Rate by <span style="color: #52C394;">50%</span>.</p><p>-Increases the damage of counterattacks triggered by the passive battle of Spiritual Pressure by <span style="color: #52C394;">25%</span>.</p><p>-Increases the cap of <span style="color: #EA4A86; text-decoration: underline">Enhanced Pressure Stacks</span> to 6. If the Battlefield Skill Hado 90: Kurohitsugi consumes all 6 stacks at once, an extra counterattack from switching teammates will be triggered.</p><p>-Each stack of <span style="color: #EA4A86; text-decoration: underline">Ravage</span> reduces the enemy\'s Spirit Resistance by an extra <span style="color: #52C394;">2%</span>.</p><p>-Releasing any Battlefield Skill grants 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>. While not under <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>, if fewer than 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possesed, obtaining them immediatly activates the <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>. if exactly 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possessed, entering <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span> grants another 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>.</p></p>'
+          note: 'Ichigo Kurosaki - Bankai Exclusive Effect',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-Increases Crit Rate by <span style="color: #52C394;">30%</span>.</p><p>-When releasing special attacks, Ichigo summons two afterimages to attack the target, dealing total DMG equal to <span style="color: #52C394;">200%</span> of the special attack ATK. This also counts as a special attack.</p></p>'
         }
       },
       {
-        name: 'Chanting Spirit',
+        name: 'Sundering Slash',
 		dividerColor: '#8f5cff',
         stars: 0,
         base: {
@@ -3312,14 +3621,14 @@ const CHARACTERS = [
             { label: 'Weapon Stats Boost', value: '25.0%' },
           ],
           note: 'Applicable to all characters',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>After dealing Spirit DMG, Base ATK increases by <span style="color: #52C394;">15%</span> for 12s. Unstackable.</p></p>'
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>After dealing Slash DMG, Base ATK increases by <span style="color: #52C394;">15%</span> for 12s. Unstackable.</p></p>'
         },
         max: {
           rows: [
             { label: 'Weapon Stats Boost', value: '25.0%' },
           ],
           note: 'Applicable to all characters',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>After dealing Spirit DMG, Base ATK increases by <span style="color: #52C394;">30%</span> for 12s. Unstackable.</p></p>'
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>After dealing Slash DMG, Base ATK increases by <span style="color: #52C394;">30%</span> for 12s. Unstackable.</p></p>'
         }
       },
     ],
@@ -3331,8 +3640,180 @@ const CHARACTERS = [
     bonds1Height: 120,
     bonds1PopupWidth: 480,
 
-    bonds2Imgs: ['images/aizen bond 2.webp'],
-    bonds2Info: `<div style="text-align: center; font-weight: bold;">Increases all damage by <span style="color: green;">10%</span> during battle. When equipped by a <span style="color: #ffaa00;">Tactic</span> character, increases an extra <span style="color: green;">25%</span> Battlefield Skill DMG.</div>`,
+    bonds2Imgs: ['images/toshiro bond 2.webp'],
+    bonds2Info: `<div style="text-align: center; font-weight: bold;">Increases Crit DMG during battle by <span style="color: #52C394;">30%</span>.</div>`,
+    bonds2OffsetX: 17,
+    bonds2Height: 118,
+    bonds2PopupWidth: 430
+  },
+  {
+    id: 'kisuke',
+    category: 'karakura',
+    type: 'Slash',
+    role: 'Support',
+    name: 'Urahara Kisuke',
+    nameJP: '浦原喜助',
+    divisionLabel: 'Former Captain · 12th Division',
+    color: '#44aa44',
+    quote: '"I cannot protect anyone unless I understand every possible outcome. That is why I carry so many plans."',
+    stats: { Reiatsu: 94, Swordsmanship: 90, Kidō: 95, Speed: 92, Strength: 80 },
+    zanpakuto: {
+      name: 'Benihime',
+      release: '"Awaken, Benihime"',
+      desc: 'A versatile zanpakutō that can create powerful crimson energy blasts, shields, and even a restorative technique. Its bankai, Kannonbiraki Benihime Aratame, can restructure anything it cuts, making it capable of both healing and destruction.'
+    },
+    bio: 'The enigmatic proprietor of the Urahara Shop. Once a captain of the 12th Division and founder of the Shinigami Research and Development Institute, Kisuke was exiled to the human world. His genius intellect and foresight have repeatedly turned the tide in Soul Society\'s darkest hours.',
+    customAvatar: 'images/urahara.webp',
+    panelImage: 'images/urahara panel.webp',
+    avatarWidth: 200,
+    avatarHeight: 212,
+    avatarOffsetX: 0,
+    avatarOffsetY: -5,
+    avatarFit: 'contain',
+    panelScale: 1,
+
+    statsImgs:    ['images/shini.webp','images/slash.webp','images/support.webp'],
+    statsAngles:  [0,0,0],
+    statsGaps:    [80,80],
+    statsHeights: [80,80,80],
+
+    coreStampImgs: ['images/urahara core.webp', 'images/sza core 2.webp', 'images/mayuri core 2.webp'],
+    coreStampAngles: [-2, 0, 3],
+    coreStampGaps: [80, 80],
+    coreStampPopupData: [
+      {
+        name: 'Scheme Under Hat',
+		dividerColor: 'null',
+        stars: 6,
+        base: {
+          rows: [
+            { label: 'ATK', value: '125' },
+            { label: 'DEF', value: '105' },
+            { label: 'HP', value: '629' },
+            { label: 'Crit DMG Bonus', value: '16.0%' }
+          ],
+          text: '<p>-Enters stealth for 5s after releasing the Ultimte, during which the technique button will be activated and replaced with Bakudo Number 4: Hainawa. Tapping the technique button or switching characters instantly releases this technique. Bakudo Number 4: Hainawa: Pulls enemies within range toward the center for 6s, dealing DMG equal to <span style="color: #52C394;">560%</span> of ATK. When it ends, further DMG is dealt to affected enemies equal to <span style="color: #52C394;">25%</span> of DMG received during the technique, up to Urahara\'s Base ATK x <span style="color: #52C394;">20,000%</span>.<br>-Releasing Bakudo Number 4: Hainawa also grants 1 stack of <span style="color: #EA4A86; text-decoration: underline;">Reishi Analysis</span> to the entire team.</p>'
+        },
+        max: {
+          rows: [
+            { label: 'ATK', value: '630' },
+            { label: 'DEF', value: '525' },
+            { label: 'HP', value: '3150' },
+            { label: 'Crit DMG Bonus', value: '40.0%' }
+          ],
+          text: '<p>-Enters stealth for 5s after releasing the Ultimte, during which the technique button will be activated and replaced with Bakudo Number 4: Hainawa. Tapping the technique button or switching characters instantly releases this technique. Bakudo Number 4: Hainawa: Pulls enemies within range toward the center for 6s, dealing DMG equal to <span style="color: #52C394;">1,120%</span> of ATK. When it ends, further DMG is dealt to affected enemies equal to <span style="color: #52C394;">50%</span> of DMG received during the technique, up to Urahara\'s Base ATK x <span style="color: #52C394;">40,000%</span>.<br>-Releasing Bakudo Number 4: Hainawa also grants 1 stack of <span style="color: #EA4A86; text-decoration: underline;">Reishi Analysis</span> to the entire team.</p>'
+        }
+      },
+      {
+        name: 'You\'re Not Worthy',
+		dividerColor: 'null',
+        stars: 5,
+        base: {
+          rows: [
+            { label: 'ATK', value: '113' },
+            { label: 'DEF', value: '94' },
+            { label: 'HP', value: '566' },
+            { label: 'HP', value: '10.8%' }
+          ],
+          text: '<p>Increases <span style="color: #52C394;">8%</span> of the damage dealt by other characters in the team who share the same attack type as the wearer. Unstackable.</p>'
+        },
+        max: {
+          rows: [
+            { label: 'ATK', value: '488' },
+            { label: 'DEF', value: '407' },
+            { label: 'HP', value: '2443' },
+            { label: 'HP', value: '22.9%' }
+          ],
+          text: '<p>Increases <span style="color: #52C394;">16%</span> of the damage dealt by other characters in the team who share the same attack type as the wearer. Unstackable.</p>'
+        }
+      },
+      {
+        name: 'It\'s My Turn Now',
+		dividerColor: '#8f5cff',
+        stars: 4,
+        base: {
+          rows: [
+            { label: 'ATK', value: '100' },
+            { label: 'DEF', value: '83' },
+            { label: 'HP', value: '503' },
+            { label: 'HP', value: '9.6%' }
+          ],
+          text: '<p>After releasing an Ultimate, the entire team gain a <span style="color: #52C394;">6%</span> boost for Base ATK that lasts for <span style="color: #52C394;">25</span>s. Unstackable.</p>'
+        },
+        max: {
+          rows: [
+            { label: 'ATK', value: '365' },
+            { label: 'DEF', value: '304' },
+            { label: 'HP', value: '1824' },
+            { label: 'HP', value: '16.8%' }
+          ],
+          text: '<p>After releasing an Ultimate, the entire team gain a <span style="color: #52C394;">12%</span> boost for Base ATK that lasts for <span style="color: #52C394;">25</span>s. Unstackable.</p>'
+        }
+      }
+    ],
+    coreStampPopupWidths: [null, null, null],
+
+    setStampBeforeText: '<p><span style="color: #EA4A86;">-The recommended passives for Kisuke Urahara - Slash are:</span><br>1) Invigorate - Support<br>2) Restrain<br>3) Stack three Invigorates</p><p><span style="color: #EA4A86;">-Boundary Dependant Build Changes:</span><br>Build does not change with dupes.</p>',
+    setStampImgs: ['images/urahara set 1.webp', 'images/urahara set 2.webp', 'images/urahara set 3.webp'],
+    setStampAngles: [0, 0, -3],
+    setStampGaps: [30, 90],
+    setStampInfos: ['<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Slash DMG Bonus%<br>2) ATK%</p><p><span style="color: #EA4A86;">-Substats:</span><br>CDMG% >Ult% >CR% >ATK%</p>', '<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Crit DMG%<br>2) Crit Rate%</p><p><span style="color: #EA4A86;">-Substats:</span><br>CDMG% >Ult% >CR% >ATK%</p>', '<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Ult Charge Rate%</p><p><span style="color: #EA4A86;">-Substats:</span><br>CDMG% >Ult% >CR% >ATK%</p>'],
+    setStampPopupWidths: [380, 380, 380],
+    setStampAfterText: '<p><span style="color: #EA4A86;">Hidden Wisdom (3/3) </span><br>2-Piece: Increases Base HP by <span style="color: #52C394;">16%</span>.<br>3-Piece: After releasing a Technique, the entire team gains a <span style="color: #52C394;">10%</span> boost for all damage dealt that lasts for <span style="color: #52C394;">25%</span>s.<br>Unstackable.</p>',
+
+    weaponStampImgs: ['images/urahara weapon.webp', 'images/byakuya weapon 2.webp'],
+    weaponStampAngles: [0, 5],
+    weaponStampGaps: [90],
+    weaponStampPopupData: [
+      {
+        name: 'Sorry I\'m Late',
+		dividerColor: 'null',
+        stars: 0,
+        base: {
+          rows: [
+			{ label: 'Weapon Stats Boost', value: '50%' },
+          ],
+          note: 'Kisuke Urahara Exclusive Effect',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-Releasing special attacks generates an additional sword wave which also grants 1 stack of <span style="color: #EA4A86; text-decoration: underline;">Reishi Analysis</span> to the entire team.<br>-Increases maximum <span style="color: #EA4A86; text-decoration: underline;">Reishi Analysis</span> stacks to 6.<br>-Increases special attack DMG by <span style="color: #52C394;">15%</span>.</p></p>'
+        },
+        max: {
+          rows: [
+            { label: 'Weapon Stats Boost', value: '50%' },
+          ],
+          note: 'Kisuke Urahara Exclusive Effect',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-Releasing special attacks generates an additional sword wave which also grants 1 stack of <span style="color: #EA4A86; text-decoration: underline;">Reishi Analysis</span> to the entire team.<br>-Increases maximum <span style="color: #EA4A86; text-decoration: underline;">Reishi Analysis</span> stacks to 6.<br>-Increases special attack DMG by <span style="color: #52C394;">40%</span>.</p></p>'
+        }
+      },
+      {
+        name: 'Method',
+		dividerColor: '#8f5cff',
+        stars: 0,
+        base: {
+          rows: [
+            { label: 'Weapon Stats Boost', value: '25.0%' },
+          ],
+          note: 'Applicable to all characters',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>After releasing a technique, the entire team is buffed with a <span style="color: #52C394;">6%</span> increase in Base ATK that lasts for 25s.<br>Unstackable.</p>'
+        },
+        max: {
+          rows: [
+            { label: 'Weapon Stats Boost', value: '25.0%' },
+          ],
+          note: 'Applicable to all characters',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>After releasing a technique, the entire team is buffed with a <span style="color: #52C394;">12%</span> increase in Base ATK that lasts for 25s.<br>Unstackable.</p>'
+        }
+      },
+    ],
+    weaponStampPopupWidths: [null, null],
+
+    bonds1Imgs: ['images/mayuri bond 2.webp'],
+    bonds1Info: `<div style="text-align: center; font-weight: bold;">Increases ATK of all team characters during battle by <span style="color: #52C394;">6%</span>.</div>`,
+    bonds1OffsetX: 15,
+    bonds1Height: 120,
+    bonds1PopupWidth: 480,
+
+    bonds2Imgs: ['images/toshiro bond 2.webp'],
+    bonds2Info: `<div style="text-align: center; font-weight: bold;">Increases Crit DMG during battle by <span style="color: #52C394;">30%</span>.</div>`,
     bonds2OffsetX: 14,
     bonds2Height: 124,
     bonds2PopupWidth: 430
@@ -3368,12 +3849,12 @@ const CHARACTERS = [
     statsGaps:    [80,80],
     statsHeights: [80,80,80],
 
-    coreStampImgs: ['images/yoru core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
-    coreStampAngles: [-2, 1, 3],
+    coreStampImgs: ['images/yoru core.webp', 'images/kenpachi core 2.webp', 'images/ikkaku core 3.webp'],
+    coreStampAngles: [-1, 0, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
       {
-        name: 'Unrivaled',
+        name: 'Raging Thunder',
 		dividerColor: 'null',
         stars: 6,
         base: {
@@ -3381,22 +3862,22 @@ const CHARACTERS = [
             { label: 'ATK', value: '125' },
             { label: 'DEF', value: '105' },
             { label: 'HP', value: '629' },
-            { label: 'Spirit DMG Bonus', value: '8.0%' }
+            { label: 'Strike DMG Bonus', value: '8.0%' }
           ],
-          text: '<p>-Upon releasing the Ultimate, the on-field character gains 1 stack of Illusion. Each time that character lands a hit, they gain another stack of Illusion.</p><p>Each stack of Illusion increases their Spirit DMG by <span style="color: #52C394;">0.5%</span>, up to 10 stacks, lasting until <span style="color: #EA4A86; text-decoration: underline;">Kyokasuigetsu</span> ends.</p><p>-When a counterattack from switching characters is triggered by the passive Battle of Spiritual Pressure, the new on-field character inherits all Illusion stacks, and the cap is doubled, up to 40 stacks. Upon reaching full stacks, Illusion also grants an extra <span style="color: #52C394;">25%</span> Crit DMG bonus.</p><p>-While under the <span style="color: #EA4A86; text-decoration: underline;">Spiritual Domination</span>, Aizen\'s Basic Attacks, techniques, and counterattacks deal <span style="color: #52C394; ">300%</span> more damage.</p>'
+          text: '<p>-Upon entering battle, immediately gain full Ultimate Energy.<br>-increases duration of Shunko by 5s.<br>=Increases Spiritual Pressure Charge Rate of Shunko by an extra <span style="color: #52C394;">40%</span>.<br>-Increases Ultimate DMG by <span style="color: #52C394;">200%</span>.</p>'
         },
         max: {
           rows: [
             { label: 'ATK', value: '630' },
             { label: 'DEF', value: '525' },
             { label: 'HP', value: '3150' },
-            { label: 'Spirit DMG Bonus', value: '20.0%' }
+            { label: 'Strike DMG Bonus', value: '20.0%' }
           ],
-          text: '<p>-Upon releasing the Ultimate, the on-field character gains 1 stack of Illusion. Each time that character lands a hit, they gain another stack of Illusion.</p><p>Each stack of Illusion increases their Spirit DMG by <span style="color: #52C394;">1%</span>, up to 10 stacks, lasting until <span style="color: #EA4A86; text-decoration: underline;">Kyokasuigetsu</span> ends.</p><p>-When a counterattack from switching characters is triggered by the passive Battle of Spiritual Pressure, the new on-field character inherits all Illusion stacks, and the cap is doubled, up to 40 stacks. Upon reaching full stacks, Illusion also grants an extra <span style="color: #52C394;">50%</span> Crit DMG bonus.</p><p>-While under the <span style="color: #EA4A86; text-decoration: underline;">Spiritual Domination</span>, Aizen\'s Basic Attacks, techniques, and counterattacks deal <span style="color: #52C394; ">500%</span> more damage.</p>'
+          text: '<p>-Upon entering battle, immediately gain full Ultimate Energy.<br>-increases duration of Shunko by 5s.<br>=Increases Spiritual Pressure Charge Rate of Shunko by an extra <span style="color: #52C394;">40%</span>.<br>-Increases Ultimate DMG by <span style="color: #52C394;">400%</span>.</p>'
         }
       },
       {
-        name: 'Lesson Three Cleared!',
+        name: 'I\'ve Noticed You For A While',
 		dividerColor: 'null',
         stars: 5,
         base: {
@@ -3406,7 +3887,7 @@ const CHARACTERS = [
             { label: 'HP', value: '566' },
             { label: 'All-Type DMG Bonus', value: '7.2%' }
           ],
-          text: '<p>After releasing a Battlefield Skill, the entire team gains a <span style="color: #52C394;">8%</span> boost for all damage dealt that lasts for <span style="color: #52C394;">25</span>s.</p><p>Unstackable.</p>'
+          text: '<p>Increases the damage dealt by the special attack by <span style="color: #52C394;">25%</span>. Each time a Technique is released, increases the special attack DMG by an additional <span style="color: #52C394;">12.5%</span>, up to <span style="color: #52C394;">25%</span>.</p>'
         },
         max: {
           rows: [
@@ -3415,11 +3896,11 @@ const CHARACTERS = [
             { label: 'HP', value: '2443' },
             { label: 'All-Type DMG Bonus', value: '15.3%' }
           ],
-          text: '<p>After releasing a Battlefield Skill, the entire team gains a <span style="color: #52C394;">16%</span> boost for all damage dealt that lasts for <span style="color: #52C394;">25</span>s.</p><p>Unstackable.</p>'
+          text: '<p>Increases the damage dealt by the special attack by <span style="color: #52C394;">50%</span>. Each time a Technique is released, increases the special attack DMG by an additional <span style="color: #52C394;">25%</span>, up to <span style="color: #52C394;">50%</span>.</p>'
         }
       },
       {
-        name: 'Back-to-Back Combat',
+        name: 'Gather Up! Thirteen Court Guard Squads',
         dividerColor: '#8f5cff',
         stars: 4,
         base: {
@@ -3429,7 +3910,7 @@ const CHARACTERS = [
             { label: 'HP', value: '503' },
             { label: 'All-Type DMG Bonus', value: '6.4%' }
           ],
-          text: '<p>Each time a Battlefield Skill is released, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">25%</span> of the current Battlefield Skill.</p>'
+          text: '<p>Each time a special attack is dealt, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">25%</span> of the current special attack.</p>'
         },
         max: {
           rows: [
@@ -3438,45 +3919,45 @@ const CHARACTERS = [
             { label: 'HP', value: '1824' },
             { label: 'All-Type DMG Bonus', value: '11.2%' }
           ],
-          text: '<p>Each time a Battlefield Skill is released, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">50%</span> of the current Battlefield Skill.</p>'
+          text: '<p>Each time a special attack is dealt, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">50%</span> of the current special attack.</p>'
         }
       }
     ],
     coreStampPopupWidths: [null, null, null],
 
-    setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
+    setStampBeforeText: '<p><span style="color: #EA4A86;">-The recommended passives for Yoruichi Shihouin - Strike are:</span><br>1) Overdrive - Full Assault<br>2) Enhanced Damage<br>3) Enhanced Special Attack - Full Assault<br>4) Enhanced Ultimate</p><p><span style="color: #EA4A86;">-Boundary Dependant Build Changes:</span><br>Build does not change with dupes.</p>',
     setStampImgs: ['images/yoru set 1.webp', 'images/yoru set 2.webp', 'images/yoru set 3.webp'],
     setStampAngles: [0, 0, -3],
-    setStampGaps: [30, 90],
-    setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
-    setStampPopupWidths: [null, null, null],
-    setStampAfterText: '',
+    setStampGaps: [30, 80],
+    setStampInfos: ['<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Strike DMG Bonus%<br>2) ATK%</p><p><span style="color: #EA4A86;">-Substats:</span><br>CR%=CDMG% >Ult% >ATK%</p>', '<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Crit Rate%<br>2) Crit DMG%</p><p><span style="color: #EA4A86;">-Substats:</span><br>CR%=CDMG% >Ult% >ATK%</p>', '<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) ATK%</p><p><span style="color: #EA4A86;">-Substats:</span><br>CR%=CDMG% >Ult% >ATK%</p>'],
+    setStampPopupWidths: [380, 380, 380],
+    setStampAfterText: '<p><span style="color: #EA4A86;">Midnight Specter (3/3) </span><br>2-Piece: Increases Strike DMG by <span style="color: #52C394;">11%</span>.<br>3-Piece: Increases Ultimate DMG by <span style="color: #52C394;">30%</span>. Each time a basic attack is released, increases special attack DMG by <span style="color: #52C394;">5.5%</span> for 10s. Stacks up to 5 times.</p>',
 
-    weaponStampImgs: ['images/yoru weapon.webp', 'images/aizen weapon 2.webp'],
-    weaponStampAngles: [-3, 5],
+    weaponStampImgs: ['images/yoru weapon.webp', 'images/sajin weapon 2.webp'],
+    weaponStampAngles: [0, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
       {
-        name: 'Before We Realized',
+        name: 'Hakuda and Kido',
 		dividerColor: 'null',
         stars: 0,
         base: {
           rows: [
 			{ label: 'Weapon Stats Boost', value: '50%' },
           ],
-          note: 'Sosuke Aizen Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-Increases Crit Rate by <span style="color: #52C394;">25%</span>.</p><p>-Increases the damage of counterattacks triggered by the passive battle of Spiritual Pressure by <span style="color: #52C394;">12.5%</span>.</p><p>-Increases the cap of <span style="color: #EA4A86; text-decoration: underline">Enhanced Pressure Stacks</span> to 6. If the Battlefield Skill Hado 90: Kurohitsugi consumes all 6 stacks at once, an extra counterattack from switching teammates will be triggered.</p><p>-Each stack of <span style="color: #EA4A86; text-decoration: underline">Ravage</span> reduces the enemy\'s Spirit Resistance by an extra <span style="color: #52C394;">1%</span>.</p><p>-Releasing any Battlefield Skill grants 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>. While not under <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>, if fewer than 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possesed, obtaining them immediatly activates the <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>. if exactly 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possessed, entering <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span> grants another 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>.</p></p>'
+          note: 'Yoruichi Shihoin Exclusive Effect',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-Using counterattack instantly maxes out your Spiritual Pressure. After each Ultimate, you can actively release a counterattack once.<br>-When Shunko is active, you gain half of the max stacks of <span style="color: #EA4A86; text-decoration: underline;">Lightning Seal</span> instantly.<br>-Each stack of <span style="color: #EA4A86; text-decoration: underline;">Lightning Seal</span> increases Yoruichi\'s Crit Rate by an extra <span style="color: #52C394;">5%</span>, up to <span style="color: #52C394;">20%</span>.<br>-Increases the DMG of the special attack Hakuda - Blitz by <span style="color: #52C394;">60%</span>.</p></p>'
         },
         max: {
           rows: [
             { label: 'Weapon Stats Boost', value: '50%' },
           ],
-          note: 'Sosuke Aizen Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-Increases Crit Rate by <span style="color: #52C394;">50%</span>.</p><p>-Increases the damage of counterattacks triggered by the passive battle of Spiritual Pressure by <span style="color: #52C394;">25%</span>.</p><p>-Increases the cap of <span style="color: #EA4A86; text-decoration: underline">Enhanced Pressure Stacks</span> to 6. If the Battlefield Skill Hado 90: Kurohitsugi consumes all 6 stacks at once, an extra counterattack from switching teammates will be triggered.</p><p>-Each stack of <span style="color: #EA4A86; text-decoration: underline">Ravage</span> reduces the enemy\'s Spirit Resistance by an extra <span style="color: #52C394;">2%</span>.</p><p>-Releasing any Battlefield Skill grants 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>. While not under <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>, if fewer than 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possesed, obtaining them immediatly activates the <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>. if exactly 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possessed, entering <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span> grants another 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>.</p></p>'
+          note: 'Yoruichi Shihoin Exclusive Effect',
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-Using counterattack instantly maxes out your Spiritual Pressure. After each Ultimate, you can actively release a counterattack once.<br>-When Shunko is active, you gain half of the max stacks of <span style="color: #EA4A86; text-decoration: underline;">Lightning Seal</span> instantly.<br>-Each stack of <span style="color: #EA4A86; text-decoration: underline;">Lightning Seal</span> increases Yoruichi\'s Crit Rate by an extra <span style="color: #52C394;">12%</span>, up to <span style="color: #52C394;">48%</span>.<br>-Increases the DMG of the special attack Hakuda - Blitz by <span style="color: #52C394;">100%</span>.</p></p>'
         }
       },
       {
-        name: 'Chanting Spirit',
+        name: 'Power Strike',
 		dividerColor: '#8f5cff',
         stars: 0,
         base: {
@@ -3484,14 +3965,14 @@ const CHARACTERS = [
             { label: 'Weapon Stats Boost', value: '25.0%' },
           ],
           note: 'Applicable to all characters',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>After dealing Spirit DMG, Base ATK increases by <span style="color: #52C394;">15%</span> for 12s. Unstackable.</p></p>'
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>After dealing Strike DMG, Base ATK increases by <span style="color: #52C394;">15%</span> for 12s. Unstackable.</p></p>'
         },
         max: {
           rows: [
             { label: 'Weapon Stats Boost', value: '25.0%' },
           ],
           note: 'Applicable to all characters',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>After dealing Spirit DMG, Base ATK increases by <span style="color: #52C394;">30%</span> for 12s. Unstackable.</p></p>'
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>After dealing Strike DMG, Base ATK increases by <span style="color: #52C394;">30%</span> for 12s. Unstackable.</p></p>'
         }
       },
     ],
@@ -3503,185 +3984,91 @@ const CHARACTERS = [
     bonds1Height: 120,
     bonds1PopupWidth: 480,
 
-    bonds2Imgs: ['images/aizen bond 2.webp'],
-    bonds2Info: `<div style="text-align: center; font-weight: bold;">Increases all damage by <span style="color: green;">10%</span> during battle. When equipped by a <span style="color: #ffaa00;">Tactic</span> character, increases an extra <span style="color: green;">25%</span> Battlefield Skill DMG.</div>`,
-    bonds2OffsetX: 14,
-    bonds2Height: 124,
+    bonds2Imgs: ['images/sajin bond 2.webp'],
+    bonds2Info: `<div style="text-align: center; font-weight: bold;">Increases All-Type DMG during battle by <span style="color: #52C394;">15%</span>.</div>`,
+    bonds2OffsetX: 20,
+    bonds2Height: 117,
     bonds2PopupWidth: 430
   },
-  {
-    id: 'kisuke',
-    category: 'karakura',
-    type: 'Slash',
-    role: 'Support',
-    name: 'Urahara Kisuke',
-    nameJP: '浦原喜助',
-    divisionLabel: 'Former Captain · 12th Division',
-    color: '#44aa44',
-    quote: '"I cannot protect anyone unless I understand every possible outcome. That is why I carry so many plans."',
-    stats: { Reiatsu: 94, Swordsmanship: 90, Kidō: 95, Speed: 92, Strength: 80 },
-    zanpakuto: {
-      name: 'Benihime',
-      release: '"Awaken, Benihime"',
-      desc: 'A versatile zanpakutō that can create powerful crimson energy blasts, shields, and even a restorative technique. Its bankai, Kannonbiraki Benihime Aratame, can restructure anything it cuts, making it capable of both healing and destruction.'
-    },
-    bio: 'The enigmatic proprietor of the Urahara Shop. Once a captain of the 12th Division and founder of the Shinigami Research and Development Institute, Kisuke was exiled to the human world. His genius intellect and foresight have repeatedly turned the tide in Soul Society\'s darkest hours.',
-    customAvatar: 'images/urahara.webp',
-    panelImage: 'images/urahara panel.webp',
-    avatarWidth: 200,
-    avatarHeight: 212,
-    avatarOffsetX: 0,
-    avatarOffsetY: -5,
-    avatarFit: 'contain',
-    panelScale: 1,
-
-    statsImgs:    ['images/shini.webp','images/slash.webp','images/support.webp'],
-    statsAngles:  [0,0,0],
-    statsGaps:    [80,80],
-    statsHeights: [80,80,80],
-
-    coreStampImgs: ['images/urahara core.webp', 'images/aizen core 2.webp', 'images/aizen core 3.webp'],
-    coreStampAngles: [-2, 1, 3],
-    coreStampGaps: [80, 80],
-    coreStampPopupData: [
-      {
-        name: 'Unrivaled',
-		dividerColor: 'null',
-        stars: 6,
-        base: {
-          rows: [
-            { label: 'ATK', value: '125' },
-            { label: 'DEF', value: '105' },
-            { label: 'HP', value: '629' },
-            { label: 'Spirit DMG Bonus', value: '8.0%' }
-          ],
-          text: '<p>-Upon releasing the Ultimate, the on-field character gains 1 stack of Illusion. Each time that character lands a hit, they gain another stack of Illusion.</p><p>Each stack of Illusion increases their Spirit DMG by <span style="color: #52C394;">0.5%</span>, up to 10 stacks, lasting until <span style="color: #EA4A86; text-decoration: underline;">Kyokasuigetsu</span> ends.</p><p>-When a counterattack from switching characters is triggered by the passive Battle of Spiritual Pressure, the new on-field character inherits all Illusion stacks, and the cap is doubled, up to 40 stacks. Upon reaching full stacks, Illusion also grants an extra <span style="color: #52C394;">25%</span> Crit DMG bonus.</p><p>-While under the <span style="color: #EA4A86; text-decoration: underline;">Spiritual Domination</span>, Aizen\'s Basic Attacks, techniques, and counterattacks deal <span style="color: #52C394; ">300%</span> more damage.</p>'
-        },
-        max: {
-          rows: [
-            { label: 'ATK', value: '630' },
-            { label: 'DEF', value: '525' },
-            { label: 'HP', value: '3150' },
-            { label: 'Spirit DMG Bonus', value: '20.0%' }
-          ],
-          text: '<p>-Upon releasing the Ultimate, the on-field character gains 1 stack of Illusion. Each time that character lands a hit, they gain another stack of Illusion.</p><p>Each stack of Illusion increases their Spirit DMG by <span style="color: #52C394;">1%</span>, up to 10 stacks, lasting until <span style="color: #EA4A86; text-decoration: underline;">Kyokasuigetsu</span> ends.</p><p>-When a counterattack from switching characters is triggered by the passive Battle of Spiritual Pressure, the new on-field character inherits all Illusion stacks, and the cap is doubled, up to 40 stacks. Upon reaching full stacks, Illusion also grants an extra <span style="color: #52C394;">50%</span> Crit DMG bonus.</p><p>-While under the <span style="color: #EA4A86; text-decoration: underline;">Spiritual Domination</span>, Aizen\'s Basic Attacks, techniques, and counterattacks deal <span style="color: #52C394; ">500%</span> more damage.</p>'
-        }
-      },
-      {
-        name: 'Lesson Three Cleared!',
-		dividerColor: 'null',
-        stars: 5,
-        base: {
-          rows: [
-            { label: 'ATK', value: '113' },
-            { label: 'DEF', value: '94' },
-            { label: 'HP', value: '566' },
-            { label: 'All-Type DMG Bonus', value: '7.2%' }
-          ],
-          text: '<p>After releasing a Battlefield Skill, the entire team gains a <span style="color: #52C394;">8%</span> boost for all damage dealt that lasts for <span style="color: #52C394;">25</span>s.</p><p>Unstackable.</p>'
-        },
-        max: {
-          rows: [
-            { label: 'ATK', value: '488' },
-            { label: 'DEF', value: '407' },
-            { label: 'HP', value: '2443' },
-            { label: 'All-Type DMG Bonus', value: '15.3%' }
-          ],
-          text: '<p>After releasing a Battlefield Skill, the entire team gains a <span style="color: #52C394;">16%</span> boost for all damage dealt that lasts for <span style="color: #52C394;">25</span>s.</p><p>Unstackable.</p>'
-        }
-      },
-      {
-        name: 'Back-to-Back Combat',
-        dividerColor: '#8f5cff',
-        stars: 4,
-        base: {
-          rows: [
-            { label: 'ATK', value: '100' },
-            { label: 'DEF', value: '83' },
-            { label: 'HP', value: '503' },
-            { label: 'All-Type DMG Bonus', value: '6.4%' }
-          ],
-          text: '<p>Each time a Battlefield Skill is released, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">25%</span> of the current Battlefield Skill.</p>'
-        },
-        max: {
-          rows: [
-            { label: 'ATK', value: '365' },
-            { label: 'DEF', value: '304' },
-            { label: 'HP', value: '1824' },
-            { label: 'All-Type DMG Bonus', value: '11.2%' }
-          ],
-          text: '<p>Each time a Battlefield Skill is released, triggers one additional attack of the same type, dealing damage equal to <span style="color: #52C394;">50%</span> of the current Battlefield Skill.</p>'
-        }
-      }
-    ],
-    coreStampPopupWidths: [null, null, null],
-
-    setStampBeforeText: '<p>The recommended passives for Sosuke Aizen - Spirit are:<br>1) Overdrive - Tactic<br>2) Enhanced Damage<br>3) Enhanced Battlefield Skill II</p><p>Boundary Dependant Build Changes:<br>At B6, Aizen doubles the crit rate of his battlefield skills. Thus, a CRIT DMG slot 2 is preferred with only a few crit rate substats.</p>',
-    setStampImgs: ['images/urahara set 1.webp', 'images/urahara set 2.webp', 'images/urahara set 3.webp'],
-    setStampAngles: [0, 0, -3],
-    setStampGaps: [30, 90],
-    setStampInfos: ['Set stamp 1 – Kyoka Suigetsu fragment', 'Set stamp 2 – Hogyoku essence', 'Set stamp 3 – Reiatsu overflow'],
-    setStampPopupWidths: [null, null, null],
-    setStampAfterText: '',
-
-    weaponStampImgs: ['images/urahara weapon.webp', 'images/aizen weapon 2.webp'],
-    weaponStampAngles: [-3, 5],
-    weaponStampGaps: [90],
-    weaponStampPopupData: [
-      {
-        name: 'Before We Realized',
-		dividerColor: 'null',
-        stars: 0,
-        base: {
-          rows: [
-			{ label: 'Weapon Stats Boost', value: '50%' },
-          ],
-          note: 'Sosuke Aizen Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-Increases Crit Rate by <span style="color: #52C394;">25%</span>.</p><p>-Increases the damage of counterattacks triggered by the passive battle of Spiritual Pressure by <span style="color: #52C394;">12.5%</span>.</p><p>-Increases the cap of <span style="color: #EA4A86; text-decoration: underline">Enhanced Pressure Stacks</span> to 6. If the Battlefield Skill Hado 90: Kurohitsugi consumes all 6 stacks at once, an extra counterattack from switching teammates will be triggered.</p><p>-Each stack of <span style="color: #EA4A86; text-decoration: underline">Ravage</span> reduces the enemy\'s Spirit Resistance by an extra <span style="color: #52C394;">1%</span>.</p><p>-Releasing any Battlefield Skill grants 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>. While not under <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>, if fewer than 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possesed, obtaining them immediatly activates the <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>. if exactly 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possessed, entering <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span> grants another 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>.</p></p>'
-        },
-        max: {
-          rows: [
-            { label: 'Weapon Stats Boost', value: '50%' },
-          ],
-          note: 'Sosuke Aizen Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-Increases Crit Rate by <span style="color: #52C394;">50%</span>.</p><p>-Increases the damage of counterattacks triggered by the passive battle of Spiritual Pressure by <span style="color: #52C394;">25%</span>.</p><p>-Increases the cap of <span style="color: #EA4A86; text-decoration: underline">Enhanced Pressure Stacks</span> to 6. If the Battlefield Skill Hado 90: Kurohitsugi consumes all 6 stacks at once, an extra counterattack from switching teammates will be triggered.</p><p>-Each stack of <span style="color: #EA4A86; text-decoration: underline">Ravage</span> reduces the enemy\'s Spirit Resistance by an extra <span style="color: #52C394;">2%</span>.</p><p>-Releasing any Battlefield Skill grants 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>. While not under <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>, if fewer than 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possesed, obtaining them immediatly activates the <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span>. if exactly 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span> are possessed, entering <span style="color: #EA4A86; text-decoration: underline">Spiritual Domination</span> grants another 3 <span style="color: #EA4A86; text-decoration: underline">Pressure Stacks</span>.</p></p>'
-        }
-      },
-      {
-        name: 'Chanting Spirit',
-		dividerColor: '#8f5cff',
-        stars: 0,
-        base: {
-          rows: [
-            { label: 'Weapon Stats Boost', value: '25.0%' },
-          ],
-          note: 'Applicable to all characters',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>After dealing Spirit DMG, Base ATK increases by <span style="color: #52C394;">15%</span> for 12s. Unstackable.</p></p>'
-        },
-        max: {
-          rows: [
-            { label: 'Weapon Stats Boost', value: '25.0%' },
-          ],
-          note: 'Applicable to all characters',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>After dealing Spirit DMG, Base ATK increases by <span style="color: #52C394;">30%</span> for 12s. Unstackable.</p></p>'
-        }
-      },
-    ],
-    weaponStampPopupWidths: [null, null],
-
-    bonds1Imgs: ['images/aizen bond 1.webp'],
-    bonds1Info: `<div style="text-align: center; font-weight: bold;">During battle, DMG dealt increases by <span style="color: green;">5.6% (Next: 8%)</span>.<br>This increases to <span style="color: green;">8.4% (Next: 12%) / 11.2% (Next: 16%) / 14% (Next: 20%)</span><br>if Crit Rate reaches <span style="color: green;">20% / 40% / 60%</span>.</div>`,
-    bonds1OffsetX: 10,
-    bonds1Height: 120,
-    bonds1PopupWidth: 480,
-
-    bonds2Imgs: ['images/aizen bond 2.webp'],
-    bonds2Info: `<div style="text-align: center; font-weight: bold;">Increases all damage by <span style="color: green;">10%</span> during battle. When equipped by a <span style="color: #ffaa00;">Tactic</span> character, increases an extra <span style="color: green;">25%</span> Battlefield Skill DMG.</div>`,
-    bonds2OffsetX: 14,
-    bonds2Height: 124,
-    bonds2PopupWidth: 430
-  }
 ];
+
+const SECTION_SELECTOR_CHARACTER = {
+  src: 'images/sit.webp',
+  width: 210,
+  height: 'auto',
+  x: 49,
+  y: -92,
+  angle: 0,
+  scale: 0.55
+};
+
+const CHARACTER_ORDER = [
+  'ulquiorra-resurreccion',
+  'white-ichigo',
+  'grimmjow-resurreccion',
+  'grimmjow',
+  'szayel',
+  'soi-fon',
+  'mayuri',
+  'nelliel',
+  'kenpachi',
+  'gin',
+  'aizen',
+  'hitsugaya',
+  'ichigo-bankai',
+  'kisuke',
+  'yoruichi',
+  'byakuya',
+  'tosen',
+  'komamura',
+  'ikkaku'
+];
+
+function buildCharacterRoster() {
+  const byId = new Map();
+  CHARACTERS.map(char => ({ ...char, upcoming: char.upcoming || 'No' }))
+    .forEach(char => byId.set(char.id, char));
+
+  const ordered = CHARACTER_ORDER.map(id => byId.get(id)).filter(Boolean);
+  const orderedIds = new Set(ordered.map(char => char.id));
+  return [
+    ...ordered,
+    ...Array.from(byId.values()).filter(char => !orderedIds.has(char.id))
+  ];
+}
+
+const ROSTER = buildCharacterRoster();
+let initialGridMinHeight = null;
+
+function isUpcomingCharacter(char) {
+  return String(char && char.upcoming || 'No').toLowerCase() === 'yes';
+}
+
+function getCharacterUrl(id) {
+  const url = new URL(window.location.href);
+  url.searchParams.set('character', id);
+  return url.href;
+}
+
+function applySectionSelectorCharacterSettings(settings = {}) {
+  Object.assign(SECTION_SELECTOR_CHARACTER, settings);
+  const bar = document.querySelector('.division-bar');
+  const image = document.querySelector('.selector-character');
+  if (!bar || !image) return;
+
+  image.src = SECTION_SELECTOR_CHARACTER.src;
+  bar.style.setProperty('--selector-character-width', `${SECTION_SELECTOR_CHARACTER.width}px`);
+  bar.style.setProperty('--selector-character-height',
+    typeof SECTION_SELECTOR_CHARACTER.height === 'number' ? `${SECTION_SELECTOR_CHARACTER.height}px` : SECTION_SELECTOR_CHARACTER.height
+  );
+  bar.style.setProperty('--selector-character-x', `${SECTION_SELECTOR_CHARACTER.x}px`);
+  bar.style.setProperty('--selector-character-y', `${SECTION_SELECTOR_CHARACTER.y}px`);
+  bar.style.setProperty('--selector-character-angle', `${SECTION_SELECTOR_CHARACTER.angle}deg`);
+  bar.style.setProperty('--selector-character-scale', SECTION_SELECTOR_CHARACTER.scale);
+}
+
+window.sectionSelectorCharacterSettings = SECTION_SELECTOR_CHARACTER;
+window.updateSectionSelectorCharacter = applySectionSelectorCharacterSettings;
 
 // ==================== HELPER FUNCTIONS ====================
 function getAvatarHTML(char) {
@@ -3880,7 +4267,7 @@ let activeRole = null;
 let selectedId = null;
 
 function applyFilters() {
-  const filtered = CHARACTERS.filter(c => {
+  const filtered = ROSTER.filter(c => {
     if (activeCategory !== 'all' && c.category !== activeCategory) return false;
     if (activeType && c.type !== activeType) return false;
     if (activeRole && c.role !== activeRole) return false;
@@ -3897,11 +4284,17 @@ function renderGrid(filtered) {
     return;
   }
   filtered.forEach((char, idx) => {
-    const card = document.createElement('div');
-    card.className = 'char-card' + (selectedId === char.id ? ' selected' : '');
+    const card = document.createElement('a');
+    const isUpcoming = isUpcomingCharacter(char);
+    card.className = 'char-card' + (selectedId === char.id ? ' selected' : '') + (isUpcoming ? ' upcoming' : '');
+    card.href = isUpcoming ? `#${char.id}` : getCharacterUrl(char.id);
+    card.setAttribute('aria-label', isUpcoming ? `${char.name} is upcoming` : `Open ${char.name} records`);
     card.style.setProperty('--char-color', char.color);
     card.style.animationDelay = `${idx * 0.05}s`;
-    card.onclick = () => openPanel(char.id);
+    card.onclick = event => {
+      event.preventDefault();
+      openPanel(char.id);
+    };
     const illStyles = [
       `width:${char.avatarWidth || 200}px`,
       `height:${char.avatarHeight || 212}px`,
@@ -3911,6 +4304,10 @@ function renderGrid(filtered) {
     card.innerHTML = `<div class="card-frame"><div class="char-illustration" style="${illStyles}">${getAvatarHTML(char)}</div></div>`;
     grid.appendChild(card);
   });
+  if (initialGridMinHeight === null) {
+    initialGridMinHeight = grid.offsetHeight;
+    grid.style.minHeight = `${initialGridMinHeight}px`;
+  }
 }
 
 function setCategoryFilter(cat, btn) {
@@ -3975,6 +4372,12 @@ const TERM_GLOSSARY = {
   'Sacrificial Materials': 'After attacking, summoned Fracciones are converted into 1 Sacrificial Material.<br>Szayelaporro can use Special Attacks to detonate them and grant buffs to teammates.<br>Up to 6 can be accumulated.',
   'Intel Control': 'Each time a Special Attack is released, grants all Spirit characters corresponding stacks of Intel Control based on the number of detonated Sacrificial Materials, increasing their damage dealt.',
   'Sample Analysis': 'When an Ultimate is released, all Spirit characters gain 1 stack of Sample Analysis.<br>Whenever a character with this state deals damage, all Spirit characters gain another stack of Sample Analysis, increasing their Crit DMG.',
+  'Battle Will': 'Generated through various attack types.<br>While in Resurreccion, consume these points to release Enhanced Techniques, and Manual Counterattacks.',
+  'Verde Rush': 'Upon triggering, deals Ailment DMG to the enemy and applies one stack of Verde Rush Mark. Each stack of Verde Rush Mark reduces the target\'s Ailment Resistance.',
+  'Verde Rush Points': 'Every 100 points of Verde Rush accumulated on an enemy will trigger a Verde Rush effect, dealing Ailment DMG and applying a stack of Verde Rush Mark reduces the target\'s Ailment Resistance.',
+  Hollowfied: 'After releasing his Ultimate, Ichigo becomes Hollowified, during which all his abilities are greatly enhanced',
+  'Lightning Seal': 'Yoruichi gains 1 stack of Lightning Seal that increases her Strike DMG each time she releases a technique , counterattack, or special attack. After equipping a Weapon Stamp, it also increases her Crit Rate by an extra amount. This effect is stackable.',
+  'Reishi Analysis': 'Each use of Urahara\'s special attack, Technique, Ultimate, or counterattack grants 1 stack of Reishi Analysis that increases ATK to the team.',
 };
 
 function normalizeTermName(text) {
@@ -4254,8 +4657,8 @@ function positionPopupLeft(popup, icon) {
 
 // ==================== PANEL OPEN / CLOSE ====================
 function openPanel(id) {
-  const char = CHARACTERS.find(c => c.id === id);
-  if (!char) return;
+  const char = ROSTER.find(c => c.id === id);
+  if (!char || isUpcomingCharacter(char)) return;
   selectedId = id;
   applyFilters();
 
@@ -4447,7 +4850,13 @@ function closePanel() {
   }
 })();
 
+applySectionSelectorCharacterSettings();
 applyFilters();
+
+const initialCharacterId = new URLSearchParams(window.location.search).get('character');
+if (initialCharacterId) {
+  openPanel(initialCharacterId);
+}
 </script>
 
 <div class="ad-slot" aria-label="Sponsored advertisement">
