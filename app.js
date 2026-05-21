@@ -165,7 +165,7 @@ const CHARACTERS = [
     coreStampGaps: [80, 80],
     coreStampPopupData: [
       {
-        name: 'The Path of Instinct',
+        name: 'Pantera\'s Shadow',
 		dividerColor: 'null',
         stars: 6,
         base: {
@@ -175,7 +175,7 @@ const CHARACTERS = [
             { label: 'HP', value: '629' },
             { label: 'Strike DMG Bonus', value: '8.0%' }
           ],
-          text: '<p>-Increases Ultimate Charge Rate by  <span style="color: #52C394;">15%</span>.<br>-Damage dealt by Ultimate, Gran Rey Cero, and Enhanced Basic Attack, Form of Destruction, increases by  <span style="color: #52C394;">37.5%</span>.<br>-Each point of Spiritual Pressure Reserve increases Grimmjow\'s Crit Rate by  <span style="color: #52C394;">4%</span> and Crit DMG by  <span style="color: #52C394;">8%</span>.</p>'
+          text: '<p>-Increases Ailment DMG Bonus by <span style="color: #52C394;">25%</span>.<br>-When releasing a technique, Special Attack, or Ultimate, Crit DMG is increased by an extra <span style="color: #52C394;">50%</span>.<br>-The technique, Death Grip, consumes 1 less <span style="color: #EA4A86; text-decoration: underline;">Hunting Point</span> and converts all remaining <span style="color: #EA4A86; text-decoration: underline;">Hunting Points</span> into damage. Each <span style="color: #EA4A86; text-decoration: underline;">Hunting Point</span> increases this skill\'s damage by <span style="color: #52C394;">50%</span>.</p>'
         },
         max: {
           rows: [
@@ -237,14 +237,14 @@ const CHARACTERS = [
     coreStampPopupWidths: [null, null, null],
 
     setStampBeforeText: '<p>No Data :).</p>',
-    setStampImgs: ['images/yoru set 1.webp', 'images/yoru set 2.webp', 'images/yoru set 3.webp'],
+    setStampImgs: ['images/grimm res set 1.webp', 'images/grimm res set 2.webp', 'images/grimm res set 3.webp'],
     setStampAngles: [0, 0, -3],
     setStampGaps: [30, 90],
     setStampInfos: ['<p><span style="color: #EA4A86;">-The recommended Stats are:</span><br>1) Ult Charge Rate%<br>2) Crit Rate%<br>3) Crit DMG%</p></p>', '<p><span style="color: #EA4A86;">-The recommended Stats are:</span><br>1) Ult Charge Rate%<br>2) Crit Rate%<br>3) Crit DMG%</p></p>', '<p><span style="color: #EA4A86;">-The recommended Stats are:</span><br>1) Ult Charge Rate%<br>2) Crit Rate%<br>3) Crit DMG%</p></p>'],
     setStampPopupWidths: [380, 380, 380],
     setStampAfterText: '<p><span style="color: #EA4A86;">Midnight Specter (3/3) </span><br>2-Piece: Increases Strike DMG by <span style="color: #52C394;">11%</span>.<br>3-Piece: Increases Ultimate DMG by <span style="color: #52C394;">30%</span>. Each time a basic attack is released, increases special attack DMG by <span style="color: #52C394;">5.5%</span> for 10s. Stacks up to 5 times.</p>',
 
-    weaponStampImgs: ['images/grimm weapon.webp','images/sajin weapon 2.webp'],
+    weaponStampImgs: ['images/grimm res weapon.webp','images/sajin weapon 2.webp'],
     weaponStampAngles: [-3, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
@@ -3423,6 +3423,8 @@ const TERM_GLOSSARY = {
   Hollowfied: 'After releasing his Ultimate, Ichigo becomes Hollowified, during which all his abilities are greatly enhanced',
   'Lightning Seal': 'Yoruichi gains 1 stack of Lightning Seal that increases her Strike DMG each time she releases a technique , counterattack, or special attack. After equipping a Weapon Stamp, it also increases her Crit Rate by an extra amount. This effect is stackable.',
   'Reishi Analysis': 'Each use of Urahara\'s special attack, Technique, Ultimate, or counterattack grants 1 stack of Reishi Analysis that increases ATK to the team.',
+  'Hunting Point': 'Grimmjow gains Hunting Points when releasing Pounce Pursuit, Counterattack, Violent Clutch, or triggering Perfect Dodge.<br>After releasing Pounce Pursuit, he can consume Hunting Points to follow up with an Enhanced Technique.',
+  'Hunting Point': 'Grimmjow gains Hunting Points when releasing Pounce Pursuit, Counterattack, Violent Clutch, or triggering Perfect Dodge.<br>After releasing Pounce Pursuit, he can consume Hunting Points to follow up with an Enhanced Technique.',
 };
 
 function normalizeTermName(text) {
