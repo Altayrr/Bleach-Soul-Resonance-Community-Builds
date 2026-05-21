@@ -184,7 +184,7 @@ const CHARACTERS = [
             { label: 'HP', value: '3150' },
             { label: 'Strike DMG Bonus', value: '20.0%' }
           ],
-          text: '<p>-Increases Ultimate Charge Rate by  <span style="color: #52C394;">30%</span>.<br>-Damage dealt by Ultimate, Gran Rey Cero, and Enhanced Basic Attack, Form of Destruction, increases by  <span style="color: #52C394;">75%</span>.<br>-Each point of Spiritual Pressure Reserve increases Grimmjow\'s Crit Rate by  <span style="color: #52C394;">8%</span> and Crit DMG by  <span style="color: #52C394;">16%</span>.</p>'
+          text: '<p>-Increases Ailment DMG Bonus by <span style="color: #52C394;">50%</span>.<br>-When releasing a technique, Special Attack, or Ultimate, Crit DMG is increased by an extra <span style="color: #52C394;">100%</span>.<br>-The technique, Death Grip, consumes 1 less <span style="color: #EA4A86; text-decoration: underline;">Hunting Point</span> and converts all remaining <span style="color: #EA4A86; text-decoration: underline;">Hunting Points</span> into damage. Each <span style="color: #EA4A86; text-decoration: underline;">Hunting Point</span> increases this skill\'s damage by <span style="color: #52C394;">100%</span>.</p>'
         }
       },
       {
@@ -249,7 +249,7 @@ const CHARACTERS = [
     weaponStampGaps: [90],
     weaponStampPopupData: [
       {
-        name: 'At Long Last',
+        name: 'Thirst for Battle',
 		dividerColor: 'null',
         stars: 0,
         base: {
@@ -257,14 +257,14 @@ const CHARACTERS = [
 			{ label: 'Weapon Stats Boost', value: '50%' },
           ],
           note: 'Grimmjow Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-In battle, increases ATK by an amount equal to  <span style="color: #52C394;">9%</span> of the character\'s Ultimate Charge Rate.<br>-When detonating <span style="color: #EA4A86; text-decoration: underline;">Destruction Mark</span>, deals additional damage equal to  <span style="color: #52C394;">100%</span> of ATK to the enemy. For every  <span style="color: #52C394;">1%</span> Ultimate Charge Rate, the damage is further increased by  <span style="color: #52C394;">0.5%</span>.<br>-Each time Grimmjow\'s attack hits an enemy, slightly reduces the cooldown of technique and Perfect Dodge.</p></p>'
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-Increases Crit Rate by <span style="color: #52C394;">22.5%</span>.<br>-Increases Spiritual Pressure Charge Rate by <span style="color: #52C394;">100%</span> and reduces the Spiritual Pressure required to enter <span style="color: #EA4A86; text-decoration: underline;">Rush</span> by <span style="color: #52C394;">50%</span>.<br>-When releasing the Special Attack, Pounce, each stack of Killing Intent reduces the target\'s Strike Resistance by <span style="color: #52C394;">0.7%</span> for 10 seconds.<br>-Triggering <span style="color: #EA4A86; text-decoration: underline;">Lacerate</span> each time increaes the next Ultimate DMG by an extra <span style="color: #52C394;">15%</span>, stacking up to 4 times.</p></p>'
         },
         max: {
           rows: [
             { label: 'Weapon Stats Boost', value: '50%' },
           ],
           note: 'Grimmjow Exclusive Effect',
-          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-In battle, increases ATK by an amount equal to  <span style="color: #52C394;">18%</span> of the character\'s Ultimate Charge Rate.<br>-When detonating <span style="color: #EA4A86; text-decoration: underline;">Destruction Mark</span>, deals additional damage equal to  <span style="color: #52C394;">100%</span> of ATK to the enemy. For every  <span style="color: #52C394;">1%</span> Ultimate Charge Rate, the damage is further increased by  <span style="color: #52C394;">1%</span>.<br>-Each time Grimmjow\'s attack hits an enemy, slightly reduces the cooldown of technique and Perfect Dodge.</p></p>'
+          text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-Increases Crit Rate by <span style="color: #52C394;">45%</span>.<br>-Increases Spiritual Pressure Charge Rate by <span style="color: #52C394;">100%</span> and reduces the Spiritual Pressure required to enter <span style="color: #EA4A86; text-decoration: underline;">Rush</span> by <span style="color: #52C394;">50%</span>.<br>-When releasing the Special Attack, Pounce, each stack of Killing Intent reduces the target\'s Strike Resistance by <span style="color: #52C394;">1.5%</span> for 10 seconds.<br>-Triggering <span style="color: #EA4A86; text-decoration: underline;">Lacerate</span> each time increaes the next Ultimate DMG by an extra <span style="color: #52C394;">30%</span>, stacking up to 4 times.</p></p>'
         }
       },
       {
