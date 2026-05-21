@@ -256,14 +256,14 @@ const CHARACTERS = [
           rows: [
 			{ label: 'Weapon Stats Boost', value: '50%' },
           ],
-          note: 'Grimmjow Exclusive Effect',
+          note: 'Grimmjow Resurrección Exclusive Effect',
           text: '<p><span style="color: #EA4A86;">Ascencion Stage 1</span><p>-Increases Crit Rate by <span style="color: #52C394;">22.5%</span>.<br>-Increases Spiritual Pressure Charge Rate by <span style="color: #52C394;">100%</span> and reduces the Spiritual Pressure required to enter <span style="color: #EA4A86; text-decoration: underline;">Rush</span> by <span style="color: #52C394;">50%</span>.<br>-When releasing the Special Attack, Pounce, each stack of Killing Intent reduces the target\'s Strike Resistance by <span style="color: #52C394;">0.7%</span> for 10 seconds.<br>-Triggering <span style="color: #EA4A86; text-decoration: underline;">Lacerate</span> each time increaes the next Ultimate DMG by an extra <span style="color: #52C394;">15%</span>, stacking up to 4 times.</p></p>'
         },
         max: {
           rows: [
             { label: 'Weapon Stats Boost', value: '50%' },
           ],
-          note: 'Grimmjow Exclusive Effect',
+          note: 'Grimmjow Resurrección Exclusive Effect',
           text: '<p><span style="color: #EA4A86;">Ascencion Stage 5</span><p>-Increases Crit Rate by <span style="color: #52C394;">45%</span>.<br>-Increases Spiritual Pressure Charge Rate by <span style="color: #52C394;">100%</span> and reduces the Spiritual Pressure required to enter <span style="color: #EA4A86; text-decoration: underline;">Rush</span> by <span style="color: #52C394;">50%</span>.<br>-When releasing the Special Attack, Pounce, each stack of Killing Intent reduces the target\'s Strike Resistance by <span style="color: #52C394;">1.5%</span> for 10 seconds.<br>-Triggering <span style="color: #EA4A86; text-decoration: underline;">Lacerate</span> each time increaes the next Ultimate DMG by an extra <span style="color: #52C394;">30%</span>, stacking up to 4 times.</p></p>'
         }
       },
@@ -3424,7 +3424,9 @@ const TERM_GLOSSARY = {
   'Lightning Seal': 'Yoruichi gains 1 stack of Lightning Seal that increases her Strike DMG each time she releases a technique , counterattack, or special attack. After equipping a Weapon Stamp, it also increases her Crit Rate by an extra amount. This effect is stackable.',
   'Reishi Analysis': 'Each use of Urahara\'s special attack, Technique, Ultimate, or counterattack grants 1 stack of Reishi Analysis that increases ATK to the team.',
   'Hunting Point': 'Grimmjow gains Hunting Points when releasing Pounce Pursuit, Counterattack, Violent Clutch, or triggering Perfect Dodge.<br>After releasing Pounce Pursuit, he can consume Hunting Points to follow up with an Enhanced Technique.',
-  'Hunting Point': 'Grimmjow gains Hunting Points when releasing Pounce Pursuit, Counterattack, Violent Clutch, or triggering Perfect Dodge.<br>After releasing Pounce Pursuit, he can consume Hunting Points to follow up with an Enhanced Technique.',
+  'Hunting Points': 'Grimmjow gains Hunting Points when releasing Pounce Pursuit, Counterattack, Violent Clutch, or triggering Perfect Dodge.<br>After releasing Pounce Pursuit, he can consume Hunting Points to follow up with an Enhanced Technique.',
+  Rush: 'With sufficient Spiritual Pressure, tap and hold Basic Attack to enter continuous Rush, boosting MSPD and gaining Super Armor.<br>Deals <span style="color: #52C394;">25%</span> ATK as damage to the current target every 0.5s. When the Basic Attack button is released, Grimmjow instantly releases Pounce at the current target.',
+  Lacerate: 'When Grimmjow attacks a target affected by Prey Mark, he continuously applies Lacerate Points. Triggers Lacerate once every 100 Lacerate Points accumulated, dealing <span style="color: #52C394;">200%</span> Ailment DMG based on Grimmjow\'s ATK.',
 };
 
 function normalizeTermName(text) {
