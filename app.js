@@ -470,7 +470,7 @@ const CHARACTERS = [
       desc: 'Takes the form of a stinger on the middle finger. A target struck twice in the same location will die — the first leaves a butterfly mark (Hōmonka), the second destroys the marked point. Bankai: Jakuhō Raikōben — a massive armored cannon of immense destructive power.'
     },
     bio: 'Commander of the Onmitsukidō and captain of the 2nd Division, Suì-Fēng is a master of assassination and Shunpo. Devoted to the way of the shinobi, she holds speed as the highest virtue and carries complex feelings about her former mentor, Yoruichi Shihōin.',
-    instructions: '',
+    instructions: 'When using Mayuri it is important to note that he does not require much onfield time. With both iterations of the current Thrust and Strike team, ensure that you swap out of Mayuri instantly after using either his Ultimate or summoning Nemu after his Technique. This will allow for more onfield time with other units while still ensuring all available buffs are active',
     customAvatar: 'images/soi fon.webp',
     panelImage: 'images/soi fon panel.webp',
     avatarWidth: 200,
