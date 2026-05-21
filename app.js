@@ -236,16 +236,16 @@ const CHARACTERS = [
     ],
     coreStampPopupWidths: [null, null, null],
 
-    setStampBeforeText: '<p>No Data :).</p>',
+     setStampBeforeText: '<p><span style="color: #EA4A86; font-weight: bold">-The recommended passives for Grimmjow Resurreccion - Strike are:</span><br>1) Overdrive - Full Assault<br>2) Enhanced Damage</p><p><span style="color: #EA4A86; font-weight: bold">-Boundary Dependant Build Changes:</span><br>Build does not change with dupes, however there are certain stats that must be reached for Grimmjow Resurreccion to be fully optomised. Crit Rate: <span style="color: #52C394;">100%</span> (as much as possible). ATK%, Ailment DMG Bonus% and Crit DMG% (as much as possible).</p>',
     setStampImgs: ['images/grimm res set 1.webp', 'images/grimm res set 2.webp', 'images/grimm res set 3.webp'],
     setStampAngles: [0, 0, -3],
-    setStampGaps: [30, 90],
-    setStampInfos: ['<p><span style="color: #EA4A86;">-The recommended Stats are:</span><br>1) Ult Charge Rate%<br>2) Crit Rate%<br>3) Crit DMG%</p></p>', '<p><span style="color: #EA4A86;">-The recommended Stats are:</span><br>1) Ult Charge Rate%<br>2) Crit Rate%<br>3) Crit DMG%</p></p>', '<p><span style="color: #EA4A86;">-The recommended Stats are:</span><br>1) Ult Charge Rate%<br>2) Crit Rate%<br>3) Crit DMG%</p></p>'],
+    setStampGaps: [30, 60],
+    setStampInfos: ['<p><span style="color: #EA4A86;">-The recommended Mainstats are:</span><br>1) Thrust DMG Bonus%<br>2) ATK% (Better for B4 and Higher)</p><p><span style="color: #EA4A86;">-Substats:</span><br>CR%=CDMG% > Ailment DMG Bonus > ATK% > Ult Charge Rate%</p>', '<p><span style="color: #EA4A86;">The recommended Mainstats are:</span><br>1) Crit Rate%<br>2) Crit Dmg%</p><p><span style="color: #EA4A86;">Substats:</span><br>CR%=CDMG% > Ailment DMG Bonus > ATK% > Ult Charge Rate%</p>', '<p><span style="color: #EA4A86;">The recommended Mainstats are:</span><br>1) Ailment DMG%</p><p><span style="color: #EA4A86;">Substats:</span><br>CR%=CDMG% > Ailment DMG Bonus > ATK% > Ult Charge Rate%</p>'],
     setStampPopupWidths: [380, 380, 380],
-    setStampAfterText: '<p><span style="color: #EA4A86;">Midnight Specter (3/3) </span><br>2-Piece: Increases Strike DMG by <span style="color: #52C394;">11%</span>.<br>3-Piece: Increases Ultimate DMG by <span style="color: #52C394;">30%</span>. Each time a basic attack is released, increases special attack DMG by <span style="color: #52C394;">5.5%</span> for 10s. Stacks up to 5 times.</p>',
+    setStampAfterText: '<p><span style="color: #EA4A86;">Mocking Visage (3/3) </span><br>2-Piece: Increases Ailment DMG by <span style="color: #52C394;">50%</span>.<br>3-Piece: Each time a debuff on an enemy is triggered, the character\'s Thrust DMG is increased by <span style="color: #52C394;">1.5%</span> for 10 seconds. Stacks up to 10 times. Upon reaching 10 stacks, Technique DMG and Ultimate DMG are increased by <span style="color: #52C394;">25%</span> and <span style="color: #52C394;">25%</span>, respectively.</p>',
 
     weaponStampImgs: ['images/grimm res weapon.webp','images/sajin weapon 2.webp'],
-    weaponStampAngles: [-3, 5],
+    weaponStampAngles: [0, 5],
     weaponStampGaps: [90],
     weaponStampPopupData: [
       {
