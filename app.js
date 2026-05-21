@@ -1,4 +1,3 @@
-// ==================== CHARACTER DATA ====================
 const CHARACTERS = [
   {
     id: 'ulquiorra-resurreccion',
@@ -17,6 +16,7 @@ const CHARACTERS = [
       desc: 'This character is not in the game yet.'
     },
     bio: 'This character is not in the game yet.',
+    instructions: '',
     customAvatar: 'images/ulq res.webp',
     panelImage: '',
     avatarWidth: 210,
@@ -80,6 +80,7 @@ const CHARACTERS = [
       desc: 'This character is not in the game yet.'
     },
     bio: 'This character is not in the game yet.',
+    instructions: '',
     customAvatar: 'images/white.webp',
     panelImage: '',
     avatarWidth: 220,
@@ -144,6 +145,7 @@ const CHARACTERS = [
       desc: 'Grimmjow\'s release transforms him into a sleek, feline warrior with enhanced speed, agility, and devastating claw attacks. His signature technique, Desgarrón, creates massive energy slashes from his fingertips.'
     },
     bio: 'Grimmjow in his released Pantera form, a faster and more savage version of the Sexta Espada built around close-range pressure, destructive claws, and relentless instinct.',
+    instructions: '',
     customAvatar: 'images/grimm res.webp',
     panelImage: 'images/grimm res panel.webp',
     avatarWidth: 190,
@@ -294,6 +296,7 @@ const CHARACTERS = [
       desc: 'A wakizashi that extends at tremendous speed to impale distant opponents. Its bankai, Kamishini no Yari, can stretch up to 13 kilometers and retract almost instantaneously, making it the fastest zanpakutō.'
     },
     bio: 'The perpetually smiling captain of the 3rd Division. Gin hides his true intentions behind an unreadable grin, manipulating events from the shadows. Despite his cold exterior, his actions are driven by a deep personal vendetta and a promise he made long ago.',
+    instructions: '',
     customAvatar: 'images/gin.webp',
     panelImage: 'images/gin panel.webp',
     avatarWidth: 200,
@@ -467,6 +470,7 @@ const CHARACTERS = [
       desc: 'Takes the form of a stinger on the middle finger. A target struck twice in the same location will die — the first leaves a butterfly mark (Hōmonka), the second destroys the marked point. Bankai: Jakuhō Raikōben — a massive armored cannon of immense destructive power.'
     },
     bio: 'Commander of the Onmitsukidō and captain of the 2nd Division, Suì-Fēng is a master of assassination and Shunpo. Devoted to the way of the shinobi, she holds speed as the highest virtue and carries complex feelings about her former mentor, Yoruichi Shihōin.',
+    instructions: '',
     customAvatar: 'images/soi fon.webp',
     panelImage: 'images/soi fon panel.webp',
     avatarWidth: 200,
@@ -640,6 +644,7 @@ const CHARACTERS = [
       desc: 'Creates a "perfect hypnosis" that controls all five senses of anyone who witnesses its release. Aizen used this ability for over 100 years to hide his true plans. The only defence is to touch the blade before release. Combined with the Hōgyoku, Aizen attained an unprecedented form beyond any known category.'
     },
     bio: 'Once considered the most respected captain of the Gotei 13, Aizen orchestrated a century-long conspiracy from behind a mask of perfect benevolence. His intellect, spiritual power, and manipulative genius set him in a category entirely his own. He sought to transcend the limits placed on all beings by fate itself.',
+    instructions: '',
     customAvatar: 'images/aizen.webp',
     panelImage: 'images/aizen panel.webp',
     avatarWidth: 200,
@@ -813,6 +818,7 @@ const CHARACTERS = [
       desc: 'Shatters the blade into a thousand tiny blades like cherry blossom petals, controlled entirely by the will of the wielder. Bankai: Senbonzakura Kageyoshi — millions of blade-petals fill the air, capable of slicing targets to pieces from any angle.'
     },
     bio: 'The 28th head of the noble Kuchiki clan and captain of the 6th Division, Byakuya embodies aristocratic pride, composure, and unwavering duty. His early conflict with Ichigo — defending the execution of his own sister Rukia — reveals the painful tension between law, love, and personal honour that defines his journey.',
+    instructions: '',
     customAvatar: 'images/byakuya.webp',
     panelImage: 'images/byakuya panel.webp',
     avatarWidth: 200,
@@ -986,6 +992,7 @@ const CHARACTERS = [
       desc: 'A grotesque zanpakutō that paralyses its victims with a neurotoxin. Its bankai, Konjiki Ashisogi Jizō, produces a giant caterpillar-like creature that exhales a deadly poison capable of dissolving organic matter and even reconfiguring its own genetic structure.'
     },
     bio: 'The twisted genius of the 12th Division and president of the Shinigami Research and Development Institute. Mayuri is a ruthless scientist who views everything — allies, enemies, even himself — as test subjects. His biotechnology and chemical warfare are unmatched, as is his utter lack of ethical boundaries.',
+    instructions: '',
     customAvatar: 'images/mayuri.webp',
     panelImage: 'images/mayuri panel.webp',
     avatarWidth: 200,
@@ -1136,6 +1143,7 @@ const CHARACTERS = [
       desc: 'A colossal zanpakutō that manifests a giant spectral warrior mimicking Komamura\'s movements. Its bankai, Kokujō Tengen Myō\'ō, summons an enormous armored titan that deals earth-shattering blows but is linked to the wielder — any damage the titan takes is reflected onto Komamura.'
     },
     bio: 'A towering, wolf-like shinigami who once hid his bestial face behind a bamboo helmet. Komamura embodies unwavering loyalty and a deep sense of honor, dedicating his blade to the defense of Soul Society. His kind heart and immense physical power make him both a gentle soul and a terrifying combatant.',
+    instructions: '',
     customAvatar: 'images/sajin.webp',
     panelImage: 'images/sajin panel.webp',
     avatarWidth: 200,
@@ -1309,6 +1317,7 @@ const CHARACTERS = [
       desc: 'Creates a sound-based confusion field. Bankai: Suzumushi Tsuishiki Enma Kōrogi — generates a sensory deprivation dome that removes all senses of those within it except touch, while leaving Tōsen\'s own spiritual perception active — an overwhelming advantage.'
     },
     bio: 'A blind man who could still sense the beauty of the world through spiritual energy, Tōsen followed Aizen in pursuit of "the least bloody path." His unwavering belief in justice and peace ultimately led him to betray Soul Society alongside Aizen. His sincerity was real — only his methods were tragically misled.',
+    instructions: '',
     customAvatar: 'images/tosen.webp',
     panelImage: 'images/tosen panel.webp',
     avatarWidth: 200,
@@ -1482,6 +1491,7 @@ const CHARACTERS = [
       desc: 'The strongest ice-type Zanpakutō in Soul Society. Controls ice and water across the sky. A single wave of the blade creates a massive ice dragon. Bankai: Daiguren Hyōrinmaru — encases Hitsugaya in a dragon of ice, granting flight and devastating freezing attacks that expand with his maturity.'
     },
     bio: 'The youngest captain ever to achieve his rank through his own power, Hitsugaya is a prodigy whose potential is said to eventually surpass even Yamamoto. Serious and mature beyond his appearance, he is deeply protective of those close to him — especially his childhood friend Momo Hinamori.',
+    instructions: '',
     customAvatar: 'images/toshiro.webp',
     panelImage: 'images/toshiro panel.webp',
     avatarWidth: 200,
@@ -1655,6 +1665,7 @@ const CHARACTERS = [
       desc: 'An unnamed blade for most of his life — Zaraki never bothered to learn its name. Shikai: Nozarashi takes a massive cleaver form capable of splitting meteorites. Bankai: Nozarashi (Bankai) — Zaraki transforms into a beast of pure killing intent, his body mutating to unleash unbridled destruction.'
     },
     bio: 'Named after the district he slaughtered his way out of, Zaraki Kenpachi is the embodiment of battle lust and raw power. He willingly handicaps himself by wearing bells and an eye patch to make fights last longer. A warrior who lived only for the thrill of battle, he eventually found something worth protecting — his lieutenant, Yachiru.',
+    instructions: '',
     customAvatar: 'images/kenpachi.webp',
     panelImage: 'images/kenpachi panel.webp',
     avatarWidth: 200,
@@ -1828,6 +1839,7 @@ const CHARACTERS = [
       desc: 'A spear-like zanpakutō that splits into a three-section staff, offering versatile close-range attacks. Its bankai, Ryūmon Hōzukimaru, is a massive dragon-shaped weapon that grows stronger the more it is damaged — a fitting reflection of Ikkaku\'s relentless fighting spirit.'
     },
     bio: 'The bald, battle-hungry lieutenant of the 11th Division. Ikkaku lives for the thrill of combat and follows Kenpachi Zaraki\'s warrior code to the letter. He hides his bankai from most, wanting to fight and die under the same sky as his captain. His loyalty and ferocity make him one of the toughest fighters in the Gotei 13.',
+    instructions: '',
     customAvatar: 'images/ikkaku.webp',
     panelImage: 'images/ikkaku panel.webp',
     avatarWidth: 200,
@@ -2000,6 +2012,7 @@ const CHARACTERS = [
       desc: 'Grimmjow\'s release transforms him into a sleek, feline warrior with enhanced speed, agility, and devastating claw attacks. His signature technique, Desgarrón, creates massive energy slashes from his fingertips.'
     },
     bio: 'The Sexta (6th) Espada, a battle-crazed panther who lives solely for the thrill of combat. Proud and fiercely independent, Grimmjow answers to no one, often clashing with his fellow Espada and even his own master. His rivalry with Ichigo pushes both to their absolute limits.',
+    instructions: '',
     customAvatar: 'images/grimm.webp',
     panelImage: 'images/grimm panel.webp',
     avatarWidth: 200,
@@ -2150,6 +2163,7 @@ const CHARACTERS = [
       desc: 'A parasitic zanpakutō that allows Szayelaporro to absorb and analyze his opponents\' spiritual energy, creating voodoo-like dolls that disable or even kill them remotely. His release also grants him the ability to regenerate from fatal wounds.'
     },
     bio: 'The Octava (8th) Espada and a mad scientist obsessed with perfection. Szayelaporro treats his battles as experiments, deriving sick pleasure from dissecting his enemies\' abilities. His arrogance and meticulous planning are matched only by his grotesque methods.',
+    instructions: '',
     customAvatar: 'images/sza.webp',
     panelImage: 'images/sza panel.webp',
     avatarWidth: 200,
@@ -2322,6 +2336,7 @@ const CHARACTERS = [
       desc: 'Nelliel\'s release transforms her into a centaur-like knight with immense speed and a double-ended lance. Her signature Cero Doble can absorb an opponent\'s Cero and fire it back with multiplied power, making her a formidable counter-fighter.'
     },
     bio: 'A former Tres (3rd) Espada who rejected the violent ways of Hueco Mundo and was cast out for her pacifist beliefs. Now a childlike arrancar living in the deserts of Hueco Mundo, she retains her loyal and protective nature, especially towards those she considers family.',
+    instructions: '',
     customAvatar: 'images/nelliel.webp',
     panelImage: 'images/nel panel.webp',
     avatarWidth: 200,
@@ -2494,6 +2509,7 @@ const CHARACTERS = [
       desc: 'Ichigo\'s Bankai compresses his immense spiritual pressure into a sleek black blade, granting him incredible speed and the ability to fire a super-enhanced Getsuga Tenshō. The form is the pinnacle of his shinigami power, balancing raw offense with lightning-fast movement.'
     },
     bio: 'A human teenager turned Substitute Shinigami, Ichigo unlocked his Bankai in just three days. In this state, he moves faster than the eye can see and cuts with the force of a hurricane. His unwavering resolve and protective instincts make him a force that even gods respect.',
+    instructions: '',
     customAvatar: 'images/ichigo-bankai.webp',
     panelImage: 'images/ichi panel.webp',
     avatarWidth: 200,
@@ -2666,6 +2682,7 @@ const CHARACTERS = [
       desc: 'A versatile zanpakutō that can create powerful crimson energy blasts, shields, and even a restorative technique. Its bankai, Kannonbiraki Benihime Aratame, can restructure anything it cuts, making it capable of both healing and destruction.'
     },
     bio: 'The enigmatic proprietor of the Urahara Shop. Once a captain of the 12th Division and founder of the Shinigami Research and Development Institute, Kisuke was exiled to the human world. His genius intellect and foresight have repeatedly turned the tide in Soul Society\'s darkest hours.',
+    instructions: '',
     customAvatar: 'images/urahara.webp',
     panelImage: 'images/urahara panel.webp',
     avatarWidth: 200,
@@ -2838,6 +2855,7 @@ const CHARACTERS = [
       desc: 'Yoruichi does not rely on a zanpakutō, instead mastering the ancient technique of Shunkō — combining hand-to-hand combat with condensed kidō energy around her body. Her speed is unmatched, earning her the title "Flash Goddess," and she can shift between human and cat forms at will.'
     },
     bio: 'The former captain of the 2nd Division and head of the Shihōin noble family, Yoruichi is the most gifted Shunpo practitioner in Soul Society history. Playful yet deadly, she acted as Ichigo\'s mentor and remains a wild card — as likely to tease you as to end a fight in the blink of an eye.',
+    instructions: '',
     customAvatar: 'images/yoruichi.webp',
     panelImage: 'images/yoru panel.webp',
     avatarWidth: 200,
@@ -3072,8 +3090,6 @@ function applySectionSelectorCharacterSettings(settings = {}) {
 
 window.sectionSelectorCharacterSettings = SECTION_SELECTOR_CHARACTER;
 window.updateSectionSelectorCharacter = applySectionSelectorCharacterSettings;
-
-// ==================== HELPER FUNCTIONS ====================
 function getAvatarHTML(char) {
   if (char.customAvatar && char.customAvatar.trim()) {
     const src = char.customAvatar.trim();
@@ -3099,6 +3115,13 @@ function getSingleBondSrc(bondImgs) {
   if (Array.isArray(bondImgs) && bondImgs.length > 0) return bondImgs[0];
   if (typeof bondImgs === 'string') return bondImgs;
   return null;
+}
+
+function escapeHTML(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
 }
 
 function escapeAttr(value) {
@@ -3151,7 +3174,7 @@ function normalizeCoreStampPopupData(char) {
     return {
       name: popup.name || `Stamp ${i + 1}`,
       stars: Number.isFinite(Number(popup.stars)) ? Math.max(0, Math.round(Number(popup.stars))) : 6,
-      dividerColor: popup.dividerColor || null,   // <-- ADDED: forward dividerColor
+      dividerColor: popup.dividerColor || null,
       popupWidth,
       base: { rows: baseRows, text: baseText },
       max: { rows: maxRows, text: maxText }
@@ -3262,8 +3285,6 @@ function buildBondsHTML(imgSrc, rectangleInfo, offsetX = 0, height = null, popup
   }
   return html;
 }
-
-// ==================== STATE & FILTERS ====================
 let activeCategory = 'all';
 let activeType = null;
 let activeRole = null;
@@ -3345,8 +3366,6 @@ function setRoleFilter(role, btn) {
   }
   applyFilters();
 }
-
-// ==================== POPUP HANDLING ====================
 let currentPopup = null, popupHideTimeout = null;
 let termInfoPopup = null;
 let activeInfoIcon = null;
@@ -3527,18 +3546,12 @@ function attachInfoHover() {
 
           const topDivider = document.createElement('div');
           topDivider.className = 'core-popup-divider';
-          
-          // Determine the glow color: use custom if it exists, otherwise fallback to gold
           const glowColor = (popupData.dividerColor && popupData.dividerColor !== 'null') 
             ? popupData.dividerColor 
             : 'rgba(236, 210, 58, 0.6)';
-
-          // Apply custom background color if one is set (ignoring the 'null' string)
           if (popupData.dividerColor && popupData.dividerColor !== 'null') {
             topDivider.style.background = popupData.dividerColor;
           }
-
-          // Keep the original short shadow height, but apply it to ALL stamps
           topDivider.style.boxShadow = `0 -1px 0 rgba(255,255,255,0.15), 0 -6px 12px ${glowColor}`;
 
           const mainScroll = document.createElement('div');
@@ -3657,8 +3670,6 @@ function positionPopupLeft(popup, icon) {
   popup.style.left = left + 'px';
   popup.style.top = top + 'px';
 }
-
-// ==================== PANEL OPEN / CLOSE ====================
 function openPanel(id) {
   const char = ROSTER.find(c => c.id === id);
   if (!char || isUpcomingCharacter(char)) return;
@@ -3667,8 +3678,6 @@ function openPanel(id) {
 
   const panel = document.getElementById('info-panel');
   panel.style.setProperty('--char-color', char.color);
-
-  // Panel hero
   const panelArt = document.getElementById('panel-art');
   const panelImgSrc = char.panelImage || null;
   if (panelImgSrc) {
@@ -3683,8 +3692,6 @@ function openPanel(id) {
   document.getElementById('panel-char-name').textContent = char.name;
   document.getElementById('panel-char-jp').textContent = char.nameJP;
   document.getElementById('panel-quote').textContent = char.quote;
-
-  // Stats images
   const statsContainer = document.getElementById('panel-stats');
   if (char.statsImgs && char.statsImgs.length) {
     let statsHTML = '';
@@ -3712,7 +3719,10 @@ function openPanel(id) {
     <div class="zanpaku-desc">${char.zanpakuto.desc}</div>
   `;
 
-  // Bonds
+  const instructionsBlock = document.getElementById('panel-instructions');
+  const instructions = String(char.instructions || '').trim();
+  instructionsBlock.innerHTML = instructions || '<p class="instructions-empty">uuh notes here :) </p>';
+  enhanceGlossaryTerms(instructionsBlock);
   const bond1Src = getSingleBondSrc(char.bonds1Imgs);
   document.getElementById('panel-bonds1').innerHTML = buildBondsHTML(
     bond1Src, char.bonds1Info, char.bonds1OffsetX || 0, char.bonds1Height || null, char.bonds1PopupWidth
@@ -3722,8 +3732,6 @@ function openPanel(id) {
   document.getElementById('panel-bonds2').innerHTML = buildBondsHTML(
     bond2Src, char.bonds2Info, char.bonds2OffsetX || 0, char.bonds2Height || null, char.bonds2PopupWidth
   );
-
-  // Stamps (with popupWidth arrays and second-page infos)
   const coreBlock = document.getElementById('panel-core-stamp');
   coreBlock.classList.remove('has-content');
   if (char.coreStampImgs && char.coreStampImgs.some(img => img)) {
@@ -3757,7 +3765,7 @@ function openPanel(id) {
     weaponBlock.innerHTML = buildStampHTML(
       char.weaponStampImgs, char.weaponStampAngles, char.weaponStampGaps,
       char.weaponStampInfos, char.weaponStampPopupWidths, char.weaponStampInfos2,
-      { corePopupData: normalizeWeaponStampPopupData(char), isWeapon: true, } // <-- This triggers the rich popup
+      { corePopupData: normalizeWeaponStampPopupData(char), isWeapon: true, }
     );
   } else {
     weaponBlock.innerHTML = '<div class="stamp-placeholder">Weapon Stamp — Add Animated Media</div>';
@@ -3778,8 +3786,6 @@ function closePanel() {
   selectedId = null;
   applyFilters();
 }
-
-// ==================== BACKGROUND ANIMATIONS ====================
 (function initBgCanvas() {
   const canvas = document.getElementById('bg-canvas');
   const ctx = canvas.getContext('2d');

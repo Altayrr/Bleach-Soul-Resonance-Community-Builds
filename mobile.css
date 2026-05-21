@@ -1,4 +1,3 @@
-/* Phone layout and performance overrides for index-mobile.html */
 .mobile-page {
   min-height: 100%;
   overflow-x: hidden;
@@ -233,9 +232,11 @@
 .mobile-page .bond-rectangle img { max-height: 120px; max-width: none; }
 
 .mobile-page .zanpakuto-block { padding: 12px; }
+.mobile-page .instructions-block { padding: 12px; margin-bottom: 16px; }
 .mobile-page .zanpaku-name { font-size: 15px; line-height: 1.2; }
 .mobile-page .zanpaku-desc,
 .mobile-page .char-quote,
+.mobile-page .instructions-block,
 .mobile-page .stamp-section-text {
   font-size: 12px;
   line-height: 1.55;
