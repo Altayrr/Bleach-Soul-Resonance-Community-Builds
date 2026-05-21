@@ -448,8 +448,8 @@ const CHARACTERS = [
 
     bonds2Imgs: ['images/aizen bond 1.webp'],
     bonds2Info: `<div style="text-align: center; font-weight: bold;">During battle, DMG dealt increases by <span style="color: #52C394;">5.6% (Next: 8%)</span>.<br>This increases to <span style="color: #52C394;">8.4% (Next: 12%) / 11.2% (Next: 16%) / 14% (Next: 20%)</span><br>if Crit Rate reaches <span style="color: #52C394;">20% / 40% / 60%</span>.</div>`,
-    bonds2OffsetX: 5,
-    bonds2Height: 120,
+    bonds2OffsetX: 15,
+    bonds2Height: 109,
     bonds2PopupWidth: 490
   },
   {
@@ -622,8 +622,8 @@ const CHARACTERS = [
 
     bonds2Imgs: ['images/aizen bond 1.webp'],
     bonds2Info: `<div style="text-align: center; font-weight: bold;">During battle, DMG dealt increases by <span style="color: green;">5.6% (Next: 8%)</span>.<br>This increases to <span style="color: green;">8.4% (Next: 12%) / 11.2% (Next: 16%) / 14% (Next: 20%)</span><br>if Crit Rate reaches <span style="color: green;">20% / 40% / 60%</span>.</div>`,
-    bonds2OffsetX: 14,
-    bonds2Height: 118,
+    bonds2OffsetX: 25,
+    bonds2Height: 106,
     bonds2PopupWidth: 490
   },
   {
@@ -790,8 +790,8 @@ const CHARACTERS = [
 
     bonds1Imgs: ['images/aizen bond 1.webp'],
     bonds1Info: `<div style="text-align: center; font-weight: bold;">During battle, DMG dealt increases by <span style="color: green;">5.6% (Next: 8%)</span>.<br>This increases to <span style="color: green;">8.4% (Next: 12%) / 11.2% (Next: 16%) / 14% (Next: 20%)</span><br>if Crit Rate reaches <span style="color: green;">20% / 40% / 60%</span>.</div>`,
-    bonds1OffsetX: 10,
-    bonds1Height: 120,
+    bonds1OffsetX: 20,
+    bonds1Height: 112,
     bonds1PopupWidth: 480,
 
     bonds2Imgs: ['images/aizen bond 2.webp'],
@@ -1469,8 +1469,8 @@ const CHARACTERS = [
 
     bonds2Imgs: ['images/aizen bond 1.webp'],
     bonds2Info: `<div style="text-align: center; font-weight: bold;">During battle, DMG dealt increases by <span style="color: #52C394;">5.6% (Next: 8%)</span>.<br>This increases to <span style="color: #52C394;">8.4% (Next: 12%) / 11.2% (Next: 16%) / 14% (Next: 20%)</span><br>if Crit Rate reaches<span style="color: #52C394;">20% / 40% / 60%</span>.</div>`,
-    bonds2OffsetX: 14,
-    bonds2Height: 118,
+    bonds2OffsetX: 25,
+    bonds2Height: 110,
     bonds2PopupWidth: 490
   },
   {
@@ -1637,8 +1637,8 @@ const CHARACTERS = [
 
     bonds1Imgs: ['images/aizen bond 1.webp'],
     bonds1Info: `<div style="text-align: center; font-weight: bold;">During battle, DMG dealt increases by <span style="color: green;">5.6% (Next: 8%)</span>.<br>This increases to <span style="color: green;">8.4% (Next: 12%) / 11.2% (Next: 16%) / 14% (Next: 20%)</span><br>if Crit Rate reaches <span style="color: green;">20% / 40% / 60%</span>.</div>`,
-    bonds1OffsetX: 10,
-    bonds1Height: 120,
+    bonds1OffsetX: 20,
+    bonds1Height: 113,
     bonds1PopupWidth: 480,
 
     bonds2Imgs: ['images/toshiro bond 2.webp'],
@@ -1811,8 +1811,8 @@ const CHARACTERS = [
 
     bonds1Imgs: ['images/aizen bond 1.webp'],
     bonds1Info: `<div style="text-align: center; font-weight: bold;">During battle, DMG dealt increases by <span style="color: green;">5.6% (Next: 8%)</span>.<br>This increases to <span style="color: green;">8.4% (Next: 12%) / 11.2% (Next: 16%) / 14% (Next: 20%)</span><br>if Crit Rate reaches <span style="color: green;">20% / 40% / 60%</span>.</div>`,
-    bonds1OffsetX: 10,
-    bonds1Height: 120,
+    bonds1OffsetX: 15,
+    bonds1Height: 115,
     bonds1PopupWidth: 480,
 
     bonds2Imgs: ['images/gin bond 1.webp'],
@@ -1991,8 +1991,8 @@ const CHARACTERS = [
 
     bonds2Imgs: ['images/aizen bond 1.webp'],
     bonds2Info: `<div style="text-align: center; font-weight: bold;">During battle, DMG dealt increases by <span style="color: green;">5.6% (Next: 8%)</span>.<br>This increases to <span style="color: green;">8.4% (Next: 12%) / 11.2% (Next: 16%) / 14% (Next: 20%)</span><br>if Crit Rate reaches <span style="color: green;">20% / 40% / 60%</span>.</div>`,
-    bonds2OffsetX: 14,
-    bonds2Height: 124,
+    bonds2OffsetX: 24,
+    bonds2Height: 115,
     bonds2PopupWidth: 490
   },
   {
@@ -2488,8 +2488,8 @@ const CHARACTERS = [
 
     bonds2Imgs: ['images/aizen bond 1.webp'],
     bonds2Info: `<div style="text-align: center; font-weight: bold;">During battle, DMG dealt increases by <span style="color: green;">5.6% (Next: 8%)</span>.<br>This increases to <span style="color: green;">8.4% (Next: 12%) / 11.2% (Next: 16%) / 14% (Next: 20%)</span><br>if Crit Rate reaches <span style="color: green;">20% / 40% / 60%</span>.</div>`,
-    bonds2OffsetX: 14,
-    bonds2Height: 124,
+    bonds2OffsetX: 20,
+    bonds2Height: 119,
     bonds2PopupWidth: 490
   },
   {
@@ -2655,14 +2655,14 @@ const CHARACTERS = [
 
     bonds1Imgs: ['images/aizen bond 1.webp'],
     bonds1Info: `<div style="text-align: center; font-weight: bold;">During battle, DMG dealt increases by <span style="color: green;">5.6% (Next: 8%)</span>.<br>This increases to <span style="color: green;">8.4% (Next: 12%) / 11.2% (Next: 16%) / 14% (Next: 20%)</span><br>if Crit Rate reaches <span style="color: green;">20% / 40% / 60%</span>.</div>`,
-    bonds1OffsetX: 10,
-    bonds1Height: 120,
+    bonds1OffsetX: 17,
+    bonds1Height: 118,
     bonds1PopupWidth: 480,
 
     bonds2Imgs: ['images/toshiro bond 2.webp'],
     bonds2Info: `<div style="text-align: center; font-weight: bold;">Increases Crit DMG during battle by <span style="color: #52C394;">30%</span>.</div>`,
     bonds2OffsetX: 17,
-    bonds2Height: 118,
+    bonds2Height: 117,
     bonds2PopupWidth: 430
   },
   {
@@ -3001,8 +3001,8 @@ const CHARACTERS = [
 
     bonds1Imgs: ['images/aizen bond 1.webp'],
     bonds1Info: `<div style="text-align: center; font-weight: bold;">During battle, DMG dealt increases by <span style="color: green;">5.6% (Next: 8%)</span>.<br>This increases to <span style="color: green;">8.4% (Next: 12%) / 11.2% (Next: 16%) / 14% (Next: 20%)</span><br>if Crit Rate reaches <span style="color: green;">20% / 40% / 60%</span>.</div>`,
-    bonds1OffsetX: 10,
-    bonds1Height: 120,
+    bonds1OffsetX: 20,
+    bonds1Height: 117,
     bonds1PopupWidth: 480,
 
     bonds2Imgs: ['images/sajin bond 2.webp'],
