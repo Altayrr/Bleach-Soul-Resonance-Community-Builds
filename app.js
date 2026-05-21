@@ -161,7 +161,7 @@ const CHARACTERS = [
     statsHeights: [80,80,80],
 
     coreStampImgs: ['images/grimm res core.webp','images/gin core 2.webp','images/gin core 3.webp'],
-    coreStampAngles: [-2, 1, 3],
+    coreStampAngles: [0, 0, 3],
     coreStampGaps: [80, 80],
     coreStampPopupData: [
       {
