@@ -805,9 +805,6 @@ header {
   ::-webkit-scrollbar-track { background: #020305; }
   ::-webkit-scrollbar-thumb { background: var(--border-glow); }
 
-  @media (max-width: 768px) {
-    #info-panel { width: 100%; }
-  }
 .popup-toggle-switch {
     margin-top: 2px;
     display: grid;

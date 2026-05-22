@@ -3824,9 +3824,8 @@ function closePanel() {
 
   function createParticles() {
     particles = [];
-        const isSmallScreen = window.matchMedia && window.matchMedia('(max-width: 820px)').matches;
     const motionReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const count = motionReduced ? 0 : Math.min(isSmallScreen ? 35 : 180, Math.floor((W * H) / (isSmallScreen ? 28000 : 12000)));
+    const count = motionReduced ? 0 : Math.min(180, Math.floor((W * H) / 12000));
     for (let i = 0; i < count; i++) {
       particles.push({
         x: Math.random() * W,
@@ -3874,7 +3873,7 @@ function closePanel() {
     ['rgba(200,151,42,0.06)', 'rgba(200,151,42,0.03)'],
     ['rgba(180,130,30,0.04)', 'rgba(180,130,30,0.02)']
   ];
-    const streamCount = window.matchMedia && window.matchMedia('(max-width: 820px)').matches ? 4 : 12;
+  const streamCount = 12;
   for (let i = 0; i < streamCount; i++) {
     const div = document.createElement('div');
     div.className = 'energy-stream';
