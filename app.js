@@ -3891,6 +3891,878 @@ function closePanel() {
   }
 })();
 
+const TEAM_BUILDER_AFFILIATIONS = [
+  { id: 'Shinigami',   label: 'Shinigami',   image: 'images/shini.webp',   logoSize: '30px',   labelSize: '10px' },
+  { id: 'Espada',    label: 'Espada',    image: 'images/espada.webp',    logoSize: '30px',   labelSize: '10px' },
+  { id: 'Human', label: 'Human', image: 'images/human.webp', logoSize: '30px',   labelSize: '10px' },
+  { id: 'Quincy',      label: 'Quincy',      image: 'images/quincy.webp',      logoSize: '30px',   labelSize: '10px' },
+];
+
+const TEAM_BUILDER_UNITS = [
+  {
+    unitId: 'kisuke',
+    firstName: 'Urahara',
+    secondName: 'Kisuke',
+    affiliation: 'Shinigami',
+    teamImageScale: 1.1,
+    image: 'images/uraharateam.png',
+    selectorImage: 'images/uraharaselect.png',
+    selectorImageWidth: '100%',
+    selectorImageHeight: '100%',
+    selectorImageOffsetX: 0,
+    selectorImageOffsetY: 0,
+    nameMainSize: '21px',
+    nameSubSize: '18px',
+    lockedType: 'images/Slash.webp',
+    lockedRole: 'images/Support.webp'
+  },
+  {
+    unitId: 'Kyoraku',
+    name: 'Kyoraku Shinsui',
+    affiliation: 'Shinigami',
+    teamImageScale: 1.3,
+    image: 'images/Kyorateam.png',
+    selectorImage: 'images/kyoraselect.png',
+    selectorImageWidth: '100%',
+    selectorImageHeight: '100%',
+    selectorImageOffsetX: 0,
+    selectorImageOffsetY: 0,
+    nameMainSize: '21px',
+    nameSubSize: '18px',
+    lockedType: '',
+    lockedRole: ''
+  },
+  {
+    unitId: 'Ukitake',
+    name: 'Ukitake Jushiro',
+    affiliation: 'Shinigami',
+    teamImageScale: 1.4,
+    image: 'images/ukiteam.png',
+    selectorImage: 'images/ukiselect.png',
+    selectorImageWidth: '100%',
+    selectorImageHeight: '100%',
+    selectorImageOffsetX: 0,
+    selectorImageOffsetY: 0,
+    nameMainSize: '21px',
+    nameSubSize: '18px',
+    lockedType: '',
+    lockedRole: ''
+  },
+  {
+    unitId: 'Gingo',
+    name: 'Kujo Gingo',
+    affiliation: 'Human',
+    teamImageScale: 1.4,
+    image: 'images/ginjoteam.png',
+    selectorImage: 'images/ginjoselect.png',
+    selectorImageWidth: '100%',
+    selectorImageHeight: '100%',
+    selectorImageOffsetX: 0,
+    selectorImageOffsetY: 0,
+    nameMainSize: '21px',
+    nameSubSize: '18px',
+    lockedType: '',
+    lockedRole: ''
+  },
+  {
+    unitId: 'riruka',
+    name: 'Riruka Dokugamine',
+    affiliation: 'Human',
+    teamImageScale: 1.1,
+    image: 'images/riruteam.png',
+    selectorImage: 'images/riruselect.png',
+    selectorImageWidth: '100%',
+    selectorImageHeight: '100%',
+    selectorImageOffsetX: 0,
+    selectorImageOffsetY: 0,
+    nameMainSize: '21px',
+    nameSubSize: '18px',
+    lockedType: '',
+    lockedRole: ''
+  },
+  {
+    unitId: 'yukio',
+    name: 'Yukio',
+    affiliation: 'Human',
+    teamImageScale: 1.3,
+    image: 'images/yukioteam.png',
+    selectorImage: 'images/yukioselect.png',
+    selectorImageWidth: '100%',
+    selectorImageHeight: '100%',
+    selectorImageOffsetX: 0,
+    selectorImageOffsetY: 0,
+    nameMainSize: '21px',
+    nameSubSize: '18px',
+    lockedType: '',
+    lockedRole: ''
+  },
+  {
+    unitId: 'tsukishima',
+    name: 'shūkurō tsukishima',
+    affiliation: 'Human',
+    teamImageScale: 1.3,
+    image: 'images/tsukiteam.png',
+    selectorImage: 'images/tsukiselect.png',
+    selectorImageWidth: '110%',
+    selectorImageHeight: '100%',
+    selectorImageOffsetX: 0,
+    selectorImageOffsetY: 0,
+    nameMainSize: '21px',
+    nameSubSize: '18px',
+    lockedType: '',
+    lockedRole: ''
+  },
+  {
+    unitId: 'shuhei',
+    name: 'Shūhei Hisagi',
+    affiliation: 'Shinigami',
+    teamImageScale: 1.3,
+    image: 'images/shuheiteam.png',
+    selectorImage: 'images/shuheiselect.png',
+    selectorImageWidth: '100%',
+    selectorImageHeight: '100%',
+    selectorImageOffsetX: 0,
+    selectorImageOffsetY: 0,
+    nameMainSize: '21px',
+    nameSubSize: '18px',
+    lockedType: '',
+    lockedRole: ''
+  },
+];
+
+const TEAM_BUILDER_SQUARE_STYLE = {
+  size: 35,
+  gap: 2,
+  nameGap: 3
+};
+
+const TEAM_BUILDER_SQUARE_IMAGE_SETS = [
+  { name: 'Type', width: 308, height: 308, imageSize: '100%', images: ['images/Slash.webp', 'images/Spirit.webp', 'images/Thrust.webp', 'images/Strike.webp'] },
+  { name: 'Role', width: 308, height: 308, imageSize: '76%', images: ['images/Dps.webp', 'images/Tactic.webp', 'images/Support.webp'] }
+];
+
+function escapeHTML(value) {
+  return String(value || '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  })[char]);
+}
+
+function escapeStyleURL(value) {
+  return String(value || '').replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+}
+
+function getCSSSize(value, fallback) {
+  if (value === undefined || value === null || value === '') return fallback;
+  return typeof value === 'number' ? `${value}px` : String(value);
+}
+
+function getTeamBuilderUnitName(unit) {
+  return unit.name || [unit.firstName, unit.secondName].filter(Boolean).join(' ');
+}
+
+function getTeamBuilderUnitNameParts(unit) {
+  if (unit.firstName || unit.secondName) return [unit.firstName || '', unit.secondName || ''];
+  const name = String(unit.name || '').trim();
+  const parts = name.split(/\s+/).filter(Boolean);
+  if (parts.length <= 1) return [name, ''];
+  return [parts.slice(0, -1).join(' '), parts[parts.length - 1]];
+}
+
+function getTeamBuilderLockedSquareValue(unit, squareIndex) {
+  if (!unit) return '';
+  return squareIndex === 0 ? unit.lockedType || '' : unit.lockedRole || '';
+}
+
+function getImageKey(value) {
+  return String(value || '')
+    .split(/[\\/]/)
+    .pop()
+    .replace(/\.[^.]+$/, '')
+    .toLowerCase();
+}
+
+function resolveTeamBuilderSquareImage(imageSet, selectedIndex, lockedValue) {
+  const images = imageSet.images || [];
+  if (!lockedValue) return images.length ? images[selectedIndex % images.length] : '';
+  const lockedKey = getImageKey(lockedValue);
+  return images.find(image => image === lockedValue || getImageKey(image) === lockedKey) || lockedValue;
+}
+
+function buildTeamBuilderSquareHTML(squareIndex, selectedIndex = 0, lockedValue = '') {
+  const imageSet = TEAM_BUILDER_SQUARE_IMAGE_SETS[squareIndex] || { images: [] };
+  const images = imageSet.images || [];
+  const image = resolveTeamBuilderSquareImage(imageSet, selectedIndex, lockedValue);
+  const squareWidth = imageSet.width || 1;
+  const squareHeight = imageSet.height || squareWidth;
+  const squareStyles = [
+    `--unit-square-ratio:${squareWidth} / ${squareHeight}`,
+    `--unit-square-bg-size:${imageSet.imageSize || 'cover'}`
+  ];
+  if (image) squareStyles.push(`--unit-square-image:url(&quot;${escapeStyleURL(image)}&quot;)`);
+  const imageStyle = ` style="${squareStyles.join('; ')}"`;
+  const hasImages = images.length && !lockedValue ? 'true' : 'false';
+  const locked = lockedValue ? 'true' : 'false';
+  const tabIndex = lockedValue ? '-1' : '0';
+  const label = lockedValue ? `${imageSet.name || 'square'} locked` : `Change ${imageSet.name || 'square'} square image`;
+  return `<span class="team-builder-unit-square" role="button" tabindex="${tabIndex}" data-square-index="${squareIndex}" data-has-images="${hasImages}" data-locked="${locked}" aria-label="${escapeHTML(label)}"${imageStyle}></span>`;
+}
+
+function buildTeamBuilderSlotHTML(slot, slotState, isActive) {
+  const unit = slotState && slotState.unit;
+  const hasUnit = Boolean(unit && unit.unitId);
+  if (!hasUnit) {
+    return `<button class="team-builder-add${isActive ? ' active' : ''}" type="button" data-team-slot="${slot}" aria-label="Add character to slot ${slot}"></button>`;
+  }
+
+  const squareImageIndexes = slotState.squareImageIndexes || [];
+  const squareSize = TEAM_BUILDER_SQUARE_STYLE.size || 13;
+  const squareGap = TEAM_BUILDER_SQUARE_STYLE.gap || 0;
+  const squareNameGap = TEAM_BUILDER_SQUARE_STYLE.nameGap || 0;
+  const nameOffsetX = unit.nameOffsetX || 0;
+  const nameOffsetY = unit.nameOffsetY || 0;
+  const nameMainSize = getCSSSize(unit.nameMainSize, '21px');
+  const nameSubSize = getCSSSize(unit.nameSubSize, '17px');
+  const teamImageScale = unit.teamImageScale !== undefined ? unit.teamImageScale : 1;
+  const style = `--unit-square-size:${squareSize}px; --unit-square-gap:${squareGap}px; --unit-square-name-gap:${squareNameGap}px; --unit-name-offset-x:${nameOffsetX}px; --unit-name-offset-y:${nameOffsetY}px; --unit-name-main-size:${nameMainSize}; --unit-name-sub-size:${nameSubSize}; --team-image-scale:${teamImageScale};`;
+  const [unitFirstName, unitSecondName] = getTeamBuilderUnitNameParts(unit);
+  const firstName = escapeHTML(unitFirstName);
+  const secondName = escapeHTML(unitSecondName);
+  const fullName = escapeHTML(getTeamBuilderUnitName(unit));
+  const image = escapeHTML(unit.image);
+  const unitId = escapeHTML(unit.unitId);
+
+  return `
+        <div class="team-builder-add has-unit team-builder-reference${isActive ? ' active' : ''}" role="button" tabindex="0" data-team-slot="${slot}" data-unit-id="${unitId}" aria-label="${fullName} team slot" style="${style}">
+          ${image ? `<img src="${image}" alt="${fullName}">` : ''}
+          <span class="team-builder-unit-name">
+            <span class="team-builder-unit-badges">
+              ${buildTeamBuilderSquareHTML(0, squareImageIndexes[0] || 0, getTeamBuilderLockedSquareValue(unit, 0))}
+              ${buildTeamBuilderSquareHTML(1, squareImageIndexes[1] || 0, getTeamBuilderLockedSquareValue(unit, 1))}
+            </span>
+            <span class="team-builder-unit-name-text">
+              <span class="team-builder-unit-name-main">${firstName}</span>
+              <span class="team-builder-unit-name-sub">${secondName}</span>
+            </span>
+          </span>
+        </div>`;
+}
+
+function buildTeamBuilderSelectorCardHTML(unit, index) {
+  if (!unit) {
+    return `
+        <button class="team-builder-unit-card empty" type="button" disabled>
+          <span class="team-builder-unit-card-art"></span>
+        </button>`;
+  }
+
+  const fullName = escapeHTML(getTeamBuilderUnitName(unit));
+  const image = escapeHTML(unit.selectorImage || unit.image);
+  const selectorImageWidth = getCSSSize(unit.selectorImageWidth, '100%');
+  const selectorImageHeight = getCSSSize(unit.selectorImageHeight, '100%');
+  const selectorImageOffsetX = getCSSSize(unit.selectorImageOffsetX, '0px');
+  const selectorImageOffsetY = getCSSSize(unit.selectorImageOffsetY, '0px');
+  const selectorImageStyle = `--selector-image-width:${selectorImageWidth}; --selector-image-height:${selectorImageHeight}; --selector-image-offset-x:${selectorImageOffsetX}; --selector-image-offset-y:${selectorImageOffsetY};`;
+  return `
+        <button class="team-builder-unit-card" type="button" data-unit-id="${escapeHTML(unit.unitId)}" data-search-name="${fullName.toLowerCase()}" style="${selectorImageStyle}">
+          <span class="team-builder-unit-card-art">${image ? `<img src="${image}" alt="${fullName}">` : ''}</span>
+        </button>`;
+}
+
+function initSiteNavigation() {
+  const style = document.createElement('style');
+  style.textContent = `
+    .site-menu-toggle {
+      position: fixed !important;
+      top: 17px !important;
+      left: 18px !important;
+      z-index: 260;
+      width: 34px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      gap: 3px;
+      padding: 6px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      margin: 0;
+    }
+    .site-menu-toggle span {
+      display: block;
+      width: 19px;
+      height: 1px;
+      background: rgba(240,192,96,0.9);
+      box-shadow: 0 0 6px rgba(240,192,96,0.28);
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .site-menu-toggle:hover span {
+      background: #f0c060;
+    }
+    .site-menu-panel {
+      position: fixed !important;
+      top: 54px !important;
+      left: 18px !important;
+      z-index: 259;
+      min-width: 174px;
+      padding: 10px 2px;
+      display: none;
+      background: rgba(2,3,5,0.72);
+      box-shadow: 0 18px 34px rgba(0,0,0,0.34);
+      backdrop-filter: blur(16px);
+      margin: 0;
+    }
+    .site-menu-panel.open { display: grid; gap: 2px; }
+    .site-menu-item {
+      position: relative;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-align: left;
+      padding: 9px 10px 12px;
+      border: 0;
+      color: var(--text-muted);
+      background: transparent;
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+    .site-menu-item::after {
+      content: '';
+      position: absolute;
+      left: 10px;
+      bottom: 7px;
+      width: 0;
+      height: 1px;
+      background: var(--accent-gold-light);
+      transition: width 0.2s ease;
+    }
+    .site-menu-item:hover {
+      color: rgba(240,192,96,0.82);
+    }
+    .site-menu-item.active {
+      color: var(--accent-gold-light);
+    }
+    .site-menu-item.active::after {
+      width: 36px;
+    }
+    #team-builder-page {
+      position: relative;
+      z-index: 5;
+      display: none;
+      min-height: calc(100vh - 40px);
+    }
+    body.team-builder-view .division-bar,
+    body.team-builder-view #stage,
+    body.team-builder-view .ad-slot {
+      display: none;
+    }
+    body.team-builder-view #team-builder-page {
+      display: block;
+    }
+    .team-builder-shell {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 42px 0 96px;
+    }
+    .team-builder-plus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: center;
+      justify-items: center;
+      column-gap: clamp(58px, 7vw, 128px);
+      row-gap: 36px;
+      min-height: 430px;
+      width: min(860px, 92%);
+      margin: 0 auto;
+    }
+    .team-builder-add {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      position: relative;
+      display: grid;
+      place-items: center;
+      opacity: 0.82;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .team-builder-add.active {
+      opacity: 1;
+    }
+    .team-builder-add.active::before {
+      border-color: rgba(240,192,96,0.82);
+      box-shadow: 0 0 28px rgba(240,192,96,0.22), inset 0 0 20px rgba(255,255,255,0.06);
+    }
+    .team-builder-add:nth-child(1),
+    .team-builder-add:nth-child(3) {
+      transform: translateY(10px) scale(1.0);
+      z-index: 1;
+    }
+    .team-builder-add:nth-child(2) {
+      transform: translateY(10px) scale(1.05);
+      z-index: 2;
+    }
+    .team-builder-add.has-unit {
+      width: clamp(132px, 15vw, 188px);
+      height: clamp(244px, 28vw, 330px);
+      border-radius: 0;
+      opacity: 1;
+      overflow: visible;
+    }
+    .team-builder-add.has-unit::before {
+      display: none;
+    }
+    .team-builder-add.has-unit img {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      object-position: center bottom;
+      filter: drop-shadow(0 18px 24px rgba(0,0,0,0.6));
+      transform: translateX(-50%) scale(var(--team-image-scale, 1));
+      transform-origin: bottom center;
+      pointer-events: none;
+    }
+    .team-builder-unit-name {
+      position: absolute;
+      left: 4%;
+      bottom: 18%;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: var(--unit-square-name-gap, 3px);
+      color: #f3f0e6;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      line-height: 0.92;
+      text-align: left;
+      text-shadow: 0 2px 7px rgba(0,0,0,0.88), 0 0 12px rgba(0,0,0,0.6);
+      transform: translate(var(--unit-name-offset-x, 0), var(--unit-name-offset-y, 0));
+      pointer-events: none;
+    }
+    .team-builder-unit-badges {
+      display: flex;
+      align-items: center;
+      gap: var(--unit-square-gap, 2px);
+      pointer-events: none;
+    }
+    .team-builder-unit-name-text {
+      display: grid;
+      gap: 0;
+    }
+    .team-builder-unit-square {
+      display: block;
+      width: var(--unit-square-size, 13px);
+      height: auto;
+      aspect-ratio: var(--unit-square-ratio, 1 / 1);
+      align-self: center;
+      border: 1px solid rgba(255,255,255,0.86);
+      box-sizing: border-box;
+      background: #000 var(--unit-square-image, none) center / var(--unit-square-bg-size, cover) no-repeat;
+      box-shadow: 0 0 6px rgba(255,255,255,0.18);
+      cursor: pointer;
+      pointer-events: auto;
+    }
+    .team-builder-unit-square[data-locked="true"] {
+      cursor: default;
+    }
+    .team-builder-unit-square:focus-visible {
+      outline: none;
+    }
+    .team-builder-unit-name-main {
+      font-size: var(--unit-name-main-size, 21px);
+      letter-spacing: 0.04em;
+    }
+    .team-builder-unit-name-sub {
+      font-size: var(--unit-name-sub-size, 17px);
+      letter-spacing: 0.06em;
+    }
+    .team-builder-add::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(240,192,96,0.46);
+      box-shadow: 0 0 22px rgba(240,192,96,0.12), inset 0 0 20px rgba(255,255,255,0.04);
+    }
+    .team-builder-add::after {
+      content: '';
+      width: 21px;
+      height: 21px;
+      background:
+        linear-gradient(rgba(240,192,96,0.92), rgba(240,192,96,0.92)) center / 2px 100% no-repeat,
+        linear-gradient(rgba(240,192,96,0.92), rgba(240,192,96,0.92)) center / 100% 2px no-repeat;
+      filter: drop-shadow(0 0 10px rgba(240,192,96,0.24));
+    }
+    .team-builder-add.has-unit::after {
+      display: none;
+    }
+    .team-builder-add:hover {
+      opacity: 1;
+      transform: translateY(4px) scale(1.08);
+    }
+    .team-builder-add:nth-child(2):hover {
+      transform: translateY(4px) scale(1.12);
+    }
+    .team-builder-add.has-unit:hover {
+      transform: translateY(4px) scale(1.06);
+    }
+    .team-builder-selector {
+      width: min(960px, 92%);
+      margin: 32px auto 0;
+      display: none;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .team-builder-selector.open {
+      display: flex;
+    }
+    .team-builder-filters {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+    .team-builder-filter-btn {
+      width: 148px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.4);
+      background: rgba(2,3,5,0.6);
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .team-builder-filter-btn:hover {
+      border-color: rgba(255,255,255,0.8);
+    }
+    .team-builder-filter-btn.active {
+      border-color: var(--accent-gold-light);
+      box-shadow: 0 0 12px rgba(240,192,96,0.26), inset 0 0 14px rgba(240,192,96,0.07);
+    }
+    .team-builder-filter-logo {
+      width: var(--filter-logo-size, 30px);
+      height: var(--filter-logo-size, 30px);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .team-builder-filter-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+    }
+    .team-builder-filter-label {
+      flex: none;
+      padding: 0 0 0 7px;
+      font-family: 'Cinzel', serif;
+      font-size: var(--filter-label-size, 7.5px);
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(232,234,240,0.82);
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .team-builder-filter-btn.active .team-builder-filter-label {
+      color: var(--accent-gold-light);
+    }
+    .team-builder-content {
+      flex: 1;
+      min-width: 0;
+      display: grid;
+      gap: 10px;
+    }
+    .team-builder-search {
+      width: min(360px, 100%);
+      height: 34px;
+      justify-self: start;
+      border: 1px solid rgba(255,255,255,0.9);
+      background: rgba(2,3,5,0.62);
+      color: var(--text-bright);
+      padding: 0 11px;
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      outline: none;
+    }
+    .team-builder-search::placeholder {
+      color: rgba(106,122,146,0.82);
+    }
+    .team-builder-unit-list {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 9px;
+      justify-content: center;
+    }
+    .team-builder-unit-card {
+      width: 100%;
+      aspect-ratio: 90 / 210;
+      border: 1px solid rgba(255,255,255,0.9);
+      background: rgba(2,3,5,0.5);
+      color: var(--text-muted);
+      display: block;
+      padding: 0;
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+    .team-builder-unit-card:hover {
+      border-color: #ffffff;
+      color: var(--accent-gold-light);
+      transform: translateY(-2px);
+    }
+    .team-builder-unit-card.empty {
+      cursor: default;
+      opacity: 0.55;
+    }
+    .team-builder-unit-card.empty:hover {
+      border-color: rgba(255,255,255,0.9);
+      color: var(--text-muted);
+      transform: none;
+    }
+    .team-builder-unit-card-art {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.025);
+      border: 0;
+      overflow: hidden;
+    }
+    .team-builder-unit-card-art img {
+      width: var(--selector-image-width, f0%);
+      height: var(--selector-image-height, 100%);
+      object-fit: cover;
+      object-position: center bottom;
+      display: block;
+      transform: translate(var(--selector-image-offset-x, 0), var(--selector-image-offset-y, 0));
+    }
+    .team-builder-unit-card-name {
+      font-family: 'Cinzel', serif;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-align: left;
+      text-transform: uppercase;
+      min-height: 20px;
+    }
+  `;
+  document.head.appendChild(style);
+
+  const toggle = document.createElement('button');
+  toggle.className = 'site-menu-toggle';
+  toggle.type = 'button';
+  toggle.setAttribute('aria-label', 'Open navigation menu');
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.innerHTML = '<span></span><span></span><span></span>';
+
+  const menu = document.createElement('nav');
+  menu.className = 'site-menu-panel';
+  menu.setAttribute('aria-label', 'Site sections');
+  menu.innerHTML = `
+    <button class="site-menu-item active" type="button" data-view="characters">Characters</button>
+    <button class="site-menu-item" type="button" data-view="team-builder">Team Builder</button>
+  `;
+
+  const teamBuilderPage = document.createElement('main');
+  teamBuilderPage.id = 'team-builder-page';
+  teamBuilderPage.setAttribute('aria-label', 'Team Builder');
+  let activeTeamSlot = null;
+  let activeAffiliationFilter = null;
+  const selectedTeamSlots = [null, null, null];
+  teamBuilderPage.innerHTML = `
+    <div class="team-builder-shell">
+      <div class="team-builder-plus-grid" aria-label="Team slots">
+      </div>
+      <div class="team-builder-selector" aria-label="Choose a unit">
+        <div class="team-builder-filters" aria-label="Filter by affiliation">
+          ${TEAM_BUILDER_AFFILIATIONS.map(aff => `
+            <button class="team-builder-filter-btn" type="button" data-affiliation="${aff.id}" aria-label="Filter: ${aff.label}" style="--filter-logo-size:${aff.logoSize || '30px'}; --filter-label-size:${aff.labelSize || '7.5px'}">
+              <span class="team-builder-filter-logo">
+                ${aff.image ? `<img src="${aff.image}" alt="">` : ''}
+              </span>
+              <span class="team-builder-filter-label">${aff.label}</span>
+            </button>`).join('')}
+        </div>
+        <div class="team-builder-content">
+          <input class="team-builder-search" type="search" placeholder="Search unit" aria-label="Search units">
+          <div class="team-builder-unit-list"></div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.prepend(menu);
+  document.body.prepend(toggle);
+  document.body.appendChild(teamBuilderPage);
+
+  const teamBuilderGrid = teamBuilderPage.querySelector('.team-builder-plus-grid');
+  const teamBuilderSelector = teamBuilderPage.querySelector('.team-builder-selector');
+  const teamBuilderSearch = teamBuilderPage.querySelector('.team-builder-search');
+  const teamBuilderUnitList = teamBuilderPage.querySelector('.team-builder-unit-list');
+  const teamBuilderFilters = teamBuilderPage.querySelector('.team-builder-filters');
+
+  function renderTeamBuilderSlots() {
+    teamBuilderGrid.innerHTML = selectedTeamSlots
+      .map((slotState, index) => buildTeamBuilderSlotHTML(index + 1, slotState, activeTeamSlot === index + 1))
+      .join('');
+  }
+
+  function renderTeamBuilderUnitList() {
+    const query = teamBuilderSearch.value.trim().toLowerCase();
+    let filteredUnits = TEAM_BUILDER_UNITS.filter(unit => getTeamBuilderUnitName(unit).toLowerCase().includes(query));
+    if (activeAffiliationFilter) {
+      filteredUnits = filteredUnits.filter(unit => unit.affiliation === activeAffiliationFilter);
+    }
+    const cards = filteredUnits.length
+      ? filteredUnits.map(buildTeamBuilderSelectorCardHTML).join('')
+      : Array.from({ length: 8 }, (_, index) => buildTeamBuilderSelectorCardHTML(null, index)).join('');
+    teamBuilderUnitList.innerHTML = cards;
+  }
+
+  function renderTeamBuilderFilters() {
+    teamBuilderFilters.querySelectorAll('.team-builder-filter-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.affiliation === activeAffiliationFilter);
+    });
+  }
+
+  function setTeamBuilderSelectorOpen(slot) {
+    activeTeamSlot = activeTeamSlot === slot ? null : slot;
+    teamBuilderSelector.classList.toggle('open', activeTeamSlot !== null);
+    renderTeamBuilderSlots();
+    renderTeamBuilderUnitList();
+    renderTeamBuilderFilters();
+    if (activeTeamSlot !== null) teamBuilderSearch.focus();
+  }
+
+  renderTeamBuilderSlots();
+  renderTeamBuilderUnitList();
+
+  function setMenuOpen(isOpen) {
+    menu.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  }
+
+  function setView(view) {
+    const showTeamBuilder = view === 'team-builder';
+    if (showTeamBuilder) closePanel();
+    if (!showTeamBuilder) {
+      activeTeamSlot = null;
+      activeAffiliationFilter = null;
+      teamBuilderSelector.classList.remove('open');
+    }
+    document.body.classList.toggle('team-builder-view', showTeamBuilder);
+    menu.querySelectorAll('.site-menu-item').forEach(item => {
+      item.classList.toggle('active', item.dataset.view === view);
+    });
+    setMenuOpen(false);
+  }
+
+  toggle.addEventListener('click', () => {
+    setMenuOpen(!menu.classList.contains('open'));
+  });
+
+  menu.addEventListener('click', event => {
+    const item = event.target.closest('.site-menu-item');
+    if (!item) return;
+    setView(item.dataset.view);
+  });
+
+  teamBuilderGrid.addEventListener('click', event => {
+    const square = event.target.closest('.team-builder-unit-square');
+    if (square) {
+      event.preventDefault();
+      event.stopPropagation();
+      const slotButton = square.closest('.team-builder-add');
+      const slot = Number(slotButton && slotButton.dataset.teamSlot);
+      const squareIndex = Number(square.dataset.squareIndex);
+      const imageSet = TEAM_BUILDER_SQUARE_IMAGE_SETS[squareIndex] || { images: [] };
+      const slotState = selectedTeamSlots[slot - 1];
+      if (!slot || !slotState || !imageSet.images.length) return;
+      if (getTeamBuilderLockedSquareValue(slotState.unit, squareIndex)) return;
+      const currentIndexes = selectedTeamSlots[slot - 1].squareImageIndexes || [0, 0];
+      currentIndexes[squareIndex] = (currentIndexes[squareIndex] + 1) % imageSet.images.length;
+      selectedTeamSlots[slot - 1].squareImageIndexes = currentIndexes;
+      renderTeamBuilderSlots();
+      return;
+    }
+
+    const slotButton = event.target.closest('.team-builder-add');
+    if (!slotButton) return;
+    const slot = Number(slotButton.dataset.teamSlot);
+    setTeamBuilderSelectorOpen(slot);
+  });
+
+  teamBuilderGrid.addEventListener('keydown', event => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    const square = event.target.closest('.team-builder-unit-square');
+    if (square) {
+      event.preventDefault();
+      square.click();
+      return;
+    }
+
+    const slotControl = event.target.closest('div.team-builder-add');
+    if (!slotControl) return;
+    event.preventDefault();
+    setTeamBuilderSelectorOpen(Number(slotControl.dataset.teamSlot));
+  });
+
+  teamBuilderSearch.addEventListener('input', renderTeamBuilderUnitList);
+
+  teamBuilderFilters.addEventListener('click', event => {
+    const btn = event.target.closest('.team-builder-filter-btn');
+    if (!btn) return;
+    const aff = btn.dataset.affiliation;
+    activeAffiliationFilter = activeAffiliationFilter === aff ? null : aff;
+    renderTeamBuilderFilters();
+    renderTeamBuilderUnitList();
+  });
+
+  teamBuilderUnitList.addEventListener('click', event => {
+    const unitButton = event.target.closest('.team-builder-unit-card[data-unit-id]');
+    if (!unitButton || activeTeamSlot === null) return;
+    const unit = TEAM_BUILDER_UNITS.find(item => item.unitId === unitButton.dataset.unitId);
+    if (!unit) return;
+    selectedTeamSlots[activeTeamSlot - 1] = { unit, squareImageIndexes: [0, 0] };
+    activeTeamSlot = null;
+    teamBuilderSelector.classList.remove('open');
+    renderTeamBuilderSlots();
+  });
+
+  document.addEventListener('click', event => {
+    if (toggle.contains(event.target) || menu.contains(event.target)) return;
+    setMenuOpen(false);
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      setMenuOpen(false);
+      activeTeamSlot = null;
+      teamBuilderSelector.classList.remove('open');
+      renderTeamBuilderSlots();
+    }
+  });
+
+  setView('characters');
+}
+
+initSiteNavigation();
 applySectionSelectorCharacterSettings();
 applyFilters();
 
