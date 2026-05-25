@@ -59,22 +59,14 @@
     opacity: 0.9;
     animation: moonGlow 8s ease-in-out infinite;
     z-index: 2;
-    -webkit-mask-image:
-      radial-gradient(ellipse 54% 52% at 50% 50%, #000 0%, #000 62%, rgba(0,0,0,0.72) 76%, transparent 100%),
-      linear-gradient(180deg, #000 0%, #000 64%, rgba(0,0,0,0.5) 82%, transparent 100%);
-    -webkit-mask-composite: source-in;
-    mask-image:
-      radial-gradient(ellipse 54% 52% at 50% 50%, #000 0%, #000 62%, rgba(0,0,0,0.72) 76%, transparent 100%),
-      linear-gradient(180deg, #000 0%, #000 64%, rgba(0,0,0,0.5) 82%, transparent 100%);
-    mask-composite: intersect;
   }
   .bleach-moon::after {
     content: '';
     position: absolute;
     inset: -3%;
     background:
-      radial-gradient(circle at 50% 50%, transparent 0%, transparent 55%, rgba(3,5,12,0.12) 76%, rgba(3,5,12,0.42) 100%),
-      linear-gradient(180deg, rgba(3,5,12,0.02) 0%, rgba(3,5,12,0.18) 100%);
+      radial-gradient(circle at 50% 50%, transparent 0%, transparent 55%, rgba(3,5,12,0.22) 73%, rgba(3,5,12,0.72) 100%),
+      linear-gradient(180deg, rgba(3,5,12,0.04) 0%, rgba(3,5,12,0.38) 100%);
     pointer-events: none;
   }
   .moon-stars {
@@ -824,9 +816,6 @@ header {
   ::-webkit-scrollbar-track { background: #020305; }
   ::-webkit-scrollbar-thumb { background: var(--border-glow); }
 
-  @media (max-width: 768px) {
-    #info-panel { width: 100%; }
-  }
 .popup-toggle-switch {
     margin-top: 2px;
     display: grid;
