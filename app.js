@@ -3904,7 +3904,9 @@ const TEAM_BUILDER_UNITS = [
     firstName: 'Urahara',
     secondName: 'Kisuke',
     affiliation: 'Shinigami',
-    teamImageScale: 1.1,
+    teamImageScale: 1.5,
+    teamImageOffsetX: 0,
+    teamImageOffsetY: -80,
     image: 'images/uraharateam.webp',
     selectorImage: 'images/uraharaselect.webp',
     selectorImageWidth: '100%',
@@ -3913,14 +3915,16 @@ const TEAM_BUILDER_UNITS = [
     selectorImageOffsetY: 0,
     nameMainSize: '21px',
     nameSubSize: '18px',
-    lockedType: 'images/slash.webp',
-    lockedRole: 'images/support.webp'
+    lockedType: '',
+    lockedRole: ''
   },
   {
     unitId: 'Kyoraku',
     name: 'Kyoraku Shinsui',
     affiliation: 'Shinigami',
     teamImageScale: 1.3,
+    teamImageOffsetX: 0,
+    teamImageOffsetY: 0,
     image: 'images/kyorateam.webp',
     selectorImage: 'images/kyoraselect.webp',
     selectorImageWidth: '100%',
@@ -3937,6 +3941,8 @@ const TEAM_BUILDER_UNITS = [
     name: 'Ukitake Jushiro',
     affiliation: 'Shinigami',
     teamImageScale: 1.4,
+    teamImageOffsetX: 0,
+    teamImageOffsetY: 0,
     image: 'images/ukiteam.webp',
     selectorImage: 'images/ukiselect.webp',
     selectorImageWidth: '100%',
@@ -3953,6 +3959,8 @@ const TEAM_BUILDER_UNITS = [
     name: 'Kujo Gingo',
     affiliation: 'Human',
     teamImageScale: 1.4,
+    teamImageOffsetX: 0,
+    teamImageOffsetY: 0,
     image: 'images/ginjoteam.webp',
     selectorImage: 'images/ginjoselect.webp',
     selectorImageWidth: '100%',
@@ -3969,6 +3977,8 @@ const TEAM_BUILDER_UNITS = [
     name: 'Riruka Dokugamine',
     affiliation: 'Human',
     teamImageScale: 1.1,
+    teamImageOffsetX: 0,
+    teamImageOffsetY: 0,
     image: 'images/riruteam.webp',
     selectorImage: 'images/riruselect.webp',
     selectorImageWidth: '100%',
@@ -3985,9 +3995,11 @@ const TEAM_BUILDER_UNITS = [
     name: 'shūkurō tsukishima',
     affiliation: 'Human',
     teamImageScale: 1.3,
+    teamImageOffsetX: 0,
+    teamImageOffsetY: 0,
     image: 'images/tsukiteam.webp',
     selectorImage: 'images/tsukiselect.webp',
-    selectorImageWidth: '110%',
+    selectorImageWidth: '100%',
     selectorImageHeight: '100%',
     selectorImageOffsetX: 0,
     selectorImageOffsetY: 0,
@@ -4001,6 +4013,8 @@ const TEAM_BUILDER_UNITS = [
     name: 'Shūhei Hisagi',
     affiliation: 'Shinigami',
     teamImageScale: 1.3,
+    teamImageOffsetX: 0,
+    teamImageOffsetY: 0,
     image: 'images/shuheiteam.webp',
     selectorImage: 'images/shuheiselect.webp',
     selectorImageWidth: '100%',
@@ -4017,6 +4031,8 @@ const TEAM_BUILDER_UNITS = [
     name: 'Bazz-B',
     affiliation: 'Quincy',
     teamImageScale: 1.3,
+    teamImageOffsetX: 0,
+    teamImageOffsetY: 0,
     image: 'images/bazzbteam.webp',
     selectorImage: 'images/bazzbselect.webp',
     selectorImageWidth: '100%',
@@ -4033,6 +4049,8 @@ const TEAM_BUILDER_UNITS = [
     name: 'Jugram Haschwalth',
     affiliation: 'Quincy',
     teamImageScale: 1.3,
+    teamImageOffsetX: 0,
+    teamImageOffsetY: 0,
     image: 'images/hashteam.webp',
     selectorImage: 'images/hashselect.webp',
     selectorImageWidth: '100%',
@@ -4048,7 +4066,9 @@ const TEAM_BUILDER_UNITS = [
     unitId: 'Uryu',
     name: 'Ishida Uryu',
     affiliation: 'Quincy',
-    teamImageScale: 1.3,
+    teamImageScale: 1.4,
+    teamImageOffsetX: 0,
+    teamImageOffsetY: 0,
     image: 'images/uryuteam.webp',
     selectorImage: 'images/uryuselect.webp',
     selectorImageWidth: '100%',
@@ -4065,6 +4085,8 @@ const TEAM_BUILDER_UNITS = [
     name: 'Candice',
     affiliation: 'Quincy',
     teamImageScale: 1.3,
+    teamImageOffsetX: 0,
+    teamImageOffsetY: 0,
     image: 'images/candiceteam.webp',
     selectorImage: 'images/candiceselect.webp',
     selectorImageWidth: '100%',
@@ -4081,6 +4103,8 @@ const TEAM_BUILDER_UNITS = [
     name: 'Bambiette',
     affiliation: 'Quincy',
     teamImageScale: 1.3,
+    teamImageOffsetX: 0,
+    teamImageOffsetY: 0,
     image: 'images/bambiteam.webp',
     selectorImage: 'images/bambiselect.webp',
     selectorImageWidth: '100%',
@@ -4096,6 +4120,8 @@ const TEAM_BUILDER_UNITS = [
     name: 'Askin',
     affiliation: 'Quincy',
     teamImageScale: 1.3,
+    teamImageOffsetX: 0,
+    teamImageOffsetY: 0,
     image: 'images/askinteam.webp',
     selectorImage: 'images/askinselect.webp',
     selectorImageWidth: '100%',
@@ -4112,9 +4138,10 @@ const TEAM_BUILDER_UNITS = [
     name: 'tokinada tsunayashiro',
     affiliation: 'Shinigami',
     teamImageScale: 1.3,
+    teamImageOffsetX: 0,
     teamImageOffsetY: 18,
     image: 'images/tokinadateam.webp',
-    selectorImage: 'images/tokinadaselect.webp',
+    selectorImage: 'images/Tokinadaselect.webp',
     selectorImageWidth: '100%',
     selectorImageHeight: '100%',
     selectorImageOffsetX: 0,
@@ -4479,8 +4506,9 @@ function buildTeamBuilderSlotHTML(slot, slotState, isActive) {
   const nameMainSize = getCSSSize(unit.nameMainSize, '21px');
   const nameSubSize = getCSSSize(unit.nameSubSize, '17px');
   const teamImageScale = unit.teamImageScale !== undefined ? unit.teamImageScale : 1;
+  const teamImageOffsetX = getCSSSize(unit.teamImageOffsetX, '0px');
   const teamImageOffsetY = getCSSSize(unit.teamImageOffsetY, '0px');
-  const style = `--unit-square-size:${squareSize}px; --unit-square-gap:${squareGap}px; --unit-square-name-gap:${squareNameGap}px; --unit-name-offset-x:${nameOffsetX}px; --unit-name-offset-y:${nameOffsetY}px; --unit-name-main-size:${nameMainSize}; --unit-name-sub-size:${nameSubSize}; --team-image-scale:${teamImageScale}; --team-image-offset-y:${teamImageOffsetY};`;
+  const style = `--unit-square-size:${squareSize}px; --unit-square-gap:${squareGap}px; --unit-square-name-gap:${squareNameGap}px; --unit-name-offset-x:${nameOffsetX}px; --unit-name-offset-y:${nameOffsetY}px; --unit-name-main-size:${nameMainSize}; --unit-name-sub-size:${nameSubSize}; --team-image-scale:${teamImageScale}; --team-image-offset-x:${teamImageOffsetX}; --team-image-offset-y:${teamImageOffsetY};`;
   const [unitFirstName, unitSecondName] = getTeamBuilderUnitNameParts(unit);
   const firstName = escapeHTML(unitFirstName);
   const secondName = escapeHTML(unitSecondName);
@@ -4693,7 +4721,7 @@ function initSiteNavigation() {
       object-fit: contain;
       object-position: center bottom;
       filter: drop-shadow(0 18px 24px rgba(0,0,0,0.6));
-      transform: translate(-50%, var(--team-image-offset-y, 0)) scale(var(--team-image-scale, 1));
+      transform: translate(calc(-50% + var(--team-image-offset-x, 0)), var(--team-image-offset-y, 0)) scale(var(--team-image-scale, 1));
       transform-origin: bottom center;
       pointer-events: none;
     }
