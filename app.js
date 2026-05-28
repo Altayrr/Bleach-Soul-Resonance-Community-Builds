@@ -4112,6 +4112,7 @@ const TEAM_BUILDER_UNITS = [
     name: 'tokinada tsunayashiro',
     affiliation: 'Shinigami',
     teamImageScale: 1.3,
+    teamImageOffsetY: 18,
     image: 'images/tokinadateam.webp',
     selectorImage: 'images/tokinadaselect.webp',
     selectorImageWidth: '100%',
@@ -4478,7 +4479,8 @@ function buildTeamBuilderSlotHTML(slot, slotState, isActive) {
   const nameMainSize = getCSSSize(unit.nameMainSize, '21px');
   const nameSubSize = getCSSSize(unit.nameSubSize, '17px');
   const teamImageScale = unit.teamImageScale !== undefined ? unit.teamImageScale : 1;
-  const style = `--unit-square-size:${squareSize}px; --unit-square-gap:${squareGap}px; --unit-square-name-gap:${squareNameGap}px; --unit-name-offset-x:${nameOffsetX}px; --unit-name-offset-y:${nameOffsetY}px; --unit-name-main-size:${nameMainSize}; --unit-name-sub-size:${nameSubSize}; --team-image-scale:${teamImageScale};`;
+  const teamImageOffsetY = getCSSSize(unit.teamImageOffsetY, '0px');
+  const style = `--unit-square-size:${squareSize}px; --unit-square-gap:${squareGap}px; --unit-square-name-gap:${squareNameGap}px; --unit-name-offset-x:${nameOffsetX}px; --unit-name-offset-y:${nameOffsetY}px; --unit-name-main-size:${nameMainSize}; --unit-name-sub-size:${nameSubSize}; --team-image-scale:${teamImageScale}; --team-image-offset-y:${teamImageOffsetY};`;
   const [unitFirstName, unitSecondName] = getTeamBuilderUnitNameParts(unit);
   const firstName = escapeHTML(unitFirstName);
   const secondName = escapeHTML(unitSecondName);
@@ -4691,7 +4693,7 @@ function initSiteNavigation() {
       object-fit: contain;
       object-position: center bottom;
       filter: drop-shadow(0 18px 24px rgba(0,0,0,0.6));
-      transform: translateX(-50%) scale(var(--team-image-scale, 1));
+      transform: translate(-50%, var(--team-image-offset-y, 0)) scale(var(--team-image-scale, 1));
       transform-origin: bottom center;
       pointer-events: none;
     }
