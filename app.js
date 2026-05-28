@@ -4113,7 +4113,7 @@ const TEAM_BUILDER_UNITS = [
     affiliation: 'Shinigami',
     teamImageScale: 1.3,
     image: 'images/tokinadateam.webp',
-    selectorImage: 'images/Tokinadaselect.webp',
+    selectorImage: 'images/tokinadaselect.webp',
     selectorImageWidth: '100%',
     selectorImageHeight: '100%',
     selectorImageOffsetX: 0,
