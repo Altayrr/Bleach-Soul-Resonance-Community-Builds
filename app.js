@@ -3892,10 +3892,10 @@ function closePanel() {
 })();
 
 const TEAM_BUILDER_AFFILIATIONS = [
-  { id: 'Shinigami',   label: 'Shinigami',   image: 'images/shini.webp',   logoSize: '30px',   labelSize: '10px' },
-  { id: 'Espada',    label: 'Espada',    image: 'images/espada.webp',    logoSize: '30px',   labelSize: '10px' },
-  { id: 'Human', label: 'Human', image: 'images/human.webp', logoSize: '30px',   labelSize: '10px' },
-  { id: 'Quincy',      label: 'Quincy',      image: 'images/quincy.webp',      logoSize: '30px',   labelSize: '10px' },
+  { id: 'Shinigami', label: 'Shinigami', image: 'images/shini.webp', logoSize: '30px' },
+  { id: 'Espada', label: 'Espada', image: 'images/espada.webp', logoSize: '30px' },
+  { id: 'Human', label: 'Human', image: 'images/human.webp', logoSize: '30px' },
+  { id: 'Quincy', label: 'Quincy', image: 'images/quincy.webp', logoSize: '30px' },
 ];
 
 const TEAM_BUILDER_UNITS = [
@@ -3913,15 +3913,15 @@ const TEAM_BUILDER_UNITS = [
     selectorImageOffsetY: 0,
     nameMainSize: '21px',
     nameSubSize: '18px',
-    lockedType: 'images/Slash.webp',
-    lockedRole: 'images/Support.webp'
+    lockedType: 'images/slash.webp',
+    lockedRole: 'images/support.webp'
   },
   {
     unitId: 'Kyoraku',
     name: 'Kyoraku Shinsui',
     affiliation: 'Shinigami',
     teamImageScale: 1.3,
-    image: 'images/Kyorateam.webp',
+    image: 'images/kyorateam.webp',
     selectorImage: 'images/kyoraselect.webp',
     selectorImageWidth: '100%',
     selectorImageHeight: '100%',
@@ -3981,22 +3981,6 @@ const TEAM_BUILDER_UNITS = [
     lockedRole: ''
   },
   {
-    unitId: 'yukio',
-    name: 'Yukio',
-    affiliation: 'Human',
-    teamImageScale: 1.3,
-    image: 'images/yukioteam.webp',
-    selectorImage: 'images/yukioselect.webp',
-    selectorImageWidth: '100%',
-    selectorImageHeight: '100%',
-    selectorImageOffsetX: 0,
-    selectorImageOffsetY: 0,
-    nameMainSize: '21px',
-    nameSubSize: '18px',
-    lockedType: '',
-    lockedRole: ''
-  },
-  {
     unitId: 'tsukishima',
     name: 'shūkurō tsukishima',
     affiliation: 'Human',
@@ -4028,6 +4012,117 @@ const TEAM_BUILDER_UNITS = [
     lockedType: '',
     lockedRole: ''
   },
+  {
+    unitId: 'bazzb',
+    name: 'Bazz-B',
+    affiliation: 'Quincy',
+    teamImageScale: 1.3,
+    image: 'images/bazzbteam.webp',
+    selectorImage: 'images/bazzbselect.webp',
+    selectorImageWidth: '100%',
+    selectorImageHeight: '100%',
+    selectorImageOffsetX: 0,
+    selectorImageOffsetY: 0,
+    nameMainSize: '21px',
+    nameSubSize: '18px',
+    lockedType: '',
+    lockedRole: ''
+  },
+  {
+    unitId: 'hashwalt',
+    name: 'Jugram Haschwalth',
+    affiliation: 'Quincy',
+    teamImageScale: 1.3,
+    image: 'images/hashteam.webp',
+    selectorImage: 'images/hashselect.webp',
+    selectorImageWidth: '100%',
+    selectorImageHeight: '100%',
+    selectorImageOffsetX: 0,
+    selectorImageOffsetY: 0,
+    nameMainSize: '21px',
+    nameSubSize: '18px',
+    lockedType: '',
+    lockedRole: ''
+  },
+  {
+    unitId: 'Uryu',
+    name: 'Ishida Uryu',
+    affiliation: 'Quincy',
+    teamImageScale: 1.3,
+    image: 'images/uryuteam.webp',
+    selectorImage: 'images/uryuselect.webp',
+    selectorImageWidth: '100%',
+    selectorImageHeight: '100%',
+    selectorImageOffsetX: 0,
+    selectorImageOffsetY: 0,
+    nameMainSize: '21px',
+    nameSubSize: '18px',
+    lockedType: '',
+    lockedRole: ''
+  },
+  {
+    unitId: 'candice',
+    name: 'Candice',
+    affiliation: 'Quincy',
+    teamImageScale: 1.3,
+    image: 'images/candiceteam.webp',
+    selectorImage: 'images/candiceselect.webp',
+    selectorImageWidth: '100%',
+    selectorImageHeight: '100%',
+    selectorImageOffsetX: 0,
+    selectorImageOffsetY: 0,
+    nameMainSize: '21px',
+    nameSubSize: '18px',
+    lockedType: '',
+    lockedRole: ''
+  },
+  {
+    unitId: 'bambiette',
+    name: 'Bambiette',
+    affiliation: 'Quincy',
+    teamImageScale: 1.3,
+    image: 'images/bambiteam.webp',
+    selectorImage: 'images/bambiselect.webp',
+    selectorImageWidth: '100%',
+    selectorImageHeight: '100%',
+    selectorImageOffsetX: 0,
+    selectorImageOffsetY: 0,
+    nameMainSize: '21px',
+    nameSubSize: '18px',
+    lockedType: '',
+    lockedRole: ''
+  },{
+    unitId: 'askin',
+    name: 'Askin',
+    affiliation: 'Quincy',
+    teamImageScale: 1.3,
+    image: 'images/askinteam.webp',
+    selectorImage: 'images/askinselect.webp',
+    selectorImageWidth: '100%',
+    selectorImageHeight: '100%',
+    selectorImageOffsetX: 0,
+    selectorImageOffsetY: 0,
+    nameMainSize: '21px',
+    nameSubSize: '18px',
+    lockedType: '',
+    lockedRole: ''
+  },
+  {
+    unitId: 'Tokinada',
+    name: 'tokinada tsunayashiro',
+    affiliation: 'Shinigami',
+    teamImageScale: 1.3,
+    image: 'images/tokinadateam.webp',
+    selectorImage: 'images/Tokinadaselect.webp',
+    selectorImageWidth: '100%',
+    selectorImageHeight: '100%',
+    selectorImageOffsetX: 0,
+    selectorImageOffsetY: 0,
+    nameMainSize: '21px',
+    nameSubSize: '18px',
+    lockedType: '',
+    lockedRole: ''
+  },
 ];
 
 const TEAM_BUILDER_SQUARE_STYLE = {
@@ -4037,9 +4132,148 @@ const TEAM_BUILDER_SQUARE_STYLE = {
 };
 
 const TEAM_BUILDER_SQUARE_IMAGE_SETS = [
-  { name: 'Type', width: 308, height: 308, imageSize: '100%', images: ['images/Slash.webp', 'images/Spirit.webp', 'images/Thrust.webp', 'images/Strike.webp'] },
-  { name: 'Role', width: 308, height: 308, imageSize: '76%', images: ['images/Dps.webp', 'images/Tactic.webp', 'images/Support.webp'] }
+  { name: 'Type', width: 308, height: 308, imageSize: '100%', images: ['images/slash.webp', 'images/spirit.webp', 'images/thrust.webp', 'images/strike.webp'] },
+  { name: 'Role', width: 308, height: 308, imageSize: '76%', images: ['images/dps.webp', 'images/tactic.webp', 'images/support.webp'] }
 ];
+
+const TEAM_BUILDER_VOICE_LINES = {
+  kisuke: [
+    'sounds/kisuke truth/Sound 01.wav',
+    'sounds/kisuke truth/Sound 02.wav',
+    'sounds/kisuke truth/Sound 03.wav',
+    'sounds/kisuke truth/Sound 05.wav',
+    'sounds/kisuke truth/Sound 06.wav',
+    'sounds/kisuke truth/Sound 07.wav',
+    'sounds/kisuke truth/Sound 08.wav'
+  ],
+  Kyoraku: [
+    'sounds/shunsui base/Sound 01.wav',
+    'sounds/shunsui base/Sound 02.wav',
+    'sounds/shunsui base/Sound 03.wav',
+    'sounds/shunsui base/Sound 04.wav',
+    'sounds/shunsui base/Sound 20.wav',
+    'sounds/shunsui base/untitled.wav',
+    'sounds/shunsui base/untitled-2.wav',
+    'sounds/shunsui base/untitled-3.wav',
+    'sounds/shunsui base/untitled-4.wav'
+  ],
+  Ukitake: [
+    'sounds/ukitake base/Sound 07.wav',
+    'sounds/ukitake base/Sound 08.wav',
+    'sounds/ukitake base/Sound 09.wav',
+    'sounds/ukitake base/Sound 11.wav',
+    'sounds/ukitake base/Sound 12.wav'
+  ],
+  Gingo: [
+    'sounds/ginjo bankai/Sound 01.wav',
+    'sounds/ginjo bankai/Sound 04.wav',
+    'sounds/ginjo bankai/Sound 05.wav',
+    'sounds/ginjo bankai/Sound 06.wav',
+    'sounds/ginjo bankai/Sound 07.wav',
+    'sounds/ginjo bankai/Sound 08.wav',
+    'sounds/ginjo bankai/Sound 09.wav',
+    'sounds/ginjo bankai/Sound 21.wav',
+    'sounds/ginjo bankai/untitled.wav'
+  ],
+  riruka: [
+    'sounds/riruka base/Sound 01.wav',
+    'sounds/riruka base/Sound 02.wav',
+    'sounds/riruka base/Sound 03.wav',
+    'sounds/riruka base/Sound 04.wav',
+    'sounds/riruka base/Sound 05.wav',
+    'sounds/riruka base/Sound 06.wav',
+    'sounds/riruka base/Sound 07.wav'
+  ],
+  tsukishima: [
+    'sounds/tsuki base/Sound 01.wav',
+    'sounds/tsuki base/Sound 02.wav',
+    'sounds/tsuki base/Sound 03.wav',
+    'sounds/tsuki base/Sound 04.wav',
+    'sounds/tsuki base/Sound 05.wav',
+    'sounds/tsuki base/Sound 07.wav',
+    'sounds/tsuki base/Sound 08.wav',
+    'sounds/tsuki base/Sound 09.wav',
+    'sounds/tsuki base/Sound 10.wav',
+    'sounds/tsuki base/Sound 11.wav',
+    'sounds/tsuki base/Sound 12.wav',
+    'sounds/tsuki base/Sound 13.wav',
+    'sounds/tsuki base/Sound 14.wav',
+    'sounds/tsuki base/Sound 15.wav'
+  ],
+  shuhei: [
+    'sounds/hisagi base/Sound 01.wav',
+    'sounds/hisagi base/Sound 02.wav',
+    'sounds/hisagi base/Sound 03.wav',
+    'sounds/hisagi base/Sound 04.wav',
+    'sounds/hisagi base/Sound 06.wav'
+  ],
+  bazzb: [
+    'sounds/bazzb/Sound 01.wav',
+    'sounds/bazzb/Sound 02.wav',
+    'sounds/bazzb/Sound 03.wav',
+    'sounds/bazzb/Sound 06.wav',
+    'sounds/bazzb/Sound 09.wav'
+  ],
+  hashwalt: [
+    'sounds/hash/Sound 01.wav',
+    'sounds/hash/Sound 02.wav',
+    'sounds/hash/Sound 03.wav',
+    'sounds/hash/Sound 05.wav',
+    'sounds/hash/Sound 06.wav',
+    'sounds/hash/untitled.wav'
+  ],
+  Uryu: [
+    'sounds/uryu/Sound 01.wav',
+    'sounds/uryu/Sound 04.wav',
+    'sounds/uryu/untitled.wav',
+    'sounds/uryu/untitled-2.wav'
+  ],
+  candice: [
+    'sounds/candice/Sound 01.wav',
+    'sounds/candice/Sound 02.wav',
+    'sounds/candice/Sound 04.wav',
+    'sounds/candice/Sound 06.wav'
+  ],
+  bambiette: [
+    'sounds/bambiette/Sound 01.wav',
+    'sounds/bambiette/Sound 02.wav',
+    'sounds/bambiette/untitled.wav',
+    'sounds/bambiette/untitled-2.wav',
+    'sounds/bambiette/untitled-3.wav'
+  ],
+  askin: [
+    'sounds/askin/Sound 01.wav',
+    'sounds/askin/Sound 02.wav',
+    'sounds/askin/Sound 03.wav',
+    'sounds/askin/Sound 05.wav',
+    'sounds/askin/Sound 06.wav',
+    'sounds/askin/Sound 07.wav',
+    'sounds/askin/untitled.wav'
+  ],
+  Tokinada: [
+    'sounds/tokinada cfow/Sound 01.wav',
+    'sounds/tokinada cfow/Sound 02.wav',
+    'sounds/tokinada cfow/Sound 03.wav',
+    'sounds/tokinada cfow/Sound 06.wav',
+    'sounds/tokinada cfow/Sound 07.wav',
+    'sounds/tokinada cfow/Sound 08.wav',
+    'sounds/tokinada cfow/Sound 11.wav',
+    'sounds/tokinada cfow/Sound 12.wav'
+  ]
+};
+
+let currentTeamBuilderVoiceLine = null;
+let teamBuilderVoiceAudioContext = null;
+let teamBuilderVoiceRequestId = 0;
+const teamBuilderVoiceLineQueues = {};
+const teamBuilderLastVoiceLine = {};
+const TEAM_BUILDER_VOICE_TARGET_PEAK = 0.86;
+const TEAM_BUILDER_VOICE_MAX_GAIN = 10;
+const TEAM_BUILDER_VOICE_GAIN_OVERRIDES = {
+  Gingo: 4,
+  tsukishima: 5,
+  shuhei: 5
+};
 
 function escapeHTML(value) {
   return String(value || '').replace(/[&<>"']/g, char => ({
@@ -4090,6 +4324,123 @@ function resolveTeamBuilderSquareImage(imageSet, selectedIndex, lockedValue) {
   if (!lockedValue) return images.length ? images[selectedIndex % images.length] : '';
   const lockedKey = getImageKey(lockedValue);
   return images.find(image => image === lockedValue || getImageKey(image) === lockedKey) || lockedValue;
+}
+
+function stopTeamBuilderVoiceLine() {
+  teamBuilderVoiceRequestId += 1;
+  if (!currentTeamBuilderVoiceLine) return;
+  if (currentTeamBuilderVoiceLine.source) {
+    try {
+      currentTeamBuilderVoiceLine.source.stop();
+    } catch (error) {}
+  }
+  if (currentTeamBuilderVoiceLine.audio) {
+    currentTeamBuilderVoiceLine.audio.pause();
+    currentTeamBuilderVoiceLine.audio.currentTime = 0;
+  }
+  if (currentTeamBuilderVoiceLine.gainNode) {
+    currentTeamBuilderVoiceLine.gainNode.disconnect();
+  }
+  currentTeamBuilderVoiceLine = null;
+}
+
+async function getTeamBuilderVoiceAudioContext() {
+  const AudioContextConstructor = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContextConstructor) return null;
+  if (!teamBuilderVoiceAudioContext) teamBuilderVoiceAudioContext = new AudioContextConstructor();
+  if (teamBuilderVoiceAudioContext.state === 'suspended') await teamBuilderVoiceAudioContext.resume();
+  return teamBuilderVoiceAudioContext;
+}
+
+function getTeamBuilderVoicePeak(audioBuffer) {
+  let peak = 0;
+  for (let channel = 0; channel < audioBuffer.numberOfChannels; channel += 1) {
+    const data = audioBuffer.getChannelData(channel);
+    for (let i = 0; i < data.length; i += 1) {
+      const value = Math.abs(data[i]);
+      if (value > peak) peak = value;
+    }
+  }
+  return peak;
+}
+
+function shuffleTeamBuilderVoiceLines(lines) {
+  const shuffled = [...lines];
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+function getNextTeamBuilderVoiceLine(unit) {
+  const unitId = unit && unit.unitId;
+  const voiceLines = TEAM_BUILDER_VOICE_LINES[unitId] || [];
+  if (!voiceLines.length) return '';
+  if (!teamBuilderVoiceLineQueues[unitId] || !teamBuilderVoiceLineQueues[unitId].length) {
+    teamBuilderVoiceLineQueues[unitId] = shuffleTeamBuilderVoiceLines(voiceLines);
+    if (
+      teamBuilderVoiceLineQueues[unitId].length > 1 &&
+      teamBuilderVoiceLineQueues[unitId][0] === teamBuilderLastVoiceLine[unitId]
+    ) {
+      [teamBuilderVoiceLineQueues[unitId][0], teamBuilderVoiceLineQueues[unitId][1]] =
+        [teamBuilderVoiceLineQueues[unitId][1], teamBuilderVoiceLineQueues[unitId][0]];
+    }
+  }
+  const nextLine = teamBuilderVoiceLineQueues[unitId].shift();
+  teamBuilderLastVoiceLine[unitId] = nextLine;
+  return nextLine;
+}
+
+function playTeamBuilderVoiceLinePlain(line, requestId) {
+  if (requestId !== teamBuilderVoiceRequestId) return;
+  const audio = new Audio(line);
+  audio.volume = 1;
+  currentTeamBuilderVoiceLine = { audio };
+  audio.play().catch(() => {
+    if (requestId === teamBuilderVoiceRequestId) currentTeamBuilderVoiceLine = null;
+  });
+  audio.addEventListener('ended', () => {
+    if (requestId === teamBuilderVoiceRequestId) currentTeamBuilderVoiceLine = null;
+  });
+}
+
+async function playTeamBuilderVoiceLine(unit) {
+  stopTeamBuilderVoiceLine();
+  const requestId = teamBuilderVoiceRequestId;
+  const line = getNextTeamBuilderVoiceLine(unit);
+  if (!line) return;
+
+  try {
+    const audioContext = await getTeamBuilderVoiceAudioContext();
+    if (!audioContext || !window.fetch || window.location.protocol === 'file:') {
+      playTeamBuilderVoiceLinePlain(line, requestId);
+      return;
+    }
+    const response = await fetch(line);
+    const arrayBuffer = await response.arrayBuffer();
+    const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+    if (requestId !== teamBuilderVoiceRequestId) return;
+    const source = audioContext.createBufferSource();
+    const gainNode = audioContext.createGain();
+    const peak = getTeamBuilderVoicePeak(audioBuffer);
+    const autoGain = peak > 0 && peak < TEAM_BUILDER_VOICE_TARGET_PEAK
+      ? Math.min(TEAM_BUILDER_VOICE_MAX_GAIN, TEAM_BUILDER_VOICE_TARGET_PEAK / peak)
+      : 1;
+    const unitGain = TEAM_BUILDER_VOICE_GAIN_OVERRIDES[unit.unitId] || 1;
+    const gain = Math.min(TEAM_BUILDER_VOICE_MAX_GAIN, autoGain * unitGain);
+    source.buffer = audioBuffer;
+    gainNode.gain.value = gain;
+    source.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+    currentTeamBuilderVoiceLine = { source };
+    source.addEventListener('ended', () => {
+      if (requestId === teamBuilderVoiceRequestId) currentTeamBuilderVoiceLine = null;
+    });
+    source.start();
+  } catch (error) {
+    playTeamBuilderVoiceLinePlain(line, requestId);
+  }
 }
 
 function buildTeamBuilderSquareHTML(squareIndex, selectedIndex = 0, lockedValue = '') {
@@ -4255,12 +4606,24 @@ function initSiteNavigation() {
       display: none;
       min-height: calc(100vh - 40px);
     }
+    #stamp-rate-page {
+      position: relative;
+      z-index: 5;
+      display: none;
+      min-height: calc(100vh - 40px);
+    }
     body.team-builder-view .division-bar,
     body.team-builder-view #stage,
-    body.team-builder-view .ad-slot {
+    body.team-builder-view .ad-slot,
+    body.stamp-rate-view .division-bar,
+    body.stamp-rate-view #stage,
+    body.stamp-rate-view .ad-slot {
       display: none;
     }
     body.team-builder-view #team-builder-page {
+      display: block;
+    }
+    body.stamp-rate-view #stamp-rate-page {
       display: block;
     }
     .team-builder-shell {
@@ -4334,8 +4697,8 @@ function initSiteNavigation() {
     }
     .team-builder-unit-name {
       position: absolute;
-      left: 4%;
-      bottom: 18%;
+      left: -3%;
+      bottom: 24%;
       z-index: 3;
       display: flex;
       align-items: center;
@@ -4428,31 +4791,34 @@ function initSiteNavigation() {
       display: flex;
     }
     .team-builder-filters {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
+      display: grid;
+      grid-template-columns: repeat(2, 46px);
+      gap: 6px;
       flex-shrink: 0;
     }
     .team-builder-filter-btn {
-      width: 148px;
+      width: 46px;
       height: 36px;
-      border: 1px solid rgba(255,255,255,0.4);
-      background: rgba(2,3,5,0.6);
+      border: 1px solid var(--text-dim);
+      background: transparent;
       cursor: pointer;
       padding: 0;
       display: flex;
-      flex-direction: row;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+      transition: all 0.3s ease;
     }
     .team-builder-filter-btn:hover {
-      border-color: rgba(255,255,255,0.8);
+      border-color: #ffffff;
+      background: rgba(255,255,255,0.1);
+      box-shadow: 0 0 15px rgba(255,255,255,0.18);
     }
     .team-builder-filter-btn.active {
-      border-color: var(--accent-gold-light);
-      box-shadow: 0 0 12px rgba(240,192,96,0.26), inset 0 0 14px rgba(240,192,96,0.07);
+      border-color: #ffffff;
+      background: rgba(255,255,255,0.1);
+      box-shadow: 0 0 15px rgba(255,255,255,0.22);
     }
     .team-builder-filter-logo {
       width: var(--filter-logo-size, 30px);
@@ -4470,18 +4836,20 @@ function initSiteNavigation() {
       display: block;
     }
     .team-builder-filter-label {
-      flex: none;
-      padding: 0 0 0 7px;
-      font-family: 'Cinzel', serif;
-      font-size: var(--filter-label-size, 7.5px);
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: rgba(232,234,240,0.82);
-      white-space: nowrap;
-      pointer-events: none;
+      display: none;
     }
-    .team-builder-filter-btn.active .team-builder-filter-label {
+    .stamp-rate-shell {
+      width: min(1120px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 72px 0 96px;
+    }
+    .stamp-rate-title {
+      font-family: 'Cinzel', serif;
+      font-size: 18px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
       color: var(--accent-gold-light);
+      text-align: center;
     }
     .team-builder-content {
       flex: 1;
@@ -4577,11 +4945,20 @@ function initSiteNavigation() {
   menu.innerHTML = `
     <button class="site-menu-item active" type="button" data-view="characters">Characters</button>
     <button class="site-menu-item" type="button" data-view="team-builder">Team Builder</button>
+    <button class="site-menu-item" type="button" data-view="stamp-rate">Stamp Rate</button>
   `;
 
   const teamBuilderPage = document.createElement('main');
   teamBuilderPage.id = 'team-builder-page';
   teamBuilderPage.setAttribute('aria-label', 'Team Builder');
+  const stampRatePage = document.createElement('main');
+  stampRatePage.id = 'stamp-rate-page';
+  stampRatePage.setAttribute('aria-label', 'Stamp Rate');
+  stampRatePage.innerHTML = `
+    <div class="stamp-rate-shell">
+      <h1 class="stamp-rate-title">Stamp Rate</h1>
+    </div>
+  `;
   let activeTeamSlot = null;
   let activeAffiliationFilter = null;
   const selectedTeamSlots = [null, null, null];
@@ -4610,6 +4987,7 @@ function initSiteNavigation() {
   document.body.prepend(menu);
   document.body.prepend(toggle);
   document.body.appendChild(teamBuilderPage);
+  document.body.appendChild(stampRatePage);
 
   const teamBuilderGrid = teamBuilderPage.querySelector('.team-builder-plus-grid');
   const teamBuilderSelector = teamBuilderPage.querySelector('.team-builder-selector');
@@ -4660,13 +5038,15 @@ function initSiteNavigation() {
 
   function setView(view) {
     const showTeamBuilder = view === 'team-builder';
-    if (showTeamBuilder) closePanel();
+    const showStampRate = view === 'stamp-rate';
+    if (showTeamBuilder || showStampRate) closePanel();
     if (!showTeamBuilder) {
       activeTeamSlot = null;
       activeAffiliationFilter = null;
       teamBuilderSelector.classList.remove('open');
     }
     document.body.classList.toggle('team-builder-view', showTeamBuilder);
+    document.body.classList.toggle('stamp-rate-view', showStampRate);
     menu.querySelectorAll('.site-menu-item').forEach(item => {
       item.classList.toggle('active', item.dataset.view === view);
     });
@@ -4740,6 +5120,7 @@ function initSiteNavigation() {
     const unit = TEAM_BUILDER_UNITS.find(item => item.unitId === unitButton.dataset.unitId);
     if (!unit) return;
     selectedTeamSlots[activeTeamSlot - 1] = { unit, squareImageIndexes: [0, 0] };
+    playTeamBuilderVoiceLine(unit);
     activeTeamSlot = null;
     teamBuilderSelector.classList.remove('open');
     renderTeamBuilderSlots();
